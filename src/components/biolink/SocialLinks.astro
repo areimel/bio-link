@@ -1,0 +1,32 @@
+---
+// SocialLinks component for displaying social media icons
+import { Icon } from 'astro-icon/components';
+
+interface SocialLink {
+  platform: string;
+  url: string;
+  icon: string;
+}
+
+interface Props {
+  links: SocialLink[];
+}
+
+const { links } = Astro.props;
+---
+
+<div class="flex justify-center gap-4 mb-8">
+  {
+    links.map((link) => (
+      <a 
+        href={link.url} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-white transition-colors"
+        aria-label={`Visit ${link.platform}`}
+      >
+        <Icon name={link.icon} class="w-6 h-6" />
+      </a>
+    ))
+  }
+</div> 

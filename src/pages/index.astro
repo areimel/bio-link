@@ -1,0 +1,21 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import BioLink from '~/components/biolink/BioLink.astro';
+
+// Import data from JSON file
+import bioLinkData from '../data/biolink.json';
+
+const metadata = {
+  title: `${bioLinkData.profile.name} - Links`,
+  description: bioLinkData.profile.description,
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <BioLink 
+    profile={bioLinkData.profile}
+    socialLinks={bioLinkData.socialLinks}
+    links={bioLinkData.links}
+  />
+</Layout>

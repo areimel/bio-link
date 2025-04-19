@@ -1,0 +1,25 @@
+---
+// LinkButton component for individual link buttons
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  title: string;
+  url: string;
+  icon?: string;
+}
+
+const { title, url, icon } = Astro.props;
+---
+
+<a
+  href={url}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="flex items-center justify-between w-full p-4 mb-3 rounded-lg bg-white dark:bg-slate-800 hover:bg-gray-100 dark:hover:bg-slate-700 shadow-sm border border-gray-200 dark:border-slate-700 transition-all"
+>
+  <div class="flex items-center">
+    {icon && <Icon name={icon} class="w-5 h-5 mr-3 text-gray-500 dark:text-gray-400" />}
+    <span class="font-medium">{title}</span>
+  </div>
+  <Icon name="tabler:chevron-right" class="w-5 h-5 text-gray-400" />
+</a> 

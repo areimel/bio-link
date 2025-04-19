@@ -1,0 +1,49 @@
+---
+// BioLink component - Main component that combines profile, social links, and link buttons
+import ProfileSection from './ProfileSection.astro';
+import SocialLinks from './SocialLinks.astro';
+import LinksList from './LinksList.astro';
+
+interface Props {
+  profile: {
+    name: string;
+    title: string;
+    description: string;
+    avatar: string;
+    backgroundColor?: string;
+  };
+  socialLinks: {
+    platform: string;
+    url: string;
+    icon: string;
+  }[];
+  links: {
+    title: string;
+    url: string;
+    icon?: string;
+  }[];
+}
+
+const { profile, socialLinks, links } = Astro.props;
+---
+
+<div 
+  class="min-h-screen w-full flex flex-col items-center py-8"
+  style={profile.backgroundColor ? `background-color: ${profile.backgroundColor};` : ''}
+>
+  <div class="w-full max-w-md mx-auto flex flex-col">
+    <!-- Profile Information -->
+    <ProfileSection 
+      name={profile.name} 
+      title={profile.title} 
+      description={profile.description} 
+      avatar={profile.avatar} 
+    />
+    
+    <!-- Social Media Links -->
+    <SocialLinks links={socialLinks} />
+    
+    <!-- Main Links List -->
+    <LinksList links={links} />
+  </div>
+</div> 
