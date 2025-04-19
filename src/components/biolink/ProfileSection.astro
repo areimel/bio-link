@@ -1,5 +1,6 @@
 ---
 // ProfileSection component for displaying user profile information
+import ToggleTheme from '~/components/common/ToggleTheme.astro';
 
 interface Props {
   name: string;
@@ -11,9 +12,17 @@ interface Props {
 const { name, title, description, avatar } = Astro.props;
 ---
 
-<div class="flex flex-col items-center text-center px-4 py-6">
+<div class="flex flex-col items-center text-center px-4 py-6 relative">
+  <!-- Dark/Light Mode Toggle -->
+  <div class="absolute top-2 right-2">
+    <ToggleTheme 
+      iconClass="w-6 h-6 text-vhs-red dark:text-vhs-yellow" 
+      class="hover:bg-vhs-offwhite dark:hover:bg-slate-700 focus:ring-vhs-orange dark:focus:ring-vhs-magenta"
+    />
+  </div>
+
   <!-- Profile Avatar -->
-  <div class="w-24 h-24 mb-4 overflow-hidden rounded-full">
+  <div class="w-48 h-48 mb-4 overflow-hidden rounded-full border-4 border-vhs-red">
     <img 
       src={avatar} 
       alt={`${name}'s profile picture`} 
@@ -22,7 +31,7 @@ const { name, title, description, avatar } = Astro.props;
   </div>
   
   <!-- Profile Info -->
-  <h1 class="text-2xl font-bold mb-1">{name}</h1>
-  <h2 class="text-lg text-gray-600 dark:text-gray-300 mb-2">{title}</h2>
-  <p class="text-sm text-gray-500 dark:text-gray-400 max-w-md mb-4">{description}</p>
+  <h1 class="text-3xl font-heading mb-1 text-vhs-darkgray dark:text-white">{name}</h1>
+  <h2 class="text-xl font-heading text-vhs-red dark:text-vhs-yellow mb-2">{title}</h2>
+  <p class="text-sm font-courier-prime text-default dark:text-muted max-w-md mb-4">{description}</p>
 </div> 

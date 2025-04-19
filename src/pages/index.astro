@@ -13,9 +13,18 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
+  <!-- Rainbow VHS-inspired gradient decoration at the top -->
+  <div class="w-full h-3 bg-rainbow-gradient"></div>
+  
   <BioLink 
     profile={bioLinkData.profile}
     socialLinks={bioLinkData.socialLinks}
-    links={bioLinkData.links}
+    contactLinks={bioLinkData.contactLinks}
+    projectLinks={bioLinkData.projectLinks}
   />
+  
+  <!-- Footer with subtle VHS-inspired design -->
+  <div class="w-full text-center py-4 text-xs text-vhs-darkgray dark:text-vhs-yellow">
+    <p>Made with vintage vibes 📼</p>
+  </div>
 </Layout>

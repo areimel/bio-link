@@ -23,41 +23,60 @@ import '@fontsource-variable/inter';
   :root {
     --aw-font-sans: 'Inter Variable';
     --aw-font-serif: 'Inter Variable';
-    --aw-font-heading: 'Inter Variable';
+    --aw-font-heading: 'VT323';
+    --aw-font-mono: 'Courier Prime';
 
-    --aw-color-primary: rgb(1 97 239);
-    --aw-color-secondary: rgb(1 84 207);
-    --aw-color-accent: rgb(109 40 217);
+    /* Rainbow VHS inspired colors */
+    --aw-color-vhs-yellow: #f7d959; /* Bright VHS yellow */
+    --aw-color-vhs-orange: #f18344; /* Warm VHS orange */
+    --aw-color-vhs-red: #da3440; /* Vibrant VHS red */
+    --aw-color-vhs-magenta: #af375d; /* Deep VHS magenta */
+    --aw-color-vhs-purple: #6c3451; /* Rich VHS purple */
 
-    --aw-color-text-heading: rgb(0 0 0);
-    --aw-color-text-default: rgb(16 16 16);
-    --aw-color-text-muted: rgb(16 16 16 / 66%);
-    --aw-color-bg-page: rgb(255 255 255);
+    /* Main theme colors derived from VHS palette */
+    --aw-color-primary: var(--aw-color-vhs-red);
+    --aw-color-secondary: var(--aw-color-vhs-yellow);
+    --aw-color-accent: var(--aw-color-vhs-magenta);
+    
+    --aw-color-text-heading: rgb(68, 68, 68); /* Dark gray from VHS logo */
+    --aw-color-text-default: rgb(56, 56, 56);
+    --aw-color-text-muted: rgb(56, 56, 56 / 66%);
+    --aw-color-bg-page: #f2e2c8; /* Off-white from VHS box */
 
     --aw-color-bg-page-dark: rgb(3 6 32);
 
     ::selection {
-      background-color: lavender;
+      background-color: var(--aw-color-accent);
+      color: white;
     }
   }
 
   .dark {
     --aw-font-sans: 'Inter Variable';
     --aw-font-serif: 'Inter Variable';
-    --aw-font-heading: 'Inter Variable';
+    --aw-font-heading: 'VT323';
+    --aw-font-mono: 'Courier Prime';
 
-    --aw-color-primary: rgb(1 97 239);
-    --aw-color-secondary: rgb(1 84 207);
-    --aw-color-accent: rgb(109 40 217);
+    /* Dark mode - using the same VHS colors but with adjusted opacity/usage */
+    --aw-color-vhs-yellow: #f7d959;
+    --aw-color-vhs-orange: #f18344;
+    --aw-color-vhs-red: #da3440;
+    --aw-color-vhs-magenta: #af375d;
+    --aw-color-vhs-purple: #6c3451;
+
+    /* Main theme colors for dark mode */
+    --aw-color-primary: var(--aw-color-vhs-red);
+    --aw-color-secondary: var(--aw-color-vhs-yellow);
+    --aw-color-accent: var(--aw-color-vhs-magenta);
 
     --aw-color-text-heading: rgb(247, 248, 248);
     --aw-color-text-default: rgb(229 236 246);
     --aw-color-text-muted: rgb(229 236 246 / 66%);
-    --aw-color-bg-page: rgb(3 6 32);
+    --aw-color-bg-page: rgb(24, 26, 42); /* Darker but with a hint of blue */
 
     ::selection {
-      background-color: black;
-      color: snow;
+      background-color: var(--aw-color-accent);
+      color: white;
     }
   }
 </style>

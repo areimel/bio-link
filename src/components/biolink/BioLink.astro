@@ -3,7 +3,7 @@
 import ProfileSection from './ProfileSection.astro';
 import SocialLinks from './SocialLinks.astro';
 import LinksList from './LinksList.astro';
-
+import SectionBreak from './SectionBreak.astro';
 interface Props {
   profile: {
     name: string;
@@ -17,19 +17,24 @@ interface Props {
     url: string;
     icon: string;
   }[];
-  links: {
+  contactLinks: {
+    title: string;
+    url: string;
+    icon?: string;
+  }[];
+  projectLinks: {
     title: string;
     url: string;
     icon?: string;
   }[];
 }
 
-const { profile, socialLinks, links } = Astro.props;
+const { profile, socialLinks, contactLinks, projectLinks } = Astro.props;
 ---
 
 <div 
-  class="min-h-screen w-full flex flex-col items-center py-8"
-  style={profile.backgroundColor ? `background-color: ${profile.backgroundColor};` : ''}
+  class="min-h-screen w-full flex flex-col items-center py-8 bg-page dark:bg-page"
+ 
 >
   <div class="w-full max-w-md mx-auto flex flex-col">
     <!-- Profile Information -->
@@ -44,6 +49,8 @@ const { profile, socialLinks, links } = Astro.props;
     <SocialLinks links={socialLinks} />
     
     <!-- Main Links List -->
-    <LinksList links={links} />
+    <LinksList links={contactLinks} />
+    <SectionBreak />
+    <LinksList links={projectLinks} />
   </div>
 </div> 

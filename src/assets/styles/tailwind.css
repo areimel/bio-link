@@ -18,6 +18,10 @@
   .text-muted {
     color: var(--aw-color-text-muted);
   }
+  /* VHS-inspired gradient utility */
+  .bg-rainbow-gradient {
+    background: linear-gradient(to right, rgb(246, 187, 26), rgb(244, 127, 33), rgb(236, 62, 40), rgb(157, 36, 73));
+  }
 }
 
 @layer components {

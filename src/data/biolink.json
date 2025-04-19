@@ -1,22 +1,12 @@
 {
   "profile": {
-    "name": "Jane Doe",
-    "title": "Digital Creator & Developer",
+    "name": "Alec Reimel",
+    "title": "Web Developer / Software Engineer",
     "description": "Creating awesome content and building cool things",
-    "avatar": "https://via.placeholder.com/150",
+    "avatar": "/alec-profile-pic-fake.jpg",
     "backgroundColor": "#f8e1dc"
   },
   "socialLinks": [
-    {
-      "platform": "twitter",
-      "url": "https://twitter.com/username",
-      "icon": "tabler:brand-twitter"
-    },
-    {
-      "platform": "instagram",
-      "url": "https://instagram.com/username",
-      "icon": "tabler:brand-instagram"
-    },
     {
       "platform": "linkedin",
       "url": "https://linkedin.com/in/username",
@@ -28,12 +18,17 @@
       "icon": "tabler:brand-github"
     },
     {
+      "platform": "instagram",
+      "url": "https://instagram.com/username",
+      "icon": "tabler:brand-instagram"
+    },
+    {
       "platform": "email",
       "url": "mailto:email@example.com",
       "icon": "tabler:mail"
     }
   ],
-  "links": [
+  "contactLinks": [
     {
       "title": "My Personal Website",
       "url": "https://example.com",
@@ -45,19 +40,26 @@
       "icon": "tabler:article"
     },
     {
-      "title": "My Latest Project",
+      "title": "Join My Newsletter",
+      "url": "https://newsletter.example.com",
+      "icon": "tabler:mail"
+    }
+  ],
+  "projectLinks": [
+    {
+      "title": "Project: AI Prompt Directory",
       "url": "https://project.example.com",
       "icon": "tabler:rocket"
     },
     {
-      "title": "Buy Me a Coffee",
-      "url": "https://buymeacoffee.com/username",
-      "icon": "tabler:coffee"
+      "title": "Project: Augmented Reality Business Card",
+      "url": "https://project.example.com",
+      "icon": "tabler:rocket"
     },
     {
-      "title": "Join My Newsletter",
-      "url": "https://newsletter.example.com",
-      "icon": "tabler:mail"
+      "title": "Project: Simple VR For Phones",
+      "url": "https://project.example.com",
+      "icon": "tabler:rocket"
     }
   ]
 } 

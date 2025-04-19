@@ -15,11 +15,11 @@ const { title, url, icon } = Astro.props;
   href={url}
   target="_blank"
   rel="noopener noreferrer"
-  class="flex items-center justify-between w-full p-4 mb-3 rounded-lg bg-white dark:bg-slate-800 hover:bg-gray-100 dark:hover:bg-slate-700 shadow-sm border border-gray-200 dark:border-slate-700 transition-all"
+  class="flex items-center justify-between w-full p-4 mb-3 rounded-lg bg-vhs-offwhite dark:bg-slate-800 hover:bg-white dark:hover:bg-slate-700 shadow-sm border-2 border-vhs-yellow hover:border-vhs-orange dark:border-vhs-magenta transition-all"
 >
   <div class="flex items-center">
-    {icon && <Icon name={icon} class="w-5 h-5 mr-3 text-gray-500 dark:text-gray-400" />}
-    <span class="font-medium">{title}</span>
+    {icon && <Icon name={icon} class="w-5 h-5 mr-3 text-vhs-red dark:text-vhs-yellow" />}
+    <span class="font-courier-prime font-medium text-vhs-darkgray dark:text-white">{title}</span>
   </div>
-  <Icon name="tabler:chevron-right" class="w-5 h-5 text-gray-400" />
+  <Icon name="tabler:chevron-right" class="w-5 h-5 text-vhs-orange dark:text-vhs-yellow" />
 </a> 
