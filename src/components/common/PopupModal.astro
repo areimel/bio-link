@@ -1,0 +1,136 @@
+---
+// PopupModal component with backdrop and content container
+// Accepts id for targeting and can contain any content via slots
+
+interface Props {
+  id: string;
+  title?: string;
+}
+
+const { id, title } = Astro.props;
+---
+
+<div 
+  id={id} 
+  class="fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300"
+  aria-labelledby={`${id}-title`}
+  role="dialog"
+  aria-modal="true"
+>
+  <!-- Backdrop overlay -->
+  <div class="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm" data-modal-close></div>
+  
+  <!-- Modal content -->
+  <div 
+    class="modal-content relative w-full max-w-md bg-white dark:bg-slate-800 rounded-lg shadow-xl overflow-hidden transform transition-all duration-300 scale-95 opacity-0"
+  >
+    <!-- Header with title and close button -->
+    <div class="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
+      {title && <h3 id={`${id}-title`} class="text-lg font-heading text-vhs-darkgray dark:text-white">{title}</h3>}
+      <button 
+        type="button" 
+        class="text-gray-500 hover:text-vhs-red dark:text-gray-400 dark:hover:text-vhs-yellow focus:outline-none"
+        data-modal-close
+        aria-label="Close modal"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Modal body - slot for content -->
+    <div class="p-4">
+      <slot />
+    </div>
+  </div>
+</div>
+
+<script>
+  // Handle modal functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    // Get all modal trigger elements
+    const modalTriggers = document.querySelectorAll('[data-modal-target]');
+    
+    // Modal open function
+    const openModal = (modalId: string) => {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        // Show the modal
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+        // Animate content
+        const modalContent = modal.querySelector('.modal-content');
+        if (modalContent) {
+          setTimeout(() => {
+            modalContent.classList.remove('scale-95', 'opacity-0');
+            modalContent.classList.add('scale-100', 'opacity-100');
+          }, 10);
+        }
+        // Trap focus in modal
+        document.body.classList.add('overflow-hidden');
+      }
+    };
+    
+    // Modal close function
+    const closeModal = (modalId: string) => {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        // Animate content out
+        const modalContent = modal.querySelector('.modal-content');
+        if (modalContent) {
+          modalContent.classList.remove('scale-100', 'opacity-100');
+          modalContent.classList.add('scale-95', 'opacity-0');
+        }
+        
+        // Hide the modal after animation
+        setTimeout(() => {
+          modal.classList.add('opacity-0', 'pointer-events-none');
+          document.body.classList.remove('overflow-hidden');
+        }, 200);
+      }
+    };
+    
+    // Add click event listeners to all modal triggers
+    modalTriggers.forEach((trigger) => {
+      trigger.addEventListener('click', (event) => {
+        event.preventDefault();
+        const modalId = trigger.getAttribute('data-modal-target');
+        if (modalId) {
+          openModal(modalId);
+        }
+      });
+    });
+    
+    // Add click event listeners to all close buttons
+    document.querySelectorAll('[data-modal-close]').forEach((closeButton) => {
+      closeButton.addEventListener('click', () => {
+        const modal = closeButton.closest('[id]');
+        if (modal) {
+          closeModal(modal.id);
+        }
+      });
+    });
+    
+    // Close modal when clicking on backdrop
+    document.addEventListener('click', (event) => {
+      const target = event.target as HTMLElement;
+      // Check if the click was on the backdrop element
+      if (target.classList.contains('absolute') && target.classList.contains('inset-0') && target.hasAttribute('data-modal-close')) {
+        const modal = target.closest('[id]');
+        if (modal) {
+          closeModal(modal.id);
+        }
+      }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        const visibleModal = document.querySelector('[role="dialog"]:not(.opacity-0)');
+        if (visibleModal) {
+          closeModal(visibleModal.id);
+        }
+      }
+    });
+  });
+</script> 

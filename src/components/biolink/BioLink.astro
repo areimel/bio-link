@@ -4,6 +4,9 @@ import ProfileSection from './ProfileSection.astro';
 import SocialLinks from './SocialLinks.astro';
 import LinksList from './LinksList.astro';
 import SectionBreak from './SectionBreak.astro';
+import PopupModal from '../common/PopupModal.astro';
+import ContactForm from './ContactForm.astro';
+
 interface Props {
   profile: {
     name: string;
@@ -21,6 +24,7 @@ interface Props {
     title: string;
     url: string;
     icon?: string;
+    modal?: string;
   }[];
   projectLinks: {
     title: string;
@@ -37,20 +41,31 @@ const { profile, socialLinks, contactLinks, projectLinks } = Astro.props;
  
 >
   <div class="w-full max-w-md mx-auto flex flex-col">
-    <!-- Profile Information -->
-    <ProfileSection 
-      name={profile.name} 
-      title={profile.title} 
-      description={profile.description} 
-      avatar={profile.avatar} 
-    />
-    
-    <!-- Social Media Links -->
-    <SocialLinks links={socialLinks} />
-    
-    <!-- Main Links List -->
-    <LinksList links={contactLinks} />
-    <SectionBreak />
-    <LinksList links={projectLinks} />
+    <!-- BioLink content here -->
+    <div class="space-y-8">
+      <ProfileSection {...profile} />
+      
+      <SocialLinks links={socialLinks} />
+      
+      {contactLinks && contactLinks.length > 0 && (
+        <div class="mt-8">
+          <h2 class="font-press-start text-lg mb-4 text-center text-vhs-darkgray dark:text-white">Connect with me</h2>
+          <LinksList links={contactLinks} />
+        </div>
+      )}
+      
+      {projectLinks && projectLinks.length > 0 && (
+        <div class="mt-8">
+          <SectionBreak />
+          <h2 class="font-press-start text-lg mb-4 text-center text-vhs-darkgray dark:text-white">My Projects</h2>
+          <LinksList links={projectLinks} />
+        </div>
+      )}
+    </div>
   </div>
-</div> 
+</div>
+
+<!-- Contact Modal -->
+<PopupModal id="contact" title="Get in Touch">
+  <ContactForm />
+</PopupModal> 

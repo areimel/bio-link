@@ -1,0 +1,166 @@
+---
+// ContactForm component using Web3Forms for submission
+import { Icon } from 'astro-icon/components';
+
+// Replace with your actual Web3Forms access key
+const WEB3FORMS_ACCESS_KEY = "YOUR_ACCESS_KEY_HERE";
+---
+
+<form 
+  action="https://api.web3forms.com/submit" 
+  method="POST" 
+  class="space-y-4 w-full"
+  id="contact-form"
+>
+  <!-- Web3Forms Access Key -->
+  <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
+  
+  <!-- Optional: Subject field -->
+  <input type="hidden" name="subject" value="New Contact Form Submission from Bio Link" />
+  
+  <!-- Name field -->
+  <div class="form-group">
+    <label for="name" class="block mb-1 font-courier-prime text-sm text-vhs-darkgray dark:text-white">Name</label>
+    <input 
+      type="text" 
+      name="name" 
+      id="name" 
+      required 
+      class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-slate-700 text-vhs-darkgray dark:text-white focus:outline-none focus:ring-2 focus:ring-vhs-yellow focus:border-transparent"
+    />
+  </div>
+  
+  <!-- Email field -->
+  <div class="form-group">
+    <label for="email" class="block mb-1 font-courier-prime text-sm text-vhs-darkgray dark:text-white">Email</label>
+    <input 
+      type="email" 
+      name="email" 
+      id="email" 
+      required 
+      class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-slate-700 text-vhs-darkgray dark:text-white focus:outline-none focus:ring-2 focus:ring-vhs-yellow focus:border-transparent"
+    />
+  </div>
+  
+  <!-- Message field -->
+  <div class="form-group">
+    <label for="message" class="block mb-1 font-courier-prime text-sm text-vhs-darkgray dark:text-white">Message</label>
+    <textarea 
+      name="message" 
+      id="message" 
+      rows="4" 
+      required 
+      class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-slate-700 text-vhs-darkgray dark:text-white focus:outline-none focus:ring-2 focus:ring-vhs-yellow focus:border-transparent"
+    ></textarea>
+  </div>
+  
+  <!-- Consent checkbox -->
+  <div class="form-group">
+    <label class="flex items-start gap-2 cursor-pointer">
+      <input 
+        type="checkbox" 
+        name="consent" 
+        required 
+        class="mt-1 h-4 w-4 text-vhs-yellow focus:ring-vhs-orange border-gray-300 rounded"
+      />
+      <span class="text-xs font-courier-prime text-vhs-darkgray dark:text-gray-300">
+        I consent to having this website store my submitted information so they can respond to my inquiry.
+      </span>
+    </label>
+  </div>
+  
+  <!-- Honeypot field to prevent spam -->
+  <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+  
+  <!-- Submit button -->
+  <div class="form-group">
+    <button 
+      type="submit" 
+      class="w-full py-2 px-4 bg-vhs-yellow hover:bg-vhs-orange text-vhs-darkgray font-medium rounded-md transition-colors duration-300 flex items-center justify-center gap-2"
+    >
+      <span>Send Message</span>
+      <Icon name="tabler:send" class="w-4 h-4" />
+    </button>
+  </div>
+  
+  <!-- Success/error message container -->
+  <div id="result" class="mt-3 text-center hidden">
+    <p id="success" class="text-green-600 dark:text-green-400 hidden">
+      <Icon name="tabler:check" class="w-5 h-5 inline" />
+      <span>Your message has been sent successfully!</span>
+    </p>
+    <p id="error" class="text-red-600 dark:text-red-400 hidden">
+      <Icon name="tabler:alert-triangle" class="w-5 h-5 inline" />
+      <span>Something went wrong. Please try again.</span>
+    </p>
+  </div>
+</form>
+
+<script>
+  // Handle form submission
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    const result = document.getElementById('result');
+    const successMessage = document.getElementById('success');
+    const errorMessage = document.getElementById('error');
+    
+    if (form && result && successMessage && errorMessage) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+        
+        // Show loading state
+        form.querySelector('button')!.innerHTML = 'Please wait...';
+        form.querySelector('button')!.disabled = true;
+        
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: json
+        })
+        .then(async (response) => {
+          const json = await response.json();
+          result.classList.remove('hidden');
+          
+          if (response.status == 200) {
+            // Show success message
+            successMessage.classList.remove('hidden');
+            errorMessage.classList.add('hidden');
+            // Reset form
+            form.reset();
+          } else {
+            // Show error message
+            errorMessage.classList.remove('hidden');
+            successMessage.classList.add('hidden');
+            console.log(json);
+          }
+        })
+        .catch(error => {
+          // Show error message
+          result.classList.remove('hidden');
+          errorMessage.classList.remove('hidden');
+          successMessage.classList.add('hidden');
+          console.log(error);
+        })
+        .finally(() => {
+          // Reset button state
+          const submitBtn = form.querySelector('button')! as HTMLButtonElement;
+          submitBtn.innerHTML = `
+            <span>Send Message</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M10 14l11 -11"></path>
+              <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5"></path>
+            </svg>
+          `;
+          submitBtn.disabled = false;
+        });
+      });
+    }
+  });
+</script> 

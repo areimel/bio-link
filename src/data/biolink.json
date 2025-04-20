@@ -40,24 +40,25 @@
       "icon": "tabler:article"
     },
     {
-      "title": "Join My Newsletter",
-      "url": "https://newsletter.example.com",
-      "icon": "tabler:mail"
+      "title": "Contact Me",
+      "url": "#",
+      "icon": "tabler:mail",
+      "modal": "contact"
     }
   ],
   "projectLinks": [
     {
-      "title": "Project: AI Prompt Directory",
+      "title": "AI Prompt Directory",
       "url": "https://project.example.com",
       "icon": "tabler:rocket"
     },
     {
-      "title": "Project: Augmented Reality Business Card",
+      "title": "Augmented Reality Business Card",
       "url": "https://project.example.com",
       "icon": "tabler:rocket"
     },
     {
-      "title": "Project: Simple VR For Phones",
+      "title": "Simple VR For Phones",
       "url": "https://project.example.com",
       "icon": "tabler:rocket"
     }

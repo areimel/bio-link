@@ -28,6 +28,7 @@ export default {
         heading: ['var(--aw-font-heading, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
         mono: ['VT323', 'monospace'],
         'courier-prime': ['Courier Prime', 'monospace'],
+        'press-start': ['"Press Start 2P"', 'cursive'],
       },
 
       animation: {
