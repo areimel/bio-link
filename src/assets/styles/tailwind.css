@@ -22,6 +22,27 @@
   .bg-rainbow-gradient {
     background: linear-gradient(to right, rgb(246, 187, 26), rgb(244, 127, 33), rgb(236, 62, 40), rgb(157, 36, 73));
   }
+  
+  /* Neo-brutalist utility classes */
+  .neo-border {
+    @apply border-[3px] border-black dark:border-white;
+  }
+  
+  .neo-shadow {
+    @apply shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,0.8)];
+  }
+  
+  .neo-button {
+    @apply neo-border neo-shadow transition-all duration-200 hover:translate-y-[-2px] hover:translate-x-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[6px_6px_0px_0px_rgba(255,255,255,0.8)] active:translate-y-[2px] active:translate-x-[2px] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:active:shadow-[2px_2px_0px_0px_rgba(255,255,255,0.8)];
+  }
+  
+  .neo-container {
+    @apply neo-border neo-shadow bg-white dark:bg-slate-800 p-4 rounded-none;
+  }
+  
+  .neo-grid {
+    @apply grid gap-4 p-2;
+  }
 }
 
 @layer components {

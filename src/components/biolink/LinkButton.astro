@@ -19,7 +19,7 @@ const isModalLink = !!modal;
   href={url}
   target={isModalLink ? "_self" : "_blank"}
   rel={isModalLink ? "" : "noopener noreferrer"}
-  class="grid grid-cols-8 gap-2 items-center w-full p-4 mb-3 rounded-lg bg-vhs-offwhite dark:bg-slate-800 hover:bg-white dark:hover:bg-slate-700 shadow-sm border-2 border-vhs-yellow hover:border-vhs-orange dark:border-vhs-magenta transition-all"
+  class="grid grid-cols-8 gap-2 items-center w-full p-4 mb-5 bg-vhs-offwhite dark:bg-slate-800 neo-button rounded-none"
   data-modal-target={isModalLink ? modal : undefined}
 >
   {/* Icon column - always takes up 1 column space even if no icon */}

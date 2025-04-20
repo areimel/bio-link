@@ -12,7 +12,7 @@ interface Props {
 const { name, title, description, avatar } = Astro.props;
 ---
 
-<div class="flex flex-col items-center text-center px-4 py-6 relative">
+<div class="flex flex-col items-center text-center px-4 py-8 relative neo-container mb-6">
   <!-- Dark/Light Mode Toggle -->
   <div class="absolute top-2 right-2">
     <ToggleTheme 
@@ -22,7 +22,7 @@ const { name, title, description, avatar } = Astro.props;
   </div>
 
   <!-- Profile Avatar -->
-  <div class="w-48 h-48 mb-4 overflow-hidden rounded-full border-4 border-vhs-red">
+  <div class="w-48 h-48 mb-6 overflow-hidden rounded-full neo-border border-vhs-red dark:border-vhs-yellow">
     <img 
       src={avatar} 
       alt={`${name}'s profile picture`} 
