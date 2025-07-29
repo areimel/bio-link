@@ -22,14 +22,14 @@ const { id, title } = Astro.props;
   
   <!-- Modal content -->
   <div 
-    class="modal-content relative w-full max-w-md bg-white dark:bg-slate-800 neo-border neo-shadow rounded-none overflow-hidden transform transition-all duration-300 scale-95 opacity-0"
+    class="modal-content relative w-full max-w-md bg-white dark:bg-slate-800 neo-border neo-shadow-big rounded-lg overflow-hidden transform transition-all duration-300 scale-95 opacity-0"
   >
     <!-- Header with title and close button -->
     <div class="flex items-center justify-between p-4 border-b-[3px] border-black dark:border-white">
       {title && <h3 id={`${id}-title`} class="text-lg font-heading text-vhs-darkgray dark:text-white">{title}</h3>}
       <button 
         type="button" 
-        class="text-gray-500 hover:text-vhs-red dark:text-gray-400 dark:hover:text-vhs-yellow focus:outline-none neo-button p-1"
+        class="text-gray-500 hover:text-vhs-red dark:text-gray-400 dark:hover:text-vhs-yellow focus:outline-none neo-button p-1 rounded-lg"
         data-modal-close
         aria-label="Close modal"
       >
