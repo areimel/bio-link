@@ -15,17 +15,17 @@ interface Props {
 const { links } = Astro.props;
 ---
 
-<div class="flex justify-center gap-6 mb-8">
+<div class="flex justify-center gap-5 ">
   {
     links.map((link) => (
       <a 
         href={link.url} 
         target="_blank" 
         rel="noopener noreferrer"
-        class="text-vhs-darkgray hover:text-vhs-red dark:text-vhs-yellow dark:hover:text-vhs-orange transition-colors rounded-full bg-vhs-darkgray dark:bg-vhs-darkgray p-2 w-16 h-16 flex items-center justify-center"
+        class="neo-button bg-vhs-darkgray dark:bg-vhs-darkgray hover:bg-vhs-orange dark:hover:bg-vhs-orange w-12 h-12 flex items-center justify-center p-0 rounded-lg"
         aria-label={`Visit ${link.platform}`}
       >
-        <Icon name={link.icon} class="w-8 h-8 text-vhs-yellow dark:text-vhs-yellow" />
+        <Icon name={link.icon} class="w-6 h-6 text-vhs-offwhite dark:text-vhs-offwhite" />
       </a>
     ))
   }

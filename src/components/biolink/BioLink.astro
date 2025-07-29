@@ -3,7 +3,6 @@
 import ProfileSection from './ProfileSection.astro';
 import SocialLinks from './SocialLinks.astro';
 import LinksList from './LinksList.astro';
-import SectionBreak from './SectionBreak.astro';
 import PopupModal from '../common/PopupModal.astro';
 import ContactForm from './ContactForm.astro';
 
@@ -37,27 +36,25 @@ const { profile, socialLinks, contactLinks, projectLinks } = Astro.props;
 ---
 
 <div 
-  class="min-h-screen w-full flex flex-col items-center py-8 bg-page dark:bg-page"
- 
+  class="min-h-screen w-full flex flex-col items-center py-8 bg-vhs-yellow dark:bg-slate-900"
 >
-  <div class="w-full max-w-md mx-auto flex flex-col">
+  <div class="w-full max-w-lg mx-auto flex flex-col p-4">
     <!-- BioLink content here -->
     <div class="space-y-8">
-      <ProfileSection {...profile} />
+      <ProfileSection {...profile} socialLinks={socialLinks} />
       
-      <SocialLinks links={socialLinks} />
+      <!-- <SocialLinks links={socialLinks} /> -->
       
       {contactLinks && contactLinks.length > 0 && (
-        <div class="mt-8">
-          <h2 class="font-press-start text-lg mb-4 text-center text-vhs-darkgray dark:text-white">Connect with me</h2>
+        <div class="mt-8 neo-container p-4 bg-vhs-offwhite dark:bg-slate-800 text-vhs-darkgray dark:text-white">
+          <h2 class="font-press-start text-lg mb-4 text-center">Connect with me</h2>
           <LinksList links={contactLinks} />
         </div>
       )}
       
       {projectLinks && projectLinks.length > 0 && (
-        <div class="mt-8">
-          <SectionBreak />
-          <h2 class="font-press-start text-lg mb-4 text-center text-vhs-darkgray dark:text-white">My Projects</h2>
+        <div class="mt-8 neo-container p-4 bg-vhs-offwhite dark:bg-slate-800 text-vhs-darkgray dark:text-white">
+          <h2 class="font-press-start text-lg mb-4 text-center ">My Projects</h2>
           <LinksList links={projectLinks} />
         </div>
       )}

@@ -30,20 +30,14 @@
   ],
   "contactLinks": [
     {
-      "title": "My Personal Website",
+      "title": "My Website",
       "url": "https://example.com",
       "icon": "tabler:world"
     },
     {
-      "title": "Read My Blog",
+      "title": "Coding Blog",
       "url": "https://blog.example.com",
       "icon": "tabler:article"
-    },
-    {
-      "title": "Contact Me",
-      "url": "#",
-      "icon": "tabler:mail",
-      "modal": "contact"
     }
   ],
   "projectLinks": [
@@ -58,7 +52,17 @@
       "icon": "tabler:rocket"
     },
     {
-      "title": "Simple VR For Phones",
+      "title": "VR For Phones",
+      "url": "https://project.example.com",
+      "icon": "tabler:rocket"
+    },
+    {
+      "title": "Micro-Tools for Marketers",
+      "url": "https://project.example.com",
+      "icon": "tabler:rocket"
+    },
+    {
+      "title": "Idle TV Dashboard",
       "url": "https://project.example.com",
       "icon": "tabler:rocket"
     }
