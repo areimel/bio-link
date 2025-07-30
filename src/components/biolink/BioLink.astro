@@ -1,10 +1,10 @@
 ---
 // BioLink component - Main component that combines profile, social links, and link buttons
 import ProfileSection from './ProfileSection.astro';
-import SocialLinks from './SocialLinks.astro';
 import LinksList from './LinksList.astro';
 import PopupModal from '../common/PopupModal.astro';
 import ContactForm from './ContactForm.astro';
+import Heading from './Heading.astro';
 
 interface Props {
   profile: {
@@ -19,6 +19,12 @@ interface Props {
     url: string;
     icon: string;
   }[];
+  profileLinks: {
+    title: string;
+    url: string;
+    icon?: string;
+    modal?: string;
+  }[];
   contactLinks: {
     title: string;
     url: string;
@@ -32,7 +38,7 @@ interface Props {
   }[];
 }
 
-const { profile, socialLinks, contactLinks, projectLinks } = Astro.props;
+const { profile, socialLinks, profileLinks, contactLinks, projectLinks } = Astro.props;
 ---
 
 <div 
@@ -41,20 +47,20 @@ const { profile, socialLinks, contactLinks, projectLinks } = Astro.props;
   <div class="w-full max-w-lg mx-auto flex flex-col p-4">
     <!-- BioLink content here -->
     <div class="space-y-8">
-      <ProfileSection {...profile} socialLinks={socialLinks} />
+      <ProfileSection {...profile} socialLinks={socialLinks} profileLinks={profileLinks} />
       
       <!-- <SocialLinks links={socialLinks} /> -->
       
       {contactLinks && contactLinks.length > 0 && (
         <div class="mt-8 neo-container p-4 bg-vhs-offwhite dark:bg-slate-800 text-vhs-darkgray dark:text-white">
-          <h2 class="font-press-start text-lg mb-4 text-center">Connect with me</h2>
+          <Heading text="Connect with me" />
           <LinksList links={contactLinks} />
         </div>
       )}
       
       {projectLinks && projectLinks.length > 0 && (
         <div class="mt-8 neo-container p-4 bg-vhs-offwhite dark:bg-slate-800 text-vhs-darkgray dark:text-white">
-          <h2 class="font-press-start text-lg mb-4 text-center ">My Projects</h2>
+          <Heading text="My Projects" />
           <LinksList links={projectLinks} />
         </div>
       )}

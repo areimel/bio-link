@@ -1,0 +1,10 @@
+---
+// Heading component for consistent h2 styling in BioLink
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<h2 class="font-press-start text-lg mb-4 text-center">{text}</h2> 

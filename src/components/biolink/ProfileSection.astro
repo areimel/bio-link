@@ -2,21 +2,26 @@
 // ProfileSection component for displaying user profile information
 import ToggleTheme from '~/components/common/ToggleTheme.astro';
 import SocialLinks from './SocialLinks.astro';
-import ContactFormButton from './ContactFormButton.astro';
+import LinksList from './LinksList.astro';
 
 interface Props {
   name: string;
   title: string;
-  description: string;
   avatar: string;
   socialLinks: Array<{
     platform: string;
     url: string;
     icon: string;
   }>;
+  profileLinks: Array<{
+    title: string;
+    url: string;
+    icon?: string;
+    modal?: string;
+  }>;
 }
 
-const { name, title, description, avatar, socialLinks } = Astro.props;
+const { name, title, avatar, socialLinks, profileLinks } = Astro.props;
 ---
 
 <div class="flex flex-col items-center text-center px-4 pb-12 pt-6 relative neo-container mb-6">
@@ -43,8 +48,8 @@ const { name, title, description, avatar, socialLinks } = Astro.props;
   <!-- <p class="text-sm text-default dark:text-muted max-w-md mb-4">{description}</p> -->
   <SocialLinks links={socialLinks} />
   
-  <!-- Contact Form Button -->
+  <!-- Profile Links -->
   <div class="w-full mt-8 p-2 max-w-md">
-    <ContactFormButton />
+    <LinksList links={profileLinks} />
   </div>
 </div> 

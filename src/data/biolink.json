@@ -28,6 +28,19 @@
       "icon": "tabler:mail"
     }
   ],
+  "profileLinks": [
+    {
+      "title": "Contact Me",
+      "url": "#",
+      "icon": "tabler:mail",
+      "modal": "contact"
+    },
+    {
+      "title": "My Resume/CV",
+      "url": "/resume.pdf",
+      "icon": "tabler:link"
+    }
+  ],
   "contactLinks": [
     {
       "title": "My Website",

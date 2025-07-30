@@ -15,25 +15,46 @@ const { title, url, icon, modal } = Astro.props;
 const isModalLink = !!modal;
 ---
 
-<a
-  href={url}
-  target={isModalLink ? "_self" : "_blank"}
-  rel={isModalLink ? "" : "noopener noreferrer"}
-  class="grid grid-cols-8 gap-2 items-center w-full p-4 mb-2 bg-vhs-offwhite dark:bg-slate-800 neo-button rounded-lg"
-  data-modal-target={isModalLink ? modal : undefined}
->
-  {/* Icon column - always takes up 1 column space even if no icon */}
-  <div class="col-span-1 flex justify-center">
-    {icon && <Icon name={icon} class="w-8 h-8 text-vhs-red dark:text-vhs-yellow" />}
-  </div>
-  
-  {/* Title column - takes up 6 columns in the middle */}
-  <div class="col-span-6 px-2">
-    <span class="font-press-start text-xs font-medium text-vhs-darkgray dark:text-white">{title}</span>
-  </div>
-  
-  {/* Chevron column - takes up 1 column at the end */}
-  <div class="col-span-1 flex justify-center">
-    <Icon name="tabler:chevron-right" class="w-8 h-8 text-vhs-orange dark:text-vhs-yellow" />
-  </div>
-</a> 
+{isModalLink ? (
+  <button
+    class="grid grid-cols-8 gap-2 items-center w-full p-4 mb-2 bg-vhs-offwhite dark:bg-slate-800 neo-button rounded-lg"
+    data-modal-target={modal}
+  >
+    {/* Icon column - always takes up 1 column space even if no icon */}
+    <div class="col-span-1 flex justify-center">
+      {icon && <Icon name={icon} class="w-8 h-8 text-vhs-red dark:text-vhs-yellow" />}
+    </div>
+    
+    {/* Title column - takes up 6 columns in the middle */}
+    <div class="col-span-6 px-2">
+      <span class="font-press-start text-xs font-medium text-vhs-darkgray dark:text-white">{title}</span>
+    </div>
+    
+    {/* Chevron column - takes up 1 column at the end */}
+    <div class="col-span-1 flex justify-center">
+      <Icon name="tabler:chevron-right" class="w-8 h-8 text-vhs-orange dark:text-vhs-yellow" />
+    </div>
+  </button>
+) : (
+  <a
+    href={url}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="grid grid-cols-8 gap-2 items-center w-full p-4 mb-2 bg-vhs-offwhite dark:bg-slate-800 neo-button rounded-lg"
+  >
+    {/* Icon column - always takes up 1 column space even if no icon */}
+    <div class="col-span-1 flex justify-center">
+      {icon && <Icon name={icon} class="w-8 h-8 text-vhs-red dark:text-vhs-yellow" />}
+    </div>
+    
+    {/* Title column - takes up 6 columns in the middle */}
+    <div class="col-span-6 px-2">
+      <span class="font-press-start text-xs font-medium text-vhs-darkgray dark:text-white">{title}</span>
+    </div>
+    
+    {/* Chevron column - takes up 1 column at the end */}
+    <div class="col-span-1 flex justify-center">
+      <Icon name="tabler:chevron-right" class="w-8 h-8 text-vhs-orange dark:text-vhs-yellow" />
+    </div>
+  </a>
+)} 
