@@ -9,9 +9,9 @@ import CustomStyles from '~/components/CustomStyles.astro';
 import ApplyColorMode from '~/components/common/ApplyColorMode.astro';
 import Metadata from '~/components/common/Metadata.astro';
 import SiteVerification from '~/components/common/SiteVerification.astro';
-import Analytics from '~/components/common/Analytics.astro';
 import BasicScripts from '~/components/common/BasicScripts.astro';
-
+import GtmTagHead from '~/components/common/GtmTagHead.astro';
+import GtmTagBody from '~/components/common/GtmTagBody.astro';
 // Comment the line below to disable View Transitions
 import { ClientRouter } from 'astro:transitions';
 
@@ -34,13 +34,15 @@ const { language, textDirection } = I18N;
     <ApplyColorMode />
     <Metadata {...metadata} />
     <SiteVerification />
-    <Analytics />
+    <GtmTagHead />
 
     <!-- Comment the line below to disable View Transitions -->
     <ClientRouter fallback="swap" />
   </head>
 
   <body class="antialiased text-default bg-page tracking-tight">
+    <GtmTagBody />
+    
     <slot />
 
     <BasicScripts />
