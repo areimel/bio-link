@@ -3,7 +3,7 @@
     "name": "Alec Reimel",
     "title": "Web Developer, Software Engineer",
     "description": "Building the sci-fi future we were promised.",
-    "avatar": "/alec-profile-pic-fake.jpg",
+    "avatar": "/alec-profile-pic-2025.jpg",
     "backgroundColor": "#f8e1dc"
   },
   "socialLinks": [
@@ -55,17 +55,17 @@
   ],
   "projectLinks": [
     {
-      "title": "AI Prompt Directory",
+      "title": "AI Prompt Library",
       "url": "https://project.example.com",
       "icon": "tabler:rocket"
     },
     {
-      "title": "Augmented Reality Business Card",
+      "title": "ARDA Analytics",
       "url": "https://project.example.com",
       "icon": "tabler:rocket"
     },
     {
-      "title": "VR For Phones",
+      "title": "ARDA Website Scanner",
       "url": "https://project.example.com",
       "icon": "tabler:rocket"
     },

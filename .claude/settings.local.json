@@ -6,7 +6,12 @@
       "Bash(rm:*)",
       "Bash(npm run check:*)",
       "Bash(npm run build:*)",
-      "Bash(timeout 10 npm run dev)"
+      "Bash(timeout 10 npm run dev)",
+      "Bash(pnpm build:*)",
+      "WebFetch(domain:docs.anthropic.com)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "Bash(uv:*)"
     ],
     "deny": []
   }

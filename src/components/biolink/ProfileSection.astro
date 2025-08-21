@@ -26,12 +26,12 @@ const { name, title, avatar, socialLinks, profileLinks } = Astro.props;
 
 <div class="flex flex-col items-center text-center px-4 pb-12 pt-6 relative neo-container mb-6">
   <!-- Dark/Light Mode Toggle -->
-  <div class="absolute top-2 right-2">
+  <!-- <div class="absolute top-2 right-2">
     <ToggleTheme 
       iconClass="w-6 h-6 text-vhs-red dark:text-vhs-yellow" 
       class="hover:bg-vhs-offwhite dark:hover:bg-slate-700 focus:ring-vhs-orange dark:focus:ring-vhs-magenta"
     />
-  </div>
+  </div> -->
 
   <!-- Profile Avatar -->
   <div class="w-48 h-48 mb-6 overflow-hidden rounded-full neo-border border-vhs-red dark:border-vhs-yellow">
@@ -52,4 +52,8 @@ const { name, title, avatar, socialLinks, profileLinks } = Astro.props;
   <div class="w-full mt-8 p-2 max-w-md">
     <LinksList links={profileLinks} />
   </div>
+  
+  <div class="border-b-4 border-black w-full mb-8"></div>
+
+  <script is:inline type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="alecreimel" data-color="#FFDD00" data-emoji=""  data-font="Inter" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
 </div> 
