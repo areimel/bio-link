@@ -9,22 +9,17 @@
   "socialLinks": [
     {
       "platform": "linkedin",
-      "url": "https://linkedin.com/in/username",
+      "url": "https://www.linkedin.com/in/alecwreimel/",
       "icon": "tabler:brand-linkedin"
     },
     {
       "platform": "github",
-      "url": "https://github.com/username",
+      "url": "https://github.com/areimel",
       "icon": "tabler:brand-github"
     },
     {
-      "platform": "instagram",
-      "url": "https://instagram.com/username",
-      "icon": "tabler:brand-instagram"
-    },
-    {
       "platform": "email",
-      "url": "mailto:email@example.com",
+      "url": "mailto:alecreimel1@gmail.com",
       "icon": "tabler:mail"
     }
   ],
@@ -39,44 +34,27 @@
       "title": "My Resume/CV",
       "url": "/alec-reimel-resume.pdf",
       "icon": "tabler:link"
-    }
-  ],
-  "contactLinks": [
-    {
-      "title": "My Website",
-      "url": "https://example.com",
-      "icon": "tabler:world"
     },
     {
-      "title": "Coding Blog",
-      "url": "https://blog.example.com",
-      "icon": "tabler:article"
+      "title": "My Website",
+      "url": "https://alecreimel.com",
+      "icon": "tabler:world"
     }
   ],
   "projectLinks": [
     {
-      "title": "AI Prompt Library",
-      "url": "https://project.example.com",
-      "icon": "tabler:rocket"
-    },
-    {
       "title": "ARDA Analytics",
-      "url": "https://project.example.com",
+      "url": "https://arda-analytics.netlify.app/",
       "icon": "tabler:rocket"
     },
     {
-      "title": "ARDA Website Scanner",
-      "url": "https://project.example.com",
+      "title": "AI Prompt Library",
+      "url": "https://company-ai-prompts.netlify.app/",
       "icon": "tabler:rocket"
     },
     {
-      "title": "Micro-Tools for Marketers",
-      "url": "https://project.example.com",
-      "icon": "tabler:rocket"
-    },
-    {
-      "title": "Idle TV Dashboard",
-      "url": "https://project.example.com",
+      "title": "ARDA Site Scanner",
+      "url": "https://github.com/areimel/playwright-site-scanner",
       "icon": "tabler:rocket"
     }
   ]
