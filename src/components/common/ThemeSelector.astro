@@ -1,0 +1,40 @@
+---
+// Theme selector dropdown component
+import { getActiveTheme, getAvailableThemes, applyTheme } from '~/utils/theme';
+
+const availableThemes = getAvailableThemes();
+const currentTheme = getActiveTheme();
+---
+
+<div class="theme-selector relative">
+  <select 
+    class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg py-2 px-4 text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+    aria-label="Select theme"
+    data-theme-selector
+  >
+    {availableThemes.map((theme) => (
+      <option 
+        value={theme.id} 
+        selected={theme.id === currentTheme}
+      >
+        {theme.name}
+      </option>
+    ))}
+  </select>
+</div>
+
+<script>
+  // Client-side theme selection
+  if (typeof document !== 'undefined') {
+    const selector = document.querySelector('[data-theme-selector]');
+    
+    if (selector) {
+      selector.addEventListener('change', (e) => {
+        const target = e.target as HTMLSelectElement;
+        applyTheme(target.value);
+        // Reload to apply theme properly
+        location.reload();
+      });
+    }
+  }
+</script>

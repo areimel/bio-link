@@ -2,6 +2,7 @@
 // ProfileSection component for displaying user profile information
 import SocialLinks from './SocialLinks.astro';
 import LinksList from './LinksList.astro';
+import ThemeToggle from '~/components/common/ThemeToggle.astro';
 
 interface Props {
   name: string;
@@ -25,12 +26,12 @@ const { name, title, avatar, socialLinks, profileLinks } = Astro.props;
 
 <div class="flex flex-col items-center text-center px-4 pb-12 pt-6 relative neo-container mb-6">
   <!-- Dark/Light Mode Toggle -->
-  <!-- <div class="absolute top-2 right-2">
-    <ToggleTheme 
+  <div class="absolute top-2 right-2">
+    <ThemeToggle 
       iconClass="w-6 h-6 text-vhs-red dark:text-vhs-yellow" 
-      class="hover:bg-vhs-offwhite dark:hover:bg-slate-700 focus:ring-vhs-orange dark:focus:ring-vhs-magenta"
+      class="hover:bg-vhs-offwhite dark:hover:bg-slate-700 focus:ring-vhs-orange dark:focus:ring-vhs-magenta rounded-lg text-sm p-2.5 inline-flex items-center"
     />
-  </div> -->
+  </div>
 
   <!-- Profile Avatar -->
   <div class="w-48 h-48 mb-6 overflow-hidden rounded-full neo-border border-vhs-red dark:border-vhs-yellow">

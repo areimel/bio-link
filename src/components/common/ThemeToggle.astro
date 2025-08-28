@@ -1,0 +1,62 @@
+---
+// Multi-theme toggle component
+import { getActiveTheme, getAvailableThemes, toggleTheme } from '~/utils/theme';
+import { getThemeById } from '~/utils/theme';
+import { Icon } from 'astro-icon/components';
+
+export interface Props {
+  label?: string;
+  class?: string;
+  iconClass?: string;
+}
+
+const {
+  label = 'Toggle theme',
+  class: className = 'text-muted hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center',
+  iconClass = 'w-6 h-6',
+} = Astro.props;
+
+let currentTheme = getActiveTheme();
+let themeInfo = getThemeById(currentTheme);
+---
+
+<div class="theme-toggle-container">
+  <button 
+    type="button" 
+    class={className} 
+    aria-label={label}
+    data-aw-toggle-theme
+  >
+    <Icon 
+      name={themeInfo?.id === 'dark' ? 'tabler:moon' : 'tabler:sun'} 
+      class={iconClass} 
+    />
+  </button>
+</div>
+
+<script>
+  // Client-side theme toggle
+  if (typeof document !== 'undefined') {
+    const toggleButton = document.querySelector('[data-aw-toggle-theme]');
+    
+    if (toggleButton) {
+      toggleButton.addEventListener('click', () => {
+        const newTheme = toggleTheme();
+        const themeInfo = getThemeById(newTheme);
+        
+        // Update icon based on new theme
+        const icon = toggleButton.querySelector('svg');
+        if (icon) {
+          // This would normally be done with astro-icon, but for client-side we'll just toggle classes
+          if (newTheme === 'dark') {
+            icon.classList.remove('tabler:sun');
+            icon.classList.add('tabler:moon');
+          } else {
+            icon.classList.remove('tabler:moon');
+            icon.classList.add('tabler:sun');
+          }
+        }
+      });
+    }
+  }
+</script>

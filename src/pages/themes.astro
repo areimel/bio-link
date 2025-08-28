@@ -1,0 +1,79 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import ThemeSelector from '~/components/common/ThemeSelector.astro';
+import ThemeToggle from '~/components/common/ThemeToggle.astro';
+
+const metadata = {
+  title: 'Theme Showcase',
+  description: 'Preview all available themes',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-6 text-center">Theme Showcase</h1>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+      <div class="neo-container p-6">
+        <h2 class="text-xl font-bold mb-4">Theme Selector</h2>
+        <p class="mb-4">Choose from our available themes:</p>
+        <ThemeSelector />
+      </div>
+      
+      <div class="neo-container p-6">
+        <h2 class="text-xl font-bold mb-4">Theme Toggle</h2>
+        <p class="mb-4">Quickly toggle between themes:</p>
+        <ThemeToggle />
+      </div>
+      
+      <div class="neo-container p-6">
+        <h2 class="text-xl font-bold mb-4">Current Theme</h2>
+        <p>Check your current theme in the config.</p>
+      </div>
+    </div>
+    
+    <div class="neo-container p-6 mb-8">
+      <h2 class="text-2xl font-bold mb-4">Theme Preview</h2>
+      <p class="mb-4">This is how elements look with the current theme:</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div>
+          <h3 class="text-lg font-semibold mb-2">Buttons</h3>
+          <div class="flex flex-wrap gap-2">
+            <button class="btn">Default</button>
+            <button class="btn-primary">Primary</button>
+            <button class="btn-secondary">Secondary</button>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="text-lg font-semibold mb-2">Colors</h3>
+          <div class="flex flex-wrap gap-2">
+            <div class="w-8 h-8 rounded bg-primary"></div>
+            <div class="w-8 h-8 rounded bg-secondary"></div>
+            <div class="w-8 h-8 rounded bg-accent"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mb-6">
+        <h3 class="text-lg font-semibold mb-2">Cards</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="neo-container p-4">
+            <h4 class="font-bold mb-2">Card 1</h4>
+            <p class="text-muted">This is a sample card with theme styling.</p>
+          </div>
+          <div class="neo-container p-4">
+            <h4 class="font-bold mb-2">Card 2</h4>
+            <p class="text-muted">This is a sample card with theme styling.</p>
+          </div>
+          <div class="neo-container p-4">
+            <h4 class="font-bold mb-2">Card 3</h4>
+            <p class="text-muted">This is a sample card with theme styling.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

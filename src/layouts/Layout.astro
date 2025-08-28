@@ -13,7 +13,7 @@ import BasicScripts from '~/components/common/BasicScripts.astro';
 import GtmTagHead from '~/components/common/GtmTagHead.astro';
 import GtmTagBody from '~/components/common/GtmTagBody.astro';
 // Comment the line below to disable View Transitions
-import { ClientRouter } from 'astro:transitions';
+/* import { ClientRouter } from 'astro:transitions'; */
 
 import type { MetaData as MetaDataType } from '~/types';
 
@@ -37,7 +37,7 @@ const { language, textDirection } = I18N;
     <GtmTagHead />
 
     <!-- Comment the line below to disable View Transitions -->
-    <ClientRouter fallback="swap" />
+    <!-- <ClientRouter fallback="swap" /> -->
 
     
   </head>

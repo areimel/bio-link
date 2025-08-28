@@ -1,5 +1,6 @@
 ---
 import { UI } from 'astrowind:config';
+import { applyTheme, getStoredTheme, getSystemTheme } from '~/utils/theme';
 ---
 
 <script is:inline define:vars={{ defaultTheme: UI.theme }}>
@@ -8,14 +9,6 @@ import { UI } from 'astrowind:config';
   }
 
   window.basic_script = true;
-
-  function applyTheme(theme) {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }
 
   const initTheme = function () {
     if ((defaultTheme && defaultTheme.endsWith(':only')) || (!localStorage.theme && defaultTheme !== 'system')) {
@@ -26,7 +19,7 @@ import { UI } from 'astrowind:config';
     ) {
       applyTheme('dark');
     } else {
-      applyTheme('light');
+      applyTheme('default');
     }
   };
   initTheme();
@@ -70,6 +63,10 @@ import { UI } from 'astrowind:config';
       }
       document.documentElement.classList.toggle('dark');
       localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    });
+
+    attachEvent('[data-aw-toggle-theme]', 'click', function () {
+      // Theme toggle is handled by the component itself
     });
 
     attachEvent('[data-aw-social-share]', 'click', function (_, elem) {

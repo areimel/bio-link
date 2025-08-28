@@ -1,0 +1,124 @@
+/* Theme-specific styles */
+
+/* VHS Theme */
+.vhs-theme {
+  --aw-color-primary: #e11d48; /* VHS red */
+  --aw-color-secondary: #fbbf24; /* VHS yellow */
+  --aw-color-accent: #2563eb; /* VHS blue */
+  --aw-color-bg-page: #f8fafc; /* Light gray */
+  --aw-color-bg-page-dark: #0f172a; /* Dark blue */
+  --aw-color-text-page: #1e293b; /* Dark slate */
+  --aw-color-text-heading: #e11d48; /* VHS red */
+  --aw-color-text-muted: #64748b; /* Slate gray */
+  --aw-color-border: #cbd5e1; /* Light blue-gray */
+}
+
+.vhs-theme .bg-page {
+  background-color: var(--aw-color-bg-page);
+}
+
+.vhs-theme .text-page {
+  color: var(--aw-color-text-page);
+}
+
+.vhs-theme .text-muted {
+  color: var(--aw-color-text-muted);
+}
+
+.vhs-theme .text-heading {
+  color: var(--aw-color-text-heading);
+}
+
+.vhs-theme .bg-primary {
+  background-color: var(--aw-color-primary);
+}
+
+.vhs-theme .text-primary {
+  color: var(--aw-color-primary);
+}
+
+.vhs-theme .border-primary {
+  border-color: var(--aw-color-primary);
+}
+
+/* Cyberpunk Theme */
+.cyberpunk-theme {
+  --aw-color-primary: #ec4899; /* Pink */
+  --aw-color-secondary: #8b5cf6; /* Purple */
+  --aw-color-accent: #00ffff; /* Cyan */
+  --aw-color-bg-page: #0f172a; /* Dark blue */
+  --aw-color-bg-page-dark: #020617; /* Very dark blue */
+  --aw-color-text-page: #f1f5f9; /* Light gray */
+  --aw-color-text-heading: #ec4899; /* Pink */
+  --aw-color-text-muted: #94a3b8; /* Blue-gray */
+  --aw-color-border: #334155; /* Medium blue-gray */
+}
+
+.cyberpunk-theme .bg-page {
+  background-color: var(--aw-color-bg-page);
+}
+
+.cyberpunk-theme .text-page {
+  color: var(--aw-color-text-page);
+}
+
+.cyberpunk-theme .text-muted {
+  color: var(--aw-color-text-muted);
+}
+
+.cyberpunk-theme .text-heading {
+  color: var(--aw-color-text-heading);
+}
+
+.cyberpunk-theme .bg-primary {
+  background-color: var(--aw-color-primary);
+}
+
+.cyberpunk-theme .text-primary {
+  color: var(--aw-color-primary);
+}
+
+.cyberpunk-theme .border-primary {
+  border-color: var(--aw-color-primary);
+}
+
+/* Retro Theme */
+.retro-theme {
+  --aw-color-primary: #f97316; /* Orange */
+  --aw-color-secondary: #22c55e; /* Green */
+  --aw-color-accent: #8b5cf6; /* Purple */
+  --aw-color-bg-page: #f0f9ff; /* Light blue */
+  --aw-color-bg-page-dark: #0c4a6e; /* Dark blue */
+  --aw-color-text-page: #0f172a; /* Dark slate */
+  --aw-color-text-heading: #f97316; /* Orange */
+  --aw-color-text-muted: #64748b; /* Slate gray */
+  --aw-color-border: #bae6fd; /* Light blue */
+}
+
+.retro-theme .bg-page {
+  background-color: var(--aw-color-bg-page);
+}
+
+.retro-theme .text-page {
+  color: var(--aw-color-text-page);
+}
+
+.retro-theme .text-muted {
+  color: var(--aw-color-text-muted);
+}
+
+.retro-theme .text-heading {
+  color: var(--aw-color-text-heading);
+}
+
+.retro-theme .bg-primary {
+  background-color: var(--aw-color-primary);
+}
+
+.retro-theme .text-primary {
+  color: var(--aw-color-primary);
+}
+
+.retro-theme .border-primary {
+  border-color: var(--aw-color-primary);
+}
