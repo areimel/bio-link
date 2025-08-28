@@ -12,7 +12,19 @@ export default {
         accent: 'var(--aw-color-accent)',
         default: 'var(--aw-color-text-default)',
         muted: 'var(--aw-color-text-muted)',
-        // VHS-inspired colors
+        // Generic theme colors that map to CSS custom properties
+        theme: {
+          primary: 'var(--theme-color-primary)',
+          secondary: 'var(--theme-color-secondary)',
+          accent: 'var(--theme-color-accent)',
+          background: 'var(--theme-color-background)',
+          surface: 'var(--theme-color-surface)',
+          text: 'var(--theme-color-text)',
+          'text-muted': 'var(--theme-color-text-muted)',
+          'text-heading': 'var(--theme-color-text-heading)',
+          border: 'var(--theme-color-border)',
+        },
+        // VHS-inspired colors (kept for compatibility)
         vhs: {
           yellow: 'rgb(246, 187, 26)',
           orange: 'rgb(244, 127, 33)',

@@ -1,124 +1,101 @@
-/* Theme-specific styles */
+/* Neo-Brutalist Theme System */
 
-/* VHS Theme */
-.vhs-theme {
-  --aw-color-primary: #e11d48; /* VHS red */
-  --aw-color-secondary: #fbbf24; /* VHS yellow */
-  --aw-color-accent: #2563eb; /* VHS blue */
-  --aw-color-bg-page: #f8fafc; /* Light gray */
-  --aw-color-bg-page-dark: #0f172a; /* Dark blue */
-  --aw-color-text-page: #1e293b; /* Dark slate */
-  --aw-color-text-heading: #e11d48; /* VHS red */
-  --aw-color-text-muted: #64748b; /* Slate gray */
-  --aw-color-border: #cbd5e1; /* Light blue-gray */
+/* Electric Surge Theme - Default */
+.electric-surge-theme,
+:root {
+  --theme-color-primary: #39FF14; /* Neon Green */
+  --theme-color-secondary: #000000; /* Pure Black */
+  --theme-color-accent: #FFFFFF; /* Pure White */
+  --theme-color-background: #1a1a1a; /* Near Black */
+  --theme-color-surface: #333333; /* Dark Grey */
+  --theme-color-text: #39FF14; /* Neon Green */
+  --theme-color-text-muted: #CCCCCC; /* Light Grey */
+  --theme-color-text-heading: #39FF14; /* Neon Green */
+  --theme-color-border: #39FF14; /* Neon Green */
 }
 
-.vhs-theme .bg-page {
-  background-color: var(--aw-color-bg-page);
+/* Cyber Rebellion Theme */
+.cyber-rebellion-theme {
+  --theme-color-primary: #FF1493; /* Deep Pink */
+  --theme-color-secondary: #00BFFF; /* Deep Sky Blue */
+  --theme-color-accent: #FFFF00; /* Pure Yellow */
+  --theme-color-background: #0a0a0a; /* Deep Black */
+  --theme-color-surface: #1e1e2e; /* Dark Blue-Grey */
+  --theme-color-text: #FFFFFF; /* Pure White */
+  --theme-color-text-muted: #B0B0B0; /* Medium Grey */
+  --theme-color-text-heading: #FF1493; /* Deep Pink */
+  --theme-color-border: #FF1493; /* Deep Pink */
 }
 
-.vhs-theme .text-page {
-  color: var(--aw-color-text-page);
+/* Voltage Yellow Theme */
+.voltage-yellow-theme {
+  --theme-color-primary: #FFD700; /* Electric Gold */
+  --theme-color-secondary: #FF4500; /* Orange Red */
+  --theme-color-accent: #000000; /* Pure Black */
+  --theme-color-background: #2F2F2F; /* Charcoal */
+  --theme-color-surface: #404040; /* Medium Grey */
+  --theme-color-text: #FFD700; /* Electric Gold on dark */
+  --theme-color-text-muted: #CCCCCC; /* Light Grey */
+  --theme-color-text-heading: #FFD700; /* Electric Gold */
+  --theme-color-border: #FFD700; /* Electric Gold */
 }
 
-.vhs-theme .text-muted {
-  color: var(--aw-color-text-muted);
+/* Neon Noir Theme */
+.neon-noir-theme {
+  --theme-color-primary: #FF00FF; /* Pure Magenta */
+  --theme-color-secondary: #8A2BE2; /* Blue Violet */
+  --theme-color-accent: #00FFFF; /* Cyan */
+  --theme-color-background: #0D0D0D; /* Almost Black */
+  --theme-color-surface: #2D1B69; /* Dark Purple */
+  --theme-color-text: #FFFFFF; /* Pure White */
+  --theme-color-text-muted: #CCCCCC; /* Light Grey */
+  --theme-color-text-heading: #FF00FF; /* Pure Magenta */
+  --theme-color-border: #FF00FF; /* Pure Magenta */
 }
 
-.vhs-theme .text-heading {
-  color: var(--aw-color-text-heading);
+/* Industrial Heat Theme */
+.industrial-heat-theme {
+  --theme-color-primary: #FF4500; /* Orange Red */
+  --theme-color-secondary: #32CD32; /* Lime Green */
+  --theme-color-accent: #FFFFFF; /* Pure White */
+  --theme-color-background: #1C1C1C; /* Dark Grey */
+  --theme-color-surface: #404040; /* Steel Grey */
+  --theme-color-text: #FFFFFF; /* Pure White */
+  --theme-color-text-muted: #CCCCCC; /* Light Grey */
+  --theme-color-text-heading: #FF4500; /* Orange Red */
+  --theme-color-border: #FF4500; /* Orange Red */
 }
 
-.vhs-theme .bg-primary {
-  background-color: var(--aw-color-primary);
+/* Arctic Pulse Theme */
+.arctic-pulse-theme {
+  --theme-color-primary: #00FFFF; /* Pure Cyan */
+  --theme-color-secondary: #FF69B4; /* Hot Pink */
+  --theme-color-accent: #000000; /* Pure Black */
+  --theme-color-background: #F0F0F0; /* Light Grey */
+  --theme-color-surface: #FFFFFF; /* Pure White */
+  --theme-color-text: #000000; /* Pure Black */
+  --theme-color-text-muted: #666666; /* Dark Grey */
+  --theme-color-text-heading: #00FFFF; /* Pure Cyan */
+  --theme-color-border: #00FFFF; /* Pure Cyan */
 }
 
-.vhs-theme .text-primary {
-  color: var(--aw-color-primary);
-}
+/* Neo-Brutalist Theme Utilities */
 
-.vhs-theme .border-primary {
-  border-color: var(--aw-color-primary);
-}
+/* Universal theme-aware utilities */
+.theme-bg-primary { background-color: var(--theme-color-primary); }
+.theme-bg-secondary { background-color: var(--theme-color-secondary); }
+.theme-bg-accent { background-color: var(--theme-color-accent); }
+.theme-bg-surface { background-color: var(--theme-color-surface); }
+.theme-bg-background { background-color: var(--theme-color-background); }
 
-/* Cyberpunk Theme */
-.cyberpunk-theme {
-  --aw-color-primary: #ec4899; /* Pink */
-  --aw-color-secondary: #8b5cf6; /* Purple */
-  --aw-color-accent: #00ffff; /* Cyan */
-  --aw-color-bg-page: #0f172a; /* Dark blue */
-  --aw-color-bg-page-dark: #020617; /* Very dark blue */
-  --aw-color-text-page: #f1f5f9; /* Light gray */
-  --aw-color-text-heading: #ec4899; /* Pink */
-  --aw-color-text-muted: #94a3b8; /* Blue-gray */
-  --aw-color-border: #334155; /* Medium blue-gray */
-}
+.theme-text-primary { color: var(--theme-color-primary); }
+.theme-text-secondary { color: var(--theme-color-secondary); }
+.theme-text-accent { color: var(--theme-color-accent); }
+.theme-text { color: var(--theme-color-text); }
+.theme-text-muted { color: var(--theme-color-text-muted); }
+.theme-text-heading { color: var(--theme-color-text-heading); }
 
-.cyberpunk-theme .bg-page {
-  background-color: var(--aw-color-bg-page);
-}
-
-.cyberpunk-theme .text-page {
-  color: var(--aw-color-text-page);
-}
-
-.cyberpunk-theme .text-muted {
-  color: var(--aw-color-text-muted);
-}
-
-.cyberpunk-theme .text-heading {
-  color: var(--aw-color-text-heading);
-}
-
-.cyberpunk-theme .bg-primary {
-  background-color: var(--aw-color-primary);
-}
-
-.cyberpunk-theme .text-primary {
-  color: var(--aw-color-primary);
-}
-
-.cyberpunk-theme .border-primary {
-  border-color: var(--aw-color-primary);
-}
-
-/* Retro Theme */
-.retro-theme {
-  --aw-color-primary: #f97316; /* Orange */
-  --aw-color-secondary: #22c55e; /* Green */
-  --aw-color-accent: #8b5cf6; /* Purple */
-  --aw-color-bg-page: #f0f9ff; /* Light blue */
-  --aw-color-bg-page-dark: #0c4a6e; /* Dark blue */
-  --aw-color-text-page: #0f172a; /* Dark slate */
-  --aw-color-text-heading: #f97316; /* Orange */
-  --aw-color-text-muted: #64748b; /* Slate gray */
-  --aw-color-border: #bae6fd; /* Light blue */
-}
-
-.retro-theme .bg-page {
-  background-color: var(--aw-color-bg-page);
-}
-
-.retro-theme .text-page {
-  color: var(--aw-color-text-page);
-}
-
-.retro-theme .text-muted {
-  color: var(--aw-color-text-muted);
-}
-
-.retro-theme .text-heading {
-  color: var(--aw-color-text-heading);
-}
-
-.retro-theme .bg-primary {
-  background-color: var(--aw-color-primary);
-}
-
-.retro-theme .text-primary {
-  color: var(--aw-color-primary);
-}
-
-.retro-theme .border-primary {
-  border-color: var(--aw-color-primary);
-}
+.theme-border-primary { border-color: var(--theme-color-primary); }
+.theme-border-secondary { border-color: var(--theme-color-secondary); }
+.theme-border-accent { border-color: var(--theme-color-accent); }
+.theme-border { border-color: var(--theme-color-border); }

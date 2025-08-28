@@ -1,9 +1,103 @@
 ---
-import { UI } from 'astrowind:config';
-import { initializeTheme } from '~/utils/theme';
+import { themes, defaultTheme } from '~/config/themes';
 ---
 
-<script is:inline define:vars={{ defaultTheme: UI.theme || 'system' }}>
-  // Initialize theme system
-  initializeTheme();
+<script is:inline define:vars={{ themes, defaultTheme }}>
+  // Theme utility functions - made available globally
+  const getStoredTheme = () => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('theme') || defaultTheme;
+    }
+    return defaultTheme;
+  };
+
+  const setStoredTheme = (theme) => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('theme', theme);
+    }
+  };
+
+  const getSystemTheme = () => {
+    if (typeof window !== 'undefined' && window.matchMedia) {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+    }
+    return defaultTheme;
+  };
+
+  const getActiveTheme = () => {
+    const stored = getStoredTheme();
+    if (stored === 'system') {
+      return getSystemTheme();
+    }
+    return stored;
+  };
+
+  const applyTheme = (themeId) => {
+    if (typeof document === 'undefined') return;
+
+    // Remove all theme classes
+    document.documentElement.classList.remove(
+      'electric-surge-theme', 
+      'cyber-rebellion-theme', 
+      'voltage-yellow-theme', 
+      'neon-noir-theme', 
+      'industrial-heat-theme', 
+      'arctic-pulse-theme'
+    );
+    
+    // Find the theme
+    const theme = themes.find(t => t.id === themeId) || themes.find(t => t.id === defaultTheme);
+    
+    // Apply the theme class
+    if (theme) {
+      if (theme.class) {
+        document.documentElement.classList.add(theme.class);
+      } else if (theme.id === 'default') {
+        document.documentElement.classList.add('default-theme');
+      }
+    }
+    
+    // Update stored theme
+    setStoredTheme(themeId);
+  };
+
+  const toggleTheme = () => {
+    const current = getActiveTheme();
+    const currentIndex = themes.findIndex(t => t.id === current);
+    const nextIndex = (currentIndex + 1) % themes.length;
+    const nextTheme = themes[nextIndex].id;
+    
+    applyTheme(nextTheme);
+    return nextTheme;
+  };
+
+  const getThemeById = (id) => {
+    return themes.find(t => t.id === id);
+  };
+
+  const getAvailableThemes = () => {
+    return [...themes];
+  };
+
+  // Make functions globally available
+  window.themeUtils = {
+    getStoredTheme,
+    setStoredTheme,
+    getSystemTheme,
+    getActiveTheme,
+    applyTheme,
+    toggleTheme,
+    getThemeById,
+    getAvailableThemes
+  };
+
+  // Initialize theme on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    const theme = getActiveTheme();
+    applyTheme(theme);
+  });
+
+  // Apply theme immediately to prevent flash
+  const theme = getActiveTheme();
+  applyTheme(theme);
 </script>

@@ -1,9 +1,9 @@
 ---
 // Theme selector dropdown component
-import { getActiveTheme, getAvailableThemes, applyTheme } from '~/utils/theme';
+import { themes, defaultTheme } from '~/config/themes';
 
-const availableThemes = getAvailableThemes();
-const currentTheme = getActiveTheme();
+const availableThemes = themes;
+const currentTheme = defaultTheme; // Will be updated client-side
 ---
 
 <div class="theme-selector relative">
@@ -23,18 +23,22 @@ const currentTheme = getActiveTheme();
   </select>
 </div>
 
-<script>
+<script is:inline>
   // Client-side theme selection
-  if (typeof document !== 'undefined') {
+  document.addEventListener('DOMContentLoaded', () => {
     const selector = document.querySelector('[data-theme-selector]');
     
-    if (selector) {
+    if (selector && window.themeUtils) {
+      // Set current theme in selector
+      const currentTheme = window.themeUtils.getActiveTheme();
+      selector.value = currentTheme;
+      
+      // Listen for theme changes
       selector.addEventListener('change', (e) => {
-        const target = e.target as HTMLSelectElement;
-        applyTheme(target.value);
-        // Reload to apply theme properly
-        location.reload();
+        const themeId = e.target.value;
+        window.themeUtils.applyTheme(themeId);
+        // No reload needed - theme updates immediately
       });
     }
-  }
+  });
 </script>

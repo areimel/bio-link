@@ -28,13 +28,13 @@ const { name, title, avatar, socialLinks, profileLinks } = Astro.props;
   <!-- Dark/Light Mode Toggle -->
   <div class="absolute top-2 right-2">
     <ThemeToggle 
-      iconClass="w-6 h-6 text-vhs-red dark:text-vhs-yellow" 
-      class="hover:bg-vhs-offwhite dark:hover:bg-slate-700 focus:ring-vhs-orange dark:focus:ring-vhs-magenta rounded-lg text-sm p-2.5 inline-flex items-center"
+      iconClass="w-6 h-6 text-theme-primary dark:text-theme-secondary" 
+      class="hover:bg-theme-surface dark:hover:bg-slate-700 focus:ring-theme-accent dark:focus:ring-theme-primary rounded-lg text-sm p-2.5 inline-flex items-center"
     />
   </div>
 
   <!-- Profile Avatar -->
-  <div class="w-48 h-48 mb-6 overflow-hidden rounded-full neo-border border-vhs-red dark:border-vhs-yellow">
+  <div class="w-48 h-48 mb-6 overflow-hidden rounded-full neo-border border-theme-primary dark:border-theme-secondary">
     <img 
       src={avatar} 
       alt={`${name}'s profile picture`} 
@@ -43,8 +43,8 @@ const { name, title, avatar, socialLinks, profileLinks } = Astro.props;
   </div>
   
   <!-- Profile Info -->
-  <h1 class="text-lg font-press-start mb-4 text-vhs-darkgray dark:text-white leading-relaxed">{name}</h1>
-  <h2 class="text-sm font-press-start text-vhs-red dark:text-vhs-yellow mb-4 tracking-tight max-w-sm mx-auto" style="text-wrap: balance;" >{title}</h2>
+  <h1 class="text-lg font-press-start mb-4 text-theme-text dark:text-white leading-relaxed">{name}</h1>
+  <h2 class="text-sm font-press-start text-theme-primary dark:text-theme-secondary mb-4 tracking-tight max-w-sm mx-auto" style="text-wrap: balance;" >{title}</h2>
   <!-- <p class="text-sm text-default dark:text-muted max-w-md mb-4">{description}</p> -->
   <SocialLinks links={socialLinks} />
   

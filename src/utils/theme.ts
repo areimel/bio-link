@@ -33,14 +33,26 @@ export const applyTheme = (themeId: string): void => {
   if (typeof document === 'undefined') return;
 
   // Remove all theme classes
-  document.documentElement.classList.remove('dark', 'vhs-theme', 'cyberpunk-theme', 'retro-theme');
+  document.documentElement.classList.remove(
+    'electric-surge-theme', 
+    'cyber-rebellion-theme', 
+    'voltage-yellow-theme', 
+    'neon-noir-theme', 
+    'industrial-heat-theme', 
+    'arctic-pulse-theme'
+  );
   
   // Find the theme
   const theme = themes.find(t => t.id === themeId) || themes.find(t => t.id === defaultTheme);
   
-  // Apply the theme class if it exists
-  if (theme && theme.class) {
-    document.documentElement.classList.add(theme.class);
+  // Apply the theme class
+  if (theme) {
+    if (theme.class) {
+      document.documentElement.classList.add(theme.class);
+    } else if (theme.id === 'default') {
+      // For default theme, we can add a class or rely on :root styles
+      document.documentElement.classList.add('default-theme');
+    }
   }
   
   // Update stored theme

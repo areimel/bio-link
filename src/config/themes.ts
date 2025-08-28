@@ -13,60 +13,71 @@ export interface Theme {
 
 export const themes: Theme[] = [
   {
-    id: 'default',
-    name: 'Default',
-    class: '',
+    id: 'electric-surge',
+    name: 'Electric Surge',
+    class: 'electric-surge-theme',
     colors: {
-      primary: '#3b82f6',
-      secondary: '#8b5cf6',
-      background: '#ffffff',
-      text: '#1f2937',
+      primary: '#39FF14',     // Neon Green
+      secondary: '#000000',   // Pure Black
+      background: '#1a1a1a',  // Near Black
+      text: '#39FF14',        // Neon Green on dark
     },
   },
   {
-    id: 'dark',
-    name: 'Dark',
-    class: 'dark',
+    id: 'cyber-rebellion',
+    name: 'Cyber Rebellion',
+    class: 'cyber-rebellion-theme',
     colors: {
-      primary: '#60a5fa',
-      secondary: '#a78bfa',
-      background: '#111827',
-      text: '#f9fafb',
+      primary: '#FF1493',     // Deep Pink
+      secondary: '#00BFFF',   // Deep Sky Blue
+      background: '#0a0a0a',  // Deep Black
+      text: '#FFFFFF',        // Pure White
     },
   },
   {
-    id: 'vhs',
-    name: 'VHS',
-    class: 'vhs-theme',
+    id: 'voltage-yellow',
+    name: 'Voltage Yellow',
+    class: 'voltage-yellow-theme',
     colors: {
-      primary: '#e11d48',
-      secondary: '#fbbf24',
-      background: '#f8fafc',
-      text: '#1e293b',
+      primary: '#FFD700',     // Electric Gold
+      secondary: '#FF4500',   // Orange Red
+      background: '#2F2F2F',  // Charcoal
+      text: '#000000',        // Black (for yellow backgrounds)
     },
   },
   {
-    id: 'cyberpunk',
-    name: 'Cyberpunk',
-    class: 'cyberpunk-theme',
+    id: 'neon-noir',
+    name: 'Neon Noir',
+    class: 'neon-noir-theme',
     colors: {
-      primary: '#ec4899',
-      secondary: '#8b5cf6',
-      background: '#0f172a',
-      text: '#f1f5f9',
+      primary: '#FF00FF',     // Pure Magenta
+      secondary: '#8A2BE2',   // Blue Violet
+      background: '#0D0D0D',  // Almost Black
+      text: '#FFFFFF',        // Pure White
     },
   },
   {
-    id: 'retro',
-    name: 'Retro',
-    class: 'retro-theme',
+    id: 'industrial-heat',
+    name: 'Industrial Heat',
+    class: 'industrial-heat-theme',
     colors: {
-      primary: '#f97316',
-      secondary: '#22c55e',
-      background: '#f0f9ff',
-      text: '#0f172a',
+      primary: '#FF4500',     // Orange Red
+      secondary: '#32CD32',   // Lime Green
+      background: '#1C1C1C',  // Dark Grey
+      text: '#FFFFFF',        // Pure White
+    },
+  },
+  {
+    id: 'arctic-pulse',
+    name: 'Arctic Pulse',
+    class: 'arctic-pulse-theme',
+    colors: {
+      primary: '#00FFFF',     // Pure Cyan
+      secondary: '#FF69B4',   // Hot Pink
+      background: '#F0F0F0',  // Light Grey
+      text: '#000000',        // Pure Black
     },
   },
 ];
 
-export const defaultTheme = 'default';
+export const defaultTheme = 'electric-surge';

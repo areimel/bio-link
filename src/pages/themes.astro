@@ -2,75 +2,159 @@
 import Layout from '~/layouts/PageLayout.astro';
 import ThemeSelector from '~/components/common/ThemeSelector.astro';
 import ThemeToggle from '~/components/common/ThemeToggle.astro';
+import { themes } from '~/config/themes';
 
 const metadata = {
-  title: 'Theme Showcase',
-  description: 'Preview all available themes',
+  title: 'Neo-Brutalist Theme Showcase',
+  description: 'Preview all 6 neo-brutalist theme palettes',
   ignoreTitleTemplate: true,
 };
 ---
 
 <Layout metadata={metadata}>
-  <div class="container mx-auto px-4 py-8">
-    <h1 class="text-3xl font-bold mb-6 text-center">Theme Showcase</h1>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-      <div class="neo-container p-6">
-        <h2 class="text-xl font-bold mb-4">Theme Selector</h2>
-        <p class="mb-4">Choose from our available themes:</p>
-        <ThemeSelector />
-      </div>
+  <div class="w-full min-h-screen bg-theme-background">
+    <div class="container mx-auto px-4 py-8">
+      <h1 class="text-3xl font-press-start mb-8 text-center text-theme-text-heading">
+        Neo-Brutalist Theme System
+      </h1>
       
-      <div class="neo-container p-6">
-        <h2 class="text-xl font-bold mb-4">Theme Toggle</h2>
-        <p class="mb-4">Quickly toggle between themes:</p>
-        <ThemeToggle />
-      </div>
-      
-      <div class="neo-container p-6">
-        <h2 class="text-xl font-bold mb-4">Current Theme</h2>
-        <p>Check your current theme in the config.</p>
-      </div>
-    </div>
-    
-    <div class="neo-container p-6 mb-8">
-      <h2 class="text-2xl font-bold mb-4">Theme Preview</h2>
-      <p class="mb-4">This is how elements look with the current theme:</p>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-        <div>
-          <h3 class="text-lg font-semibold mb-2">Buttons</h3>
-          <div class="flex flex-wrap gap-2">
-            <button class="btn">Default</button>
-            <button class="btn-primary">Primary</button>
-            <button class="btn-secondary">Secondary</button>
-          </div>
+      <!-- Theme Controls -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div class="neo-container p-6 bg-theme-surface border-theme-border">
+          <h2 class="text-lg font-press-start mb-4 text-theme-primary">Theme Selector</h2>
+          <p class="mb-4 text-theme-text text-sm">Choose from 6 neo-brutalist palettes:</p>
+          <ThemeSelector />
         </div>
         
-        <div>
-          <h3 class="text-lg font-semibold mb-2">Colors</h3>
-          <div class="flex flex-wrap gap-2">
-            <div class="w-8 h-8 rounded bg-primary"></div>
-            <div class="w-8 h-8 rounded bg-secondary"></div>
-            <div class="w-8 h-8 rounded bg-accent"></div>
-          </div>
+        <div class="neo-container p-6 bg-theme-surface border-theme-border">
+          <h2 class="text-lg font-press-start mb-4 text-theme-primary">Theme Toggle</h2>
+          <p class="mb-4 text-theme-text text-sm">Cycle through all themes:</p>
+          <ThemeToggle iconClass="w-8 h-8 text-theme-primary" />
         </div>
       </div>
       
-      <div class="mb-6">
-        <h3 class="text-lg font-semibold mb-2">Cards</h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div class="neo-container p-4">
-            <h4 class="font-bold mb-2">Card 1</h4>
-            <p class="text-muted">This is a sample card with theme styling.</p>
+      <!-- Color Palette Preview -->
+      <div class="neo-container p-6 mb-8 bg-theme-surface border-theme-border">
+        <h2 class="text-xl font-press-start mb-6 text-theme-primary">Current Theme Colors</h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-6">
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto mb-2 neo-border border-theme-border bg-theme-primary"></div>
+            <p class="text-xs font-press-start text-theme-text">Primary</p>
           </div>
-          <div class="neo-container p-4">
-            <h4 class="font-bold mb-2">Card 2</h4>
-            <p class="text-muted">This is a sample card with theme styling.</p>
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto mb-2 neo-border border-theme-border bg-theme-secondary"></div>
+            <p class="text-xs font-press-start text-theme-text">Secondary</p>
           </div>
-          <div class="neo-container p-4">
-            <h4 class="font-bold mb-2">Card 3</h4>
-            <p class="text-muted">This is a sample card with theme styling.</p>
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto mb-2 neo-border border-theme-border bg-theme-accent"></div>
+            <p class="text-xs font-press-start text-theme-text">Accent</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto mb-2 neo-border border-theme-border bg-theme-surface"></div>
+            <p class="text-xs font-press-start text-theme-text">Surface</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto mb-2 neo-border border-theme-border bg-theme-background"></div>
+            <p class="text-xs font-press-start text-theme-text">Background</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Elements Preview -->
+      <div class="neo-container p-6 mb-8 bg-theme-surface border-theme-border">
+        <h2 class="text-xl font-press-start mb-6 text-theme-primary">Interactive Elements</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div>
+            <h3 class="text-sm font-press-start mb-4 text-theme-text-heading">Neo-Brutalist Buttons</h3>
+            <div class="flex flex-col gap-3">
+              <button class="neo-button bg-theme-primary text-theme-background px-6 py-3 font-press-start text-sm">
+                Primary Button
+              </button>
+              <button class="neo-button bg-theme-secondary text-theme-background px-6 py-3 font-press-start text-sm">
+                Secondary Button
+              </button>
+              <button class="neo-button bg-theme-accent text-theme-background px-6 py-3 font-press-start text-sm">
+                Accent Button
+              </button>
+            </div>
+          </div>
+          
+          <div>
+            <h3 class="text-sm font-press-start mb-4 text-theme-text-heading">Text Styles</h3>
+            <div class="space-y-2">
+              <p class="text-theme-primary font-press-start text-sm">Primary Text</p>
+              <p class="text-theme-secondary font-press-start text-sm">Secondary Text</p>
+              <p class="text-theme-text">Regular Text</p>
+              <p class="text-theme-text-muted text-sm">Muted Text</p>
+              <p class="text-theme-text-heading text-lg font-bold">Heading Text</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Theme Gallery -->
+      <div class="neo-container p-6 mb-8 bg-theme-surface border-theme-border">
+        <h2 class="text-xl font-press-start mb-6 text-theme-primary">Available Themes</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {themes.map((theme) => (
+            <div class="neo-container p-4 border-theme-border bg-theme-background">
+              <h3 class="font-press-start text-sm mb-3 text-theme-text-heading">{theme.name}</h3>
+              <div class="flex gap-2 mb-3">
+                <div class="w-6 h-6 border-2 border-black" style={`background-color: ${theme.colors.primary}`}></div>
+                <div class="w-6 h-6 border-2 border-black" style={`background-color: ${theme.colors.secondary}`}></div>
+                <div class="w-6 h-6 border-2 border-black" style={`background-color: ${theme.colors.background}`}></div>
+              </div>
+              <p class="text-xs text-theme-text-muted">
+                {theme.id === 'electric-surge' && 'Neon green brutalism'}
+                {theme.id === 'cyber-rebellion' && 'Pink & blue rebellion'}
+                {theme.id === 'voltage-yellow' && 'Electric gold energy'}
+                {theme.id === 'neon-noir' && 'Magenta noir mystery'}
+                {theme.id === 'industrial-heat' && 'Orange industrial heat'}
+                {theme.id === 'arctic-pulse' && 'Cyan arctic minimalism'}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      <!-- Sample Components -->
+      <div class="neo-container p-6 bg-theme-surface border-theme-border">
+        <h2 class="text-xl font-press-start mb-6 text-theme-primary">Component Examples</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Link Button Style -->
+          <div class="neo-container p-4 bg-theme-background border-theme-border">
+            <h4 class="font-press-start text-sm mb-3 text-theme-text-heading">Link Button</h4>
+            <div class="grid grid-cols-8 gap-2 items-center w-full p-4 bg-theme-surface neo-button rounded-lg">
+              <div class="col-span-1 flex justify-center">
+                <div class="w-8 h-8 bg-theme-primary"></div>
+              </div>
+              <div class="col-span-6 px-2">
+                <span class="font-press-start text-xs text-theme-text">Sample Link</span>
+              </div>
+              <div class="col-span-1 flex justify-center">
+                <div class="w-8 h-8 bg-theme-accent"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Links Style -->
+          <div class="neo-container p-4 bg-theme-background border-theme-border">
+            <h4 class="font-press-start text-sm mb-3 text-theme-text-heading">Social Links</h4>
+            <div class="flex gap-3 justify-center">
+              <div class="neo-button bg-theme-text hover:bg-theme-accent w-12 h-12 flex items-center justify-center rounded-lg">
+                <div class="w-6 h-6 bg-theme-surface"></div>
+              </div>
+              <div class="neo-button bg-theme-text hover:bg-theme-accent w-12 h-12 flex items-center justify-center rounded-lg">
+                <div class="w-6 h-6 bg-theme-surface"></div>
+              </div>
+              <div class="neo-button bg-theme-text hover:bg-theme-accent w-12 h-12 flex items-center justify-center rounded-lg">
+                <div class="w-6 h-6 bg-theme-surface"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
