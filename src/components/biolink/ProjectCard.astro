@@ -76,13 +76,11 @@ const { title, url, icon, thumbnail, description, technologies, type } = Astro.p
   )}
   
   <!-- Link Arrow -->
-  <div class="flex justify-end">
+  <div class="flex ">
     <LinkButton 
       title="View Project" 
       icon='tabler:external-link' 
-      href={url} 
-      target="_blank" 
-      rel="noopener noreferrer" 
+      url={url}
     />
   </div>
 </div>
