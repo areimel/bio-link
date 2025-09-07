@@ -43,6 +43,10 @@
   .neo-container {
     @apply neo-border neo-shadow-big bg-white dark:bg-slate-800 rounded-lg;
   }
+
+  .neo-card {
+    @apply neo-border bg-white dark:bg-slate-800 rounded-lg;
+  }
   
   .neo-grid {
     @apply grid gap-4 p-2;
@@ -51,9 +55,7 @@
   /* Bento grid layout utilities */
   .bento-grid {
     grid-template-areas: 
-      "profile profile contact contact"
-      "profile profile projects projects"
-      "profile profile projects projects";
+      "profile projects projects projects";
   }
   
   .bento-profile {

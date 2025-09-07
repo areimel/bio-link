@@ -6,6 +6,7 @@ import LinksList from './LinksList.astro';
 interface Props {
   name: string;
   title: string;
+  subtitle: string;
   avatar: string;
   socialLinks: Array<{
     platform: string;
@@ -20,7 +21,7 @@ interface Props {
   }>;
 }
 
-const { name, title, avatar, socialLinks, profileLinks } = Astro.props;
+const { name, title, subtitle, avatar, socialLinks, profileLinks } = Astro.props;
 ---
 
 <div class="flex flex-col items-center text-center px-4 pb-12 pt-6 relative neo-container mb-6">
@@ -42,8 +43,9 @@ const { name, title, avatar, socialLinks, profileLinks } = Astro.props;
   </div>
   
   <!-- Profile Info -->
-  <h1 class="text-lg font-press-start mb-4 text-vhs-darkgray dark:text-white leading-relaxed">{name}</h1>
+  <h1 class="text-lg font-press-start text-vhs-darkgray dark:text-white leading-relaxed">{name}</h1>
   <h2 class="text-sm font-press-start text-vhs-red dark:text-vhs-yellow mb-4 tracking-tight max-w-sm mx-auto" style="text-wrap: balance;" >{title}</h2>
+  <p class="text-xs font-mono font-semibold text-vhs-darkgray dark:text-white mb-4 tracking-tight max-w-sm mx-auto" style="text-wrap: balance;" >{subtitle}</p>
   <!-- <p class="text-sm text-default dark:text-muted max-w-md mb-4">{description}</p> -->
   <SocialLinks links={socialLinks} />
   
@@ -52,7 +54,7 @@ const { name, title, avatar, socialLinks, profileLinks } = Astro.props;
     <LinksList links={profileLinks} />
   </div>
   
-  <div class="border-b-4 border-black w-full mb-8"></div>
+  <div class="border-b-4 border-black w-full mb-6 mt-2"></div>
 
   <script is:inline type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="alecreimel" data-color="#FFDD00" data-emoji=""  data-font="Inter" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
 </div> 
