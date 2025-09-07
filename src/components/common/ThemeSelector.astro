@@ -24,20 +24,28 @@ const currentTheme = defaultTheme; // Will be updated client-side
 </div>
 
 <script is:inline>
-  // Client-side theme selection
+  // Client-side theme selection for themes page
   document.addEventListener('DOMContentLoaded', () => {
     const selector = document.querySelector('[data-theme-selector]');
     
     if (selector && window.themeUtils) {
-      // Set current theme in selector
-      const currentTheme = window.themeUtils.getActiveTheme();
+      // Detect current theme from HTML class
+      let currentTheme = 'electric-surge'; // default
+      const availableThemes = window.themeUtils.getAvailableThemes();
+      
+      for (const theme of availableThemes) {
+        if (theme.class && document.documentElement.classList.contains(theme.class)) {
+          currentTheme = theme.id;
+          break;
+        }
+      }
+      
       selector.value = currentTheme;
       
       // Listen for theme changes
       selector.addEventListener('change', (e) => {
         const themeId = e.target.value;
         window.themeUtils.applyTheme(themeId);
-        // No reload needed - theme updates immediately
       });
     }
   });

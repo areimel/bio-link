@@ -2,7 +2,6 @@
 // ProfileSection component for displaying user profile information
 import SocialLinks from './SocialLinks.astro';
 import LinksList from './LinksList.astro';
-import ThemeToggle from '~/components/common/ThemeToggle.astro';
 
 interface Props {
   name: string;
@@ -25,14 +24,6 @@ const { name, title, avatar, socialLinks, profileLinks } = Astro.props;
 ---
 
 <div class="flex flex-col items-center text-center px-4 pb-12 pt-6 relative neo-container mb-6">
-  <!-- Dark/Light Mode Toggle -->
-  <div class="absolute top-2 right-2">
-    <ThemeToggle 
-      iconClass="w-6 h-6 text-theme-primary dark:text-theme-secondary" 
-      class="hover:bg-theme-surface dark:hover:bg-slate-700 focus:ring-theme-accent dark:focus:ring-theme-primary rounded-lg text-sm p-2.5 inline-flex items-center"
-    />
-  </div>
-
   <!-- Profile Avatar -->
   <div class="w-48 h-48 mb-6 overflow-hidden rounded-full neo-border border-theme-primary dark:border-theme-secondary">
     <img 
@@ -53,7 +44,10 @@ const { name, title, avatar, socialLinks, profileLinks } = Astro.props;
     <LinksList links={profileLinks} />
   </div>
   
-  <div class="border-b-4 border-black w-full mb-8"></div>
+  <div class="border-b-4 border-black w-full mt-2 mb-6"></div>
 
+  <h2 class="text-sm font-press-start text-theme-primary dark:text-theme-secondary mb-4 tracking-tight max-w-sm mx-auto" style="text-wrap: balance;" >
+    Like My Work?<br />Feel free to support me:
+  </h2>
   <script is:inline type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="alecreimel" data-color="#FFDD00" data-emoji=""  data-font="Inter" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
 </div> 

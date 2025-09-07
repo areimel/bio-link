@@ -70,3 +70,4 @@ analytics:
 
 ui:
   theme: 'system' # Values: "system" | "default" | "dark" | "vhs" | "cyberpunk" | "retro"
+  lockedTheme: 'electric-surge' # Developer-controlled theme for the bio-link site
