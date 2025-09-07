@@ -9,6 +9,11 @@
   },
   "socialLinks": [
     {
+      "platform": "email",
+      "url": "mailto:alecreimel1@gmail.com",
+      "icon": "tabler:mail"
+    },
+    {
       "platform": "linkedin",
       "url": "https://www.linkedin.com/in/alecwreimel/",
       "icon": "tabler:brand-linkedin"
@@ -19,9 +24,9 @@
       "icon": "tabler:brand-github"
     },
     {
-      "platform": "email",
-      "url": "mailto:alecreimel1@gmail.com",
-      "icon": "tabler:mail"
+      "platform": "instagram",
+      "url": "https://www.instagram.com/alecreimel/",
+      "icon": "tabler:brand-instagram"
     }
   ],
   "profileLinks": [
