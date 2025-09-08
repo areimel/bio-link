@@ -1,0 +1,48 @@
+---
+// HeroSection component - Profile info, social links, and primary action buttons
+import SocialLinks from './SocialLinks.astro';
+import LinksList from './LinksList.astro';
+
+interface Props {
+  name: string;
+  title: string;
+  subtitle: string;
+  avatar: string;
+  socialLinks: Array<{
+    platform: string;
+    url: string;
+    icon: string;
+  }>;
+  profileLinks: Array<{
+    title: string;
+    url: string;
+    icon?: string;
+    modal?: string;
+  }>;
+}
+
+const { name, title, subtitle, avatar, socialLinks, profileLinks } = Astro.props;
+---
+
+<div class="flex flex-col items-center text-center px-4 pb-12 pt-6 relative neo-container mb-6">
+  <!-- Profile Avatar -->
+  <div class="w-48 h-48 mb-6 overflow-hidden rounded-full neo-border border-theme-accent dark:border-theme-secondary">
+    <img 
+      src={avatar} 
+      alt={`${name}'s profile picture`} 
+      class="w-full h-full object-cover"
+    />
+  </div>
+  
+  <!-- Profile Info -->
+  <h1 class="text-lg font-press-start text-theme-text dark:text-white leading-relaxed">{name}</h1>
+  <h2 class="text-sm font-press-start text-theme-accent dark:text-theme-secondary mb-4 tracking-tight max-w-sm mx-auto" style="text-wrap: balance;" >{title}</h2>
+  <p class="text-xs font-mono font-semibold text-theme-text dark:text-white mb-4 tracking-tight max-w-sm mx-auto" style="text-wrap: balance;" >{subtitle}</p>
+  
+  <SocialLinks links={socialLinks} />
+  
+  <!-- Profile Links -->
+  <div class="w-full">
+    <LinksList links={profileLinks} />
+  </div>
+</div>

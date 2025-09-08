@@ -1,0 +1,37 @@
+---
+// ProjectsSection component - Standalone projects section with responsive layout
+import Heading from './Heading.astro';
+import ProjectsList from './ProjectsList.astro';
+
+interface Props {
+  projectLinks: Array<{
+    title: string;
+    url: string;
+    icon?: string;
+    thumbnail?: string;
+    description: string;
+    technologies: string[];
+    type: string;
+  }>;
+}
+
+const { projectLinks } = Astro.props;
+---
+
+{projectLinks && projectLinks.length > 0 && (
+  <div class="w-full">
+    <!-- Mobile: full width container -->
+    <div class="lg:hidden">
+      <div class="neo-container p-4 bg-theme-surface dark:bg-slate-800 text-theme-text dark:text-white">
+        <Heading text="My Projects" />
+        <ProjectsList projects={projectLinks} />
+      </div>
+    </div>
+
+    <!-- Desktop: bento grid item -->
+    <div class="hidden lg:block lg:col-span-2 bento-projects neo-container p-4 bg-theme-surface dark:bg-slate-800 text-theme-text dark:text-white overflow-y-auto">
+      <Heading text="My Projects" />
+      <ProjectsList projects={projectLinks} />
+    </div>
+  </div>
+)}
