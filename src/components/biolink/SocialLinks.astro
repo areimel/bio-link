@@ -22,10 +22,10 @@ const { links } = Astro.props;
         href={link.url} 
         target="_blank" 
         rel="noopener noreferrer"
-        class="neo-button bg-vhs-darkgray dark:bg-vhs-darkgray hover:bg-vhs-orange dark:hover:bg-vhs-orange w-12 h-12 flex items-center justify-center p-0 rounded-lg"
+        class="neo-button bg-theme-text dark:bg-theme-text hover:bg-theme-primary dark:hover:bg-theme-primary w-12 h-12 flex items-center justify-center p-0 rounded-lg"
         aria-label={`Visit ${link.platform}`}
       >
-        <Icon name={link.icon} class="w-6 h-6 text-vhs-offwhite dark:text-vhs-offwhite" />
+        <Icon name={link.icon} class="w-6 h-6 text-theme-surface dark:text-theme-surface" />
       </a>
     ))
   }
