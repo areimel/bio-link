@@ -29,13 +29,13 @@ const { name, title, subtitle, avatar, socialLinks, profileLinks } = Astro.props
   <!-- Dark/Light Mode Toggle -->
   <!-- <div class="absolute top-2 right-2">
     <ToggleTheme 
-      iconClass="w-6 h-6 text-vhs-red dark:text-vhs-yellow" 
-      class="hover:bg-vhs-offwhite dark:hover:bg-slate-700 focus:ring-vhs-orange dark:focus:ring-vhs-magenta"
+      iconClass="w-6 h-6 text-theme-accent dark:text-theme-secondary" 
+      class="hover:bg-theme-surface dark:hover:bg-slate-700 focus:ring-theme-primary dark:focus:ring-theme-accent-alt"
     />
   </div> -->
 
   <!-- Profile Avatar -->
-  <div class="w-48 h-48 mb-6 overflow-hidden rounded-full neo-border border-vhs-red dark:border-vhs-yellow">
+  <div class="w-48 h-48 mb-6 overflow-hidden rounded-full neo-border border-theme-accent dark:border-theme-secondary">
     <img 
       src={avatar} 
       alt={`${name}'s profile picture`} 
@@ -44,38 +44,40 @@ const { name, title, subtitle, avatar, socialLinks, profileLinks } = Astro.props
   </div>
   
   <!-- Profile Info -->
-  <h1 class="text-lg font-press-start text-vhs-darkgray dark:text-white leading-relaxed">{name}</h1>
-  <h2 class="text-sm font-press-start text-vhs-red dark:text-vhs-yellow mb-4 tracking-tight max-w-sm mx-auto" style="text-wrap: balance;" >{title}</h2>
-  <p class="text-xs font-mono font-semibold text-vhs-darkgray dark:text-white mb-4 tracking-tight max-w-sm mx-auto" style="text-wrap: balance;" >{subtitle}</p>
+  <h1 class="text-lg font-press-start text-theme-text dark:text-white leading-relaxed">{name}</h1>
+  <h2 class="text-sm font-press-start text-theme-accent dark:text-theme-secondary mb-4 tracking-tight max-w-sm mx-auto" style="text-wrap: balance;" >{title}</h2>
+  <p class="text-xs font-mono font-semibold text-theme-text dark:text-white mb-4 tracking-tight max-w-sm mx-auto" style="text-wrap: balance;" >{subtitle}</p>
   <!-- <p class="text-sm text-default dark:text-muted max-w-md mb-4">{description}</p> -->
   <SocialLinks links={socialLinks} />
   
   <!-- Profile Links -->
-  <div class="w-full mt-8 p-2 max-w-md">
+  <div class="w-full">
     <LinksList links={profileLinks} />
   </div>
   
   <div class="border-b-4 border-black w-full mb-6 mt-2"></div>
   
-  <h2 class="text-sm font-press-start text-vhs-darkgray dark:text-white mb-2 tracking-tight max-w-sm mx-auto" style="text-wrap: balance;" >
-    Enjoying my work?
-  </h2>
-  <p class="text-xs font-mono font-semibold text-vhs-darkgray dark:text-white mb-4 tracking-tight max-w-sm mx-auto" style="text-wrap: balance;" >
-    Feel free to support me on the following channels:
-  </p>
+  <div class="w-full">
+    <h2 class="text-sm font-press-start text-theme-text dark:text-white mb-2 tracking-tight max-w-sm mx-auto" style="text-wrap: balance;" >
+      Enjoying my work?
+    </h2>
+    <p class="text-xs font-mono font-semibold text-theme-text dark:text-white mb-4 tracking-tight max-w-sm mx-auto" style="text-wrap: balance;" >
+      Feel free to support me on the following channels:
+    </p>
 
-  <!-- Buy Me A Coffee Button -->
-  <LinkButton 
-    title="Buy Me A Coffee" 
-    icon='tabler:external-link' 
-    url="https://buymeacoffee.com/alecreimel"
-  />
-  
-  <div class="mb-2">-- or --</div>
+    <!-- Buy Me A Coffee Button -->
+    <LinkButton 
+      title="Buy Me A Coffee" 
+      icon='tabler:external-link' 
+      url="https://buymeacoffee.com/alecreimel"
+    />
+    
+    <div class="mb-2">-- or --</div>
 
-  <LinkButton 
-    title="Join My Patreon" 
-    icon='tabler:external-link' 
-    url="https://www.patreon.com/cw/ARDATechLab"
-  />
+    <LinkButton 
+      title="Join My Patreon" 
+      icon='tabler:external-link' 
+      url="https://www.patreon.com/cw/ARDATechLab"
+    />
+  </div>
 </div> 

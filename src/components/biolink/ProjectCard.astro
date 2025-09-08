@@ -1,6 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
 import LinkButton from './LinkButton.astro';
+import Badge from '../common/Badge.astro';
 
 interface Props {
   title: string;
@@ -17,10 +18,10 @@ const { title, url, icon, thumbnail, description, technologies, type } = Astro.p
 
 <div
   
-  class="block w-full bg-vhs-offwhite dark:bg-slate-800 neo-card p-4"
+  class="block w-full bg-theme-surface dark:bg-slate-800 neo-card p-4"
 >
   <!-- Thumbnail Image -->
-  <div class="w-full h-32 mb-3 bg-vhs-yellow dark:bg-vhs-orange rounded neo-border overflow-hidden flex items-center justify-center">
+  <div class="w-full h-32 mb-3 bg-theme-secondary dark:bg-theme-primary rounded neo-border overflow-hidden flex items-center justify-center">
     {thumbnail ? (
       <img
         src={thumbnail}
@@ -30,11 +31,11 @@ const { title, url, icon, thumbnail, description, technologies, type } = Astro.p
       />
     ) : (
       <div class="flex items-center justify-center w-full h-full">
-        {icon && <Icon name={icon} class="w-12 h-12 text-vhs-darkgray dark:text-white" />}
+        {icon && <Icon name={icon} class="w-12 h-12 text-theme-text dark:text-white" />}
       </div>
     )}
     <div class="hidden items-center justify-center w-full h-full">
-      {icon && <Icon name={icon} class="w-12 h-12 text-vhs-darkgray dark:text-white" />}
+      {icon && <Icon name={icon} class="w-12 h-12 text-theme-text dark:text-white" />}
     </div>
   </div>
   
@@ -42,23 +43,21 @@ const { title, url, icon, thumbnail, description, technologies, type } = Astro.p
   <div class="flex items-center gap-3 mb-2">
     {icon && (
       <div class="flex-shrink-0">
-        <Icon name={icon} class="w-6 h-6 text-vhs-red dark:text-vhs-yellow" />
+        <Icon name={icon} class="w-6 h-6 text-theme-accent dark:text-theme-secondary" />
       </div>
     )}
-    <h3 class="font-press-start text-xs text-vhs-darkgray dark:text-white leading-tight">
+    <h3 class="font-press-start text-xs text-theme-text dark:text-white leading-tight">
       {title}
     </h3>
   </div>
   
   <!-- Project Type Badge -->
   <div class="mb-3">
-    <span class="inline-block px-2 py-1 bg-vhs-yellow dark:bg-vhs-orange text-vhs-darkgray dark:text-white text-xs font-press-start neo-border rounded">
-      {type}
-    </span>
+    <Badge text={type} variant="primary" size="sm" />
   </div>
   
   <!-- Description -->
-  <p class="text-sm text-vhs-darkgray dark:text-gray-300 mb-3 leading-relaxed font-mono">
+  <p class="text-sm text-theme-text dark:text-gray-300 mb-3 leading-relaxed font-mono">
     {description}
   </p>
   
@@ -67,9 +66,7 @@ const { title, url, icon, thumbnail, description, technologies, type } = Astro.p
     <div class="mb-3">
       <div class="flex flex-wrap gap-1">
         {technologies.map(tech => (
-          <span class="inline-block px-2 py-1 bg-vhs-red dark:bg-vhs-magenta text-white text-xs font-mono neo-border rounded">
-            {tech}
-          </span>
+          <Badge text={tech} variant="accent" size="sm" />
         ))}
       </div>
     </div>

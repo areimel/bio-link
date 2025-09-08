@@ -52,27 +52,7 @@
     @apply grid gap-4 p-2;
   }
   
-  /* Bento grid layout utilities */
-  .bento-grid {
-    grid-template-areas: 
-      "profile projects projects projects";
-  }
   
-  .bento-profile {
-    grid-area: profile;
-  }
-  
-  .bento-contact {
-    grid-area: contact;
-  }
-  
-  .bento-projects {
-    grid-area: projects;
-  }
-  
-  .bento-extra {
-    grid-area: extra;
-  }
 }
 
 @layer components {

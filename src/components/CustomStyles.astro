@@ -26,17 +26,18 @@ import '@fontsource-variable/inter';
     --aw-font-heading: 'Press Start 2P';
     --aw-font-mono: 'Courier Prime';
 
-    /* Rainbow VHS inspired colors */
-    --aw-color-vhs-yellow: #f7d959; /* Bright VHS yellow */
-    --aw-color-vhs-orange: #f18344; /* Warm VHS orange */
-    --aw-color-vhs-red: #da3440; /* Vibrant VHS red */
-    --aw-color-vhs-magenta: #af375d; /* Deep VHS magenta */
-    --aw-color-vhs-purple: #6c3451; /* Rich VHS purple */
+    /* Semantic theme colors (preserving VHS color values) */
+    --aw-color-theme-secondary: #f7d959; /* Bright secondary accent */
+    --aw-color-theme-primary: #f18344; /* Main primary action color */
+    --aw-color-theme-accent: #da3440; /* Vibrant accent/highlight */
+    --aw-color-theme-accent-alt: #af375d; /* Alternative accent */
+    --aw-color-theme-surface: #f2e2c8; /* Surface background */
+    --aw-color-theme-text: rgb(68, 68, 68); /* Main text color */
 
-    /* Main theme colors derived from VHS palette */
-    --aw-color-primary: var(--aw-color-vhs-red);
-    --aw-color-secondary: var(--aw-color-vhs-yellow);
-    --aw-color-accent: var(--aw-color-vhs-magenta);
+    /* Main theme colors using semantic theme palette */
+    --aw-color-primary: var(--aw-color-theme-accent);
+    --aw-color-secondary: var(--aw-color-theme-secondary);
+    --aw-color-accent: var(--aw-color-theme-accent-alt);
     
     --aw-color-text-heading: rgb(68, 68, 68); /* Dark gray from VHS logo */
     --aw-color-text-default: rgb(56, 56, 56);
@@ -57,17 +58,18 @@ import '@fontsource-variable/inter';
     --aw-font-heading: 'Press Start 2P';
     --aw-font-mono: 'Courier Prime';
 
-    /* Dark mode - using the same VHS colors but with adjusted opacity/usage */
-    --aw-color-vhs-yellow: #f7d959;
-    --aw-color-vhs-orange: #f18344;
-    --aw-color-vhs-red: #da3440;
-    --aw-color-vhs-magenta: #af375d;
-    --aw-color-vhs-purple: #6c3451;
+    /* Dark mode - using the same theme colors but with adjusted opacity/usage */
+    --aw-color-theme-secondary: #f7d959;
+    --aw-color-theme-primary: #f18344;
+    --aw-color-theme-accent: #da3440;
+    --aw-color-theme-accent-alt: #af375d;
+    --aw-color-theme-surface: rgb(24, 26, 42);
+    --aw-color-theme-text: rgb(247, 248, 248);
 
     /* Main theme colors for dark mode */
-    --aw-color-primary: var(--aw-color-vhs-red);
-    --aw-color-secondary: var(--aw-color-vhs-yellow);
-    --aw-color-accent: var(--aw-color-vhs-magenta);
+    --aw-color-primary: var(--aw-color-theme-accent);
+    --aw-color-secondary: var(--aw-color-theme-secondary);
+    --aw-color-accent: var(--aw-color-theme-accent-alt);
 
     --aw-color-text-heading: rgb(247, 248, 248);
     --aw-color-text-default: rgb(229 236 246);
