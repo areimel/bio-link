@@ -40,7 +40,7 @@ const isModalLink = !!modal;
     href={url}
     target="_blank"
     rel="noopener noreferrer"
-    class="grid grid-cols-8 gap-2 items-center w-full p-4 mb-2 bg-vhs-offwhite dark:bg-slate-800 neo-button rounded-lg"
+    class="grid grid-cols-8 gap-2 items-center text-center w-full p-4 mb-2 bg-vhs-offwhite dark:bg-slate-800 neo-button rounded-lg"
   >
     {/* Icon column - always takes up 1 column space even if no icon */}
     <div class="col-span-1 flex justify-center">
@@ -49,7 +49,7 @@ const isModalLink = !!modal;
     
     {/* Title column - takes up 6 columns in the middle */}
     <div class="col-span-6 px-2">
-      <span class="font-press-start text-xs font-medium text-vhs-darkgray dark:text-white">{title}</span>
+      <span class="font-press-start text-center inline-block text-xs font-medium text-vhs-darkgray dark:text-white">{title}</span>
     </div>
     
     {/* Chevron column - takes up 1 column at the end */}

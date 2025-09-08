@@ -1,12 +1,18 @@
 {
   "profile": {
     "name": "Alec Reimel",
-    "title": "Web Developer, Software Engineer",
+    "title": "Senior Developer",
+    "subtitle": "Full-Stack Web Dev, Software Engineer, AI Architect, Tech Lead",
     "description": "Building the sci-fi future we were promised.",
     "avatar": "/alec-profile-pic-2025.jpg",
     "backgroundColor": "#f8e1dc"
   },
   "socialLinks": [
+    {
+      "platform": "email",
+      "url": "mailto:alecreimel1@gmail.com",
+      "icon": "tabler:mail"
+    },
     {
       "platform": "linkedin",
       "url": "https://www.linkedin.com/in/alecwreimel/",
@@ -18,9 +24,9 @@
       "icon": "tabler:brand-github"
     },
     {
-      "platform": "email",
-      "url": "mailto:alecreimel1@gmail.com",
-      "icon": "tabler:mail"
+      "platform": "instagram",
+      "url": "https://www.instagram.com/alecreimel/",
+      "icon": "tabler:brand-instagram"
     }
   ],
   "profileLinks": [
@@ -41,21 +47,35 @@
       "icon": "tabler:world"
     }
   ],
+  "contactLinks": [
+  ],
   "projectLinks": [
     {
       "title": "ARDA Analytics",
       "url": "https://arda-analytics.netlify.app/",
-      "icon": "tabler:rocket"
+      "icon": "tabler:chart-line",
+      "thumbnail": "/project-thumbnails/arda-analytics.png",
+      "description": "A comprehensive analytics plugin that expands the capabilities of Google Analytics with custom events and advanced tracking and attribution features.",
+      "technologies": ["TypeScript", "Google Analytics", "NPM"],
+      "type": "Website Plugin"
     },
     {
       "title": "AI Prompt Library",
       "url": "https://company-ai-prompts.netlify.app/",
-      "icon": "tabler:rocket"
+      "icon": "tabler:brain",
+      "thumbnail": "/project-thumbnails/ai-prompts.png",
+      "description": "Curated collection of AI prompts for various business use cases, featuring search, categorization, and sharing capabilities.",
+      "technologies": ["Astro", "JavaScript", "Netlify", "JSON"],
+      "type": "Website Template"
     },
     {
-      "title": "ARDA Site Scanner",
+      "title": "ARDA Site Scan",
       "url": "https://github.com/areimel/playwright-site-scanner",
-      "icon": "tabler:rocket"
+      "icon": "tabler:scan",
+      "thumbnail": "/project-thumbnails/arda-site-scan.png",
+      "description": "Automated web scraping and testing tool built with Playwright for comprehensive site analysis and monitoring.",
+      "technologies": ["Node.js", "Playwright", "TypeScript", "CLI"],
+      "type": "Command Line Tool"
     }
   ]
 } 

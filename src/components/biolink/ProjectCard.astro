@@ -1,0 +1,86 @@
+---
+import { Icon } from 'astro-icon/components';
+import LinkButton from './LinkButton.astro';
+
+interface Props {
+  title: string;
+  url: string;
+  icon?: string;
+  thumbnail?: string;
+  description: string;
+  technologies: string[];
+  type: string;
+}
+
+const { title, url, icon, thumbnail, description, technologies, type } = Astro.props;
+---
+
+<div
+  
+  class="block w-full bg-vhs-offwhite dark:bg-slate-800 neo-card p-4"
+>
+  <!-- Thumbnail Image -->
+  <div class="w-full h-32 mb-3 bg-vhs-yellow dark:bg-vhs-orange rounded neo-border overflow-hidden flex items-center justify-center">
+    {thumbnail ? (
+      <img
+        src={thumbnail}
+        alt={`${title} thumbnail`}
+        class="w-full h-full object-cover"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+      />
+    ) : (
+      <div class="flex items-center justify-center w-full h-full">
+        {icon && <Icon name={icon} class="w-12 h-12 text-vhs-darkgray dark:text-white" />}
+      </div>
+    )}
+    <div class="hidden items-center justify-center w-full h-full">
+      {icon && <Icon name={icon} class="w-12 h-12 text-vhs-darkgray dark:text-white" />}
+    </div>
+  </div>
+  
+  <!-- Header with Icon and Title -->
+  <div class="flex items-center gap-3 mb-2">
+    {icon && (
+      <div class="flex-shrink-0">
+        <Icon name={icon} class="w-6 h-6 text-vhs-red dark:text-vhs-yellow" />
+      </div>
+    )}
+    <h3 class="font-press-start text-xs text-vhs-darkgray dark:text-white leading-tight">
+      {title}
+    </h3>
+  </div>
+  
+  <!-- Project Type Badge -->
+  <div class="mb-3">
+    <span class="inline-block px-2 py-1 bg-vhs-yellow dark:bg-vhs-orange text-vhs-darkgray dark:text-white text-xs font-press-start neo-border rounded">
+      {type}
+    </span>
+  </div>
+  
+  <!-- Description -->
+  <p class="text-sm text-vhs-darkgray dark:text-gray-300 mb-3 leading-relaxed font-mono">
+    {description}
+  </p>
+  
+  <!-- Technologies -->
+  {technologies && technologies.length > 0 && (
+    <div class="mb-3">
+      <div class="flex flex-wrap gap-1">
+        {technologies.map(tech => (
+          <span class="inline-block px-2 py-1 bg-vhs-red dark:bg-vhs-magenta text-white text-xs font-mono neo-border rounded">
+            {tech}
+          </span>
+        ))}
+      </div>
+    </div>
+  )}
+  
+  <!-- Link Arrow -->
+  <div class="flex ">
+    <LinkButton 
+      title="View Project" 
+      icon='tabler:external-link' 
+      url={url}
+    />
+  </div>
+</div>
