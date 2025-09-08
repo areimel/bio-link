@@ -2,6 +2,7 @@
 // ProfileSection component for displaying user profile information
 import SocialLinks from './SocialLinks.astro';
 import LinksList from './LinksList.astro';
+import LinkButton from './LinkButton.astro';
 
 interface Props {
   name: string;
@@ -64,9 +65,17 @@ const { name, title, subtitle, avatar, socialLinks, profileLinks } = Astro.props
   </p>
 
   <!-- Buy Me A Coffee Button -->
-  <script is:inline type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="alecreimel" data-color="#FFDD00" data-emoji=""  data-font="Inter" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
+  <LinkButton 
+    title="Buy Me A Coffee" 
+    icon='tabler:external-link' 
+    url="https://buymeacoffee.com/alecreimel"
+  />
+  
+  <div class="mb-2">-- or --</div>
 
-  <a href="https://www.patreon.com/cw/ARDATechLab" target="_blank" rel="noopener noreferrer" class="mt-4">
-    Join My Patreon
-  </a>
+  <LinkButton 
+    title="Join My Patreon" 
+    icon='tabler:external-link' 
+    url="https://www.patreon.com/cw/ARDATechLab"
+  />
 </div> 
