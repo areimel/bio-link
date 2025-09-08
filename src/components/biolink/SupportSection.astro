@@ -1,6 +1,16 @@
 ---
 // SupportSection component - Buy Me Coffee and Patreon support section
-import LinkButton from './LinkButton.astro';
+import LinksList from './LinksList.astro';
+
+interface Props {
+  supportLinks: Array<{
+    title: string;
+    url: string;
+    icon?: string;
+  }>;
+}
+
+const { supportLinks } = Astro.props;
 ---
 
 <div class="w-full neo-container p-6 bg-theme-surface dark:bg-slate-800 text-theme-text dark:text-white">
@@ -13,19 +23,7 @@ import LinkButton from './LinkButton.astro';
       Feel free to support me on the following channels:
     </p>
 
-    <!-- Buy Me A Coffee Button -->
-    <LinkButton 
-      title="Buy Me A Coffee" 
-      icon='tabler:external-link' 
-      url="https://buymeacoffee.com/alecreimel"
-    />
-    
-    <div class="mb-2">-- or --</div>
-
-    <LinkButton 
-      title="Join My Patreon" 
-      icon='tabler:external-link' 
-      url="https://www.patreon.com/cw/ARDATechLab"
-    />
+    <!-- Support Links -->
+    <LinksList links={supportLinks} />
   </div>
 </div>

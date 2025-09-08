@@ -47,8 +47,6 @@
       "icon": "tabler:world"
     }
   ],
-  "contactLinks": [
-  ],
   "projectLinks": [
     {
       "title": "ARDA Analytics",
@@ -76,6 +74,18 @@
       "description": "Automated web scraping and testing tool built with Playwright for comprehensive site analysis and monitoring.",
       "technologies": ["Node.js", "Playwright", "TypeScript", "CLI"],
       "type": "Command Line Tool"
+    }
+  ],
+  "supportLinks": [
+    {
+      "title": "Buy Me A Coffee",
+      "url": "https://buymeacoffee.com/alecreimel",
+      "icon": "tabler:coffee"
+    },
+    {
+      "title": "Join My Patreon",
+      "url": "https://www.patreon.com/cw/ARDATechLab",
+      "icon": "tabler:brand-patreon"
     }
   ]
 } 

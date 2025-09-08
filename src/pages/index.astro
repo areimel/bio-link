@@ -30,22 +30,22 @@ const metadata = {
         
         <ProjectsSection projectLinks={bioLinkData.projectLinks} />
         
-        <SupportSection />
+        <SupportSection supportLinks={bioLinkData.supportLinks} />
       </div>
 
       <!-- Desktop layout: bento grid -->
       <div class="hidden lg:grid lg:grid-cols-3 lg:gap-6">
-        <!-- Hero section - spans 1 column -->
+        <!-- Side section - spans 1 column -->
         <div class="lg:col-span-1 ">
           <HeroSection 
             {...bioLinkData.profile}
             socialLinks={bioLinkData.socialLinks}
             profileLinks={bioLinkData.profileLinks}
           />
-          <SupportSection />
+          <SupportSection supportLinks={bioLinkData.supportLinks} />
         </div>
         
-        <!-- Projects - spans 2 columns -->
+        <!-- Main section - spans 2 columns -->
         <div class="lg:col-span-2">
           <ProjectsSection projectLinks={bioLinkData.projectLinks} />
         </div>
