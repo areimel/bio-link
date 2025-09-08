@@ -1,0 +1,110 @@
+---
+// BaseButton component - Generic button that handles links, modals, and form buttons
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  title: string;
+  icon?: string;
+  url?: string;
+  modal?: string;
+  type?: 'link' | 'modal' | 'submit';
+  variant?: 'primary' | 'social';
+  size?: 'sm' | 'md' | 'lg';
+  buttonClass?: string;
+}
+
+const { 
+  title, 
+  icon, 
+  url, 
+  modal, 
+  type = 'link',
+  variant = 'primary', 
+  size = 'md',
+  buttonClass = "" 
+} = Astro.props;
+
+// Determine button behavior
+const isModalButton = type === 'modal' || !!modal;
+const isSubmitButton = type === 'submit';
+const isLinkButton = type === 'link' && !!url;
+
+// Size classes
+const sizeClasses = {
+  sm: 'p-2',
+  md: 'p-3', 
+  lg: 'p-4'
+};
+
+// Variant classes
+const variantClasses = {
+  primary: 'bg-theme-surface dark:bg-slate-800',
+  social: 'bg-theme-text dark:bg-theme-text hover:bg-theme-primary dark:hover:bg-theme-primary'
+};
+
+const baseClasses = `grid grid-cols-8 gap-2 items-center w-full mb-2 neo-button rounded-lg ${sizeClasses[size]} ${variantClasses[variant]} ${buttonClass}`;
+---
+
+{isModalButton ? (
+  <button
+    class={baseClasses}
+    data-modal-target={modal}
+  >
+    {/* Icon column */}
+    <div class="col-span-1 flex justify-center">
+      {icon && <Icon name={icon} class="w-8 h-8 text-theme-accent dark:text-theme-secondary" />}
+    </div>
+    
+    {/* Title column */}
+    <div class="col-span-6 px-2">
+      <span class="font-press-start text-xs font-medium text-theme-text dark:text-white">{title}</span>
+    </div>
+    
+    {/* Chevron column */}
+    <div class="col-span-1 flex justify-center">
+      <Icon name="tabler:chevron-right" class="w-8 h-8 text-theme-primary dark:text-theme-secondary" />
+    </div>
+  </button>
+) : isSubmitButton ? (
+  <button
+    type="submit"
+    class={baseClasses}
+  >
+    {/* Icon column */}
+    <div class="col-span-1 flex justify-center">
+      {icon && <Icon name={icon} class="w-8 h-8 text-theme-accent dark:text-theme-secondary" />}
+    </div>
+    
+    {/* Title column */}
+    <div class="col-span-6 px-2">
+      <span class="font-press-start text-xs font-medium text-theme-text dark:text-white">{title}</span>
+    </div>
+    
+    {/* Chevron column */}
+    <div class="col-span-1 flex justify-center">
+      <Icon name="tabler:chevron-right" class="w-8 h-8 text-theme-primary dark:text-theme-secondary" />
+    </div>
+  </button>
+) : (
+  <a
+    href={url}
+    target="_blank"
+    rel="noopener noreferrer"
+    class={`${baseClasses} text-center`}
+  >
+    {/* Icon column */}
+    <div class="col-span-1 flex justify-center">
+      {icon && <Icon name={icon} class="w-8 h-8 text-theme-accent dark:text-theme-secondary" />}
+    </div>
+    
+    {/* Title column */}
+    <div class="col-span-6 px-2">
+      <span class="font-press-start text-center inline-block text-xs font-medium text-theme-text dark:text-white">{title}</span>
+    </div>
+    
+    {/* Chevron column */}
+    <div class="col-span-1 flex justify-center">
+      <Icon name="tabler:chevron-right" class="w-8 h-8 text-theme-primary dark:text-theme-secondary" />
+    </div>
+  </a>
+)}

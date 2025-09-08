@@ -1,6 +1,6 @@
 ---
-// SocialLinks component for displaying social media icons
-import { Icon } from 'astro-icon/components';
+// SocialLinks component - Now uses SocialButton for DRY principles
+import SocialButton from '../common/SocialButton.astro';
 
 interface SocialLink {
   platform: string;
@@ -15,18 +15,10 @@ interface Props {
 const { links } = Astro.props;
 ---
 
-<div class="flex justify-center gap-5 ">
+<div class="flex justify-center gap-5">
   {
     links.map((link) => (
-      <a 
-        href={link.url} 
-        target="_blank" 
-        rel="noopener noreferrer"
-        class="neo-button bg-theme-text dark:bg-theme-text hover:bg-theme-primary dark:hover:bg-theme-primary w-12 h-12 flex items-center justify-center p-0 rounded-lg"
-        aria-label={`Visit ${link.platform}`}
-      >
-        <Icon name={link.icon} class="w-6 h-6 text-theme-surface dark:text-theme-surface" />
-      </a>
+      <SocialButton {...link} />
     ))
   }
 </div> 

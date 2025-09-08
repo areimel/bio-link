@@ -1,0 +1,26 @@
+---
+// Section component - Generic container with consistent styling
+import Heading from '../biolink/Heading.astro';
+
+interface Props {
+  title?: string;
+  variant?: 'container' | 'card' | 'plain';
+  className?: string;
+}
+
+const { title, variant = 'container', className = '' } = Astro.props;
+
+// Variant classes
+const variantClasses = {
+  container: 'neo-container p-4 bg-theme-surface dark:bg-slate-800 text-theme-text dark:text-white',
+  card: 'neo-card p-4 bg-theme-surface dark:bg-slate-800 text-theme-text dark:text-white',
+  plain: 'p-4'
+};
+
+const classes = `w-full ${variantClasses[variant]} ${className}`;
+---
+
+<div class={classes}>
+  {title && <Heading text={title} />}
+  <slot />
+</div>

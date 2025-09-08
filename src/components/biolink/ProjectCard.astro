@@ -1,6 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
 import LinkButton from './LinkButton.astro';
+import Badge from '../common/Badge.astro';
 
 interface Props {
   title: string;
@@ -52,9 +53,7 @@ const { title, url, icon, thumbnail, description, technologies, type } = Astro.p
   
   <!-- Project Type Badge -->
   <div class="mb-3">
-    <span class="inline-block px-2 py-1 bg-theme-secondary dark:bg-theme-primary text-theme-text dark:text-white text-xs font-press-start neo-border rounded">
-      {type}
-    </span>
+    <Badge text={type} variant="primary" size="sm" />
   </div>
   
   <!-- Description -->
@@ -67,9 +66,7 @@ const { title, url, icon, thumbnail, description, technologies, type } = Astro.p
     <div class="mb-3">
       <div class="flex flex-wrap gap-1">
         {technologies.map(tech => (
-          <span class="inline-block px-2 py-1 bg-theme-accent dark:bg-theme-accent-alt text-white text-xs font-mono neo-border rounded">
-            {tech}
-          </span>
+          <Badge text={tech} variant="accent" size="sm" />
         ))}
       </div>
     </div>

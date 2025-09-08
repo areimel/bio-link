@@ -35,12 +35,23 @@ const { name, title, subtitle, avatar, socialLinks, profileLinks } = Astro.props
   </div>
   
   <!-- Profile Info -->
-  <h1 class="text-lg font-press-start text-theme-text dark:text-white leading-relaxed">{name}</h1>
-  <h2 class="text-sm font-press-start text-theme-accent dark:text-theme-secondary mb-4 tracking-tight max-w-sm mx-auto" style="text-wrap: balance;" >{title}</h2>
-  <p class="text-xs font-mono font-semibold text-theme-text dark:text-white mb-4 tracking-tight max-w-sm mx-auto" style="text-wrap: balance;" >{subtitle}</p>
+  <div>
+    <h1 class="text-lg font-press-start text-theme-text dark:text-white leading-relaxed">
+      {name}
+    </h1>
+    <h2 class="text-sm font-press-start text-theme-accent dark:text-theme-secondary mb-4 tracking-tight max-w-sm mx-auto" style="text-wrap: balance;" >
+      {title}
+    </h2>
+    <p class="text-xs font-mono font-semibold text-theme-text dark:text-white mb-4 tracking-tight max-w-sm mx-auto" style="text-wrap: balance;" >
+      {subtitle}
+    </p>
+  </div>
   
-  <SocialLinks links={socialLinks} />
-  
+
+  <div class="mb-4">
+    <SocialLinks links={socialLinks} />
+  </div>
+
   <!-- Profile Links -->
   <div class="w-full">
     <LinksList links={profileLinks} />
