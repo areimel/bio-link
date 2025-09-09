@@ -112,6 +112,17 @@
       "type": "JavaScript Library"
     }
   ],
+  "freelanceBrand": {
+    "headline": "My Freelance Brand",
+    "logo": "/arda-tech-lab-logo.png",
+    "companyName": "ARDA Tech Lab",
+    "description": "Innovative solutions for modern web development, AI integration, and digital transformation.",
+    "linkButton": {
+      "title": "Learn More",
+      "url": "https://alecreimel.com",
+      "icon": "tabler:external-link"
+    }
+  },
   "supportLinks": [
     {
       "title": "Buy Me A Coffee",
