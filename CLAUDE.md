@@ -42,7 +42,7 @@ The application uses a JSON-driven approach with four main link categories:
 - **VHS-Inspired Design**: Custom color palette with retro aesthetics
 - **Neo-Brutalism Styling**: Bold borders, high contrast, pixelated fonts
 - **Dark Mode Support**: Full theme switching with `class` strategy
-- **Custom Fonts**: "Press Start 2P" for headings, "Courier Prime" for mono
+- **Custom Fonts**: "Kode Mono" for headings, "Courier Prime" for mono
 
 ### Component Hierarchy
 Main biolink flow: `index.astro` → `BioLink.astro` → `ProfileSection.astro` + `LinksList.astro`
