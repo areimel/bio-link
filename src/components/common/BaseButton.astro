@@ -29,11 +29,11 @@ const isModalButton = type === 'modal' || !!modal;
 const isSubmitButton = type === 'submit';
 const isLinkButton = type === 'link' && !!url;
 
-// Size classes
+// Size classes - removed padding to allow orange backgrounds to fill button ends
 const sizeClasses = {
-  sm: 'p-2',
-  md: 'p-3', 
-  lg: 'p-4'
+  sm: '',
+  md: '', 
+  lg: ''
 };
 
 // Variant classes
@@ -42,7 +42,17 @@ const variantClasses = {
   social: 'bg-theme-text dark:bg-theme-text hover:bg-theme-primary dark:hover:bg-theme-primary'
 };
 
-const baseClasses = `grid grid-cols-8 gap-2 items-center w-full mb-2 neo-button rounded-lg ${sizeClasses[size]} ${variantClasses[variant]} ${buttonClass}`;
+
+// Additional classes for link buttons
+const baseClasses = `grid grid-cols-8 gap-2 items-center text-center w-full mb-2 neo-button rounded-lg ${sizeClasses[size]} ${variantClasses[variant]} ${buttonClass}`;
+
+// Unified class names for content elements
+const iconClasses = "col-span-1 flex justify-center items-center bg-theme-primary rounded-l-lg py-3";
+const titleClasses = "col-span-6 px-2 py-3 flex items-center";
+const chevronClasses = "col-span-1 flex justify-center items-center bg-theme-primary rounded-r-lg py-3";
+const iconStyle = "w-8 h-8 text-white";
+const titleStyle = `font-heading font-bold text-theme-text dark:text-white text-lg ${isLinkButton ? 'text-center inline-block' : ''}`;
+const chevronStyle = "w-8 h-8 text-white";
 ---
 
 {isModalButton ? (
@@ -50,19 +60,14 @@ const baseClasses = `grid grid-cols-8 gap-2 items-center w-full mb-2 neo-button 
     class={baseClasses}
     data-modal-target={modal}
   >
-    {/* Icon column */}
-    <div class="col-span-1 flex justify-center">
-      {icon && <Icon name={icon} class="w-8 h-8 text-theme-accent dark:text-theme-secondary" />}
+    <div class={iconClasses}>
+      {icon && <Icon name={icon} class={iconStyle} />}
     </div>
-    
-    {/* Title column */}
-    <div class="col-span-6 px-2">
-      <span class="font-heading text-lg font-bold text-theme-text dark:text-white">{title}</span>
+    <div class={titleClasses}>
+      <span class={titleStyle}>{title}</span>
     </div>
-    
-    {/* Chevron column */}
-    <div class="col-span-1 flex justify-center">
-      <Icon name="tabler:chevron-right" class="w-8 h-8 text-theme-primary dark:text-theme-secondary" />
+    <div class={chevronClasses}>
+      <Icon name="tabler:chevron-right" class={chevronStyle} />
     </div>
   </button>
 ) : isSubmitButton ? (
@@ -70,19 +75,14 @@ const baseClasses = `grid grid-cols-8 gap-2 items-center w-full mb-2 neo-button 
     type="submit"
     class={baseClasses}
   >
-    {/* Icon column */}
-    <div class="col-span-1 flex justify-center">
-      {icon && <Icon name={icon} class="w-8 h-8 text-theme-accent dark:text-theme-secondary" />}
+    <div class={iconClasses}>
+      {icon && <Icon name={icon} class={iconStyle} />}
     </div>
-    
-    {/* Title column */}
-    <div class="col-span-6 px-2">
-      <span class="font-heading text-xs font-bold text-theme-text dark:text-white">{title}</span>
+    <div class={titleClasses}>
+      <span class={titleStyle}>{title}</span>
     </div>
-    
-    {/* Chevron column */}
-    <div class="col-span-1 flex justify-center">
-      <Icon name="tabler:chevron-right" class="w-8 h-8 text-theme-primary dark:text-theme-secondary" />
+    <div class={chevronClasses}>
+      <Icon name="tabler:chevron-right" class={chevronStyle} />
     </div>
   </button>
 ) : (
@@ -90,21 +90,16 @@ const baseClasses = `grid grid-cols-8 gap-2 items-center w-full mb-2 neo-button 
     href={url}
     target="_blank"
     rel="noopener noreferrer"
-    class={`${baseClasses} text-center`}
+    class={baseClasses}
   >
-    {/* Icon column */}
-    <div class="col-span-1 flex justify-center">
-      {icon && <Icon name={icon} class="w-8 h-8 text-theme-accent dark:text-theme-secondary" />}
+    <div class={iconClasses}>
+      {icon && <Icon name={icon} class={iconStyle} />}
     </div>
-    
-    {/* Title column */}
-    <div class="col-span-6 px-2">
-      <span class="font-heading text-center inline-block text-xs font-bold text-theme-text dark:text-white">{title}</span>
+    <div class={titleClasses}>
+      <span class={titleStyle}>{title}</span>
     </div>
-    
-    {/* Chevron column */}
-    <div class="col-span-1 flex justify-center">
-      <Icon name="tabler:chevron-right" class="w-8 h-8 text-theme-primary dark:text-theme-secondary" />
+    <div class={chevronClasses}>
+      <Icon name="tabler:chevron-right" class={chevronStyle} />
     </div>
   </a>
 )}

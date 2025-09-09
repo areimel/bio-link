@@ -46,7 +46,7 @@ const { title, url, icon, thumbnail, description, technologies, type } = Astro.p
         <Icon name={icon} class="w-6 h-6 text-theme-accent dark:text-theme-secondary" />
       </div>
     )}
-    <h3 class="font-heading text-xs text-theme-text dark:text-white leading-tight">
+    <h3 class="font-heading text-xl font-bold text-theme-text dark:text-white leading-tight">
       {title}
     </h3>
   </div>
@@ -57,7 +57,7 @@ const { title, url, icon, thumbnail, description, technologies, type } = Astro.p
   </div>
   
   <!-- Description -->
-  <p class="text-sm text-theme-text dark:text-gray-300 mb-3 leading-relaxed font-mono">
+  <p class="text-sm text-theme-text dark:text-gray-300 mb-3 leading-tight font-mono">
     {description}
   </p>
   

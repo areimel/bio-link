@@ -11,7 +11,8 @@
       "WebFetch(domain:docs.anthropic.com)",
       "WebSearch",
       "WebFetch(domain:github.com)",
-      "Bash(uv:*)"
+      "Bash(uv:*)",
+      "Bash(npm run dev:*)"
     ],
     "deny": []
   }
