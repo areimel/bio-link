@@ -1,5 +1,5 @@
 ---
-// BaseButton component - Generic button that handles links, modals, and form buttons
+// BaseButton component - Simple link styled as a button that can also open modals
 import { Icon } from 'astro-icon/components';
 
 interface Props {
@@ -7,99 +7,26 @@ interface Props {
   icon?: string;
   url?: string;
   modal?: string;
-  type?: 'link' | 'modal' | 'submit';
-  variant?: 'primary' | 'social';
-  size?: 'sm' | 'md' | 'lg';
-  buttonClass?: string;
 }
 
-const { 
-  title, 
-  icon, 
-  url, 
-  modal, 
-  type = 'link',
-  variant = 'primary', 
-  size = 'md',
-  buttonClass = "" 
-} = Astro.props;
-
-// Determine button behavior
-const isModalButton = type === 'modal' || !!modal;
-const isSubmitButton = type === 'submit';
-const isLinkButton = type === 'link' && !!url;
-
-// Size classes - removed padding to allow orange backgrounds to fill button ends
-const sizeClasses = {
-  sm: '',
-  md: '', 
-  lg: ''
-};
-
-// Variant classes
-const variantClasses = {
-  primary: 'bg-theme-surface dark:bg-slate-800',
-  social: 'bg-theme-text dark:bg-theme-text hover:bg-theme-primary dark:hover:bg-theme-primary'
-};
-
-
-// Additional classes for link buttons
-const baseClasses = `grid grid-cols-8 gap-2 items-center text-center w-full mb-2 neo-button rounded-lg ${sizeClasses[size]} ${variantClasses[variant]} ${buttonClass}`;
-
-// Unified class names for content elements
-const iconClasses = "col-span-1 flex justify-center items-center bg-theme-primary rounded-l-lg py-3";
-const titleClasses = "col-span-6 px-2 py-3 flex items-center";
-const chevronClasses = "col-span-1 flex justify-center items-center bg-theme-primary rounded-r-lg py-3";
-const iconStyle = "w-8 h-8 text-white";
-const titleStyle = `font-heading font-bold text-theme-text dark:text-white text-lg ${isLinkButton ? 'text-center inline-block' : ''}`;
-const chevronStyle = "w-8 h-8 text-white";
+const { title, icon, url, modal } = Astro.props;
+const isModal = !!modal;
 ---
 
-{isModalButton ? (
-  <button
-    class={baseClasses}
-    data-modal-target={modal}
-  >
-    <div class={iconClasses}>
-      {icon && <Icon name={icon} class={iconStyle} />}
-    </div>
-    <div class={titleClasses}>
-      <span class={titleStyle}>{title}</span>
-    </div>
-    <div class={chevronClasses}>
-      <Icon name="tabler:chevron-right" class={chevronStyle} />
-    </div>
-  </button>
-) : isSubmitButton ? (
-  <button
-    type="submit"
-    class={baseClasses}
-  >
-    <div class={iconClasses}>
-      {icon && <Icon name={icon} class={iconStyle} />}
-    </div>
-    <div class={titleClasses}>
-      <span class={titleStyle}>{title}</span>
-    </div>
-    <div class={chevronClasses}>
-      <Icon name="tabler:chevron-right" class={chevronStyle} />
-    </div>
-  </button>
-) : (
-  <a
-    href={url}
-    target="_blank"
-    rel="noopener noreferrer"
-    class={baseClasses}
-  >
-    <div class={iconClasses}>
-      {icon && <Icon name={icon} class={iconStyle} />}
-    </div>
-    <div class={titleClasses}>
-      <span class={titleStyle}>{title}</span>
-    </div>
-    <div class={chevronClasses}>
-      <Icon name="tabler:chevron-right" class={chevronStyle} />
-    </div>
-  </a>
-)}
+<a
+  href={isModal ? "#" : url}
+  target={isModal ? undefined : "_blank"}
+  rel={isModal ? undefined : "noopener noreferrer"}
+  data-modal-target={isModal ? modal : undefined}
+  class="grid grid-cols-5 gap-2 items-center text-center w-full mb-2 neo-button rounded-lg bg-theme-surface dark:bg-slate-800 overflow-hidden"
+>
+  <div class="col-span-1 flex justify-center items-center bg-theme-primary h-full py-3">
+    {icon && <Icon name={icon} class="w-8 h-8 text-white" />}
+  </div>
+  <div class="col-span-3 px-2 py-3 flex justify-center items-center font-heading font-bold text-theme-text dark:text-white mx-auto">
+    {title}
+  </div>
+  <div class="col-span-1 flex justify-center items-center bg-theme-primary h-full py-3">
+    <Icon name="tabler:chevron-right" class="w-8 h-8 text-white" />
+  </div>
+</a>
