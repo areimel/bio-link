@@ -1,0 +1,143 @@
+---
+import { Swiper, SwiperWrapper, SwiperSlide } from "astro-swiper";
+
+interface Props {
+  slides: any[];
+  swiperOptions?: object;
+  class?: string;
+  slideClass?: string;
+}
+
+const { 
+  slides, 
+  swiperOptions = {}, 
+  class: containerClass = "",
+  slideClass = ""
+} = Astro.props;
+
+// Default mobile-optimized Swiper options
+const defaultOptions = {
+  // Mobile-first responsive design
+  slidesPerView: 1,
+  spaceBetween: 16,
+  centeredSlides: true,
+  grabCursor: true,
+  
+  // Pagination with dots
+  pagination: {
+    clickable: true,
+    dynamicBullets: true,
+  },
+  
+  // Auto height to accommodate varying content
+  autoHeight: true,
+  
+  // Touch/swipe behavior
+  touchRatio: 1,
+  touchAngle: 45,
+  simulateTouch: true,
+  
+  // Responsive breakpoints
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 16,
+      centeredSlides: true,
+    },
+    480: {
+      slidesPerView: 1.2,
+      spaceBetween: 20,
+      centeredSlides: true,
+    },
+    640: {
+      slidesPerView: 1.5,
+      spaceBetween: 24,
+      centeredSlides: true,
+    },
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 24,
+      centeredSlides: false,
+    }
+  },
+  
+  // Accessibility
+  a11y: {
+    enabled: true,
+    prevSlideMessage: 'Previous slide',
+    nextSlideMessage: 'Next slide',
+    firstSlideMessage: 'This is the first slide',
+    lastSlideMessage: 'This is the last slide',
+  }
+};
+
+// Merge user options with defaults
+const finalOptions = { ...defaultOptions, ...swiperOptions };
+---
+
+<div class={`swiper-container ${containerClass}`}>
+  <Swiper options={finalOptions}>
+    <SwiperWrapper>
+      {slides.map((slide, index) => (
+        <SwiperSlide class={slideClass}>
+          <slot name="slide" slide={slide} index={index}>
+            <!-- Default fallback content -->
+            <div class="slide-content">
+              {typeof slide === 'string' ? slide : JSON.stringify(slide)}
+            </div>
+          </slot>
+        </SwiperSlide>
+      ))}
+    </SwiperWrapper>
+  </Swiper>
+</div>
+
+<style>
+  .swiper-container {
+    width: 100%;
+    overflow: visible;
+  }
+  
+  /* VHS-inspired pagination styling */
+  :global(.swiper-pagination) {
+    bottom: -2rem !important;
+    position: relative !important;
+    text-align: center;
+    padding: 1rem 0;
+  }
+  
+  :global(.swiper-pagination-bullet) {
+    width: 12px !important;
+    height: 12px !important;
+    border: 2px solid var(--theme-primary, #000) !important;
+    background: var(--theme-surface, #fff) !important;
+    border-radius: 2px !important; /* Slightly rounded for neo-brutalist look */
+    opacity: 0.7 !important;
+    margin: 0 4px !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  :global(.swiper-pagination-bullet-active) {
+    background: var(--theme-accent, #ff6b6b) !important;
+    border-color: var(--theme-accent, #ff6b6b) !important;
+    opacity: 1 !important;
+    transform: scale(1.2) !important;
+    box-shadow: 0 0 8px var(--theme-accent, #ff6b6b) !important;
+  }
+  
+  /* VHS theme integration */
+  :global(.swiper-slide) {
+    height: auto !important;
+  }
+  
+  /* Dark mode support */
+  :global(.dark .swiper-pagination-bullet) {
+    border-color: var(--theme-secondary, #333) !important;
+    background: var(--theme-surface-dark, #1a1a1a) !important;
+  }
+  
+  /* Touch feedback */
+  :global(.swiper-container) {
+    touch-action: pan-y pinch-zoom;
+  }
+</style>
