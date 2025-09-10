@@ -123,6 +123,17 @@
       "icon": "tabler:external-link"
     }
   },
+  "siteTemplate": {
+    "headline": "Get Your Own Bio-Link",
+    "logo": "/github-template-icon.png",
+    "templateName": "Bio-Link Template",
+    "description": "Open source Astro template with VHS-inspired design. Perfect for developers, creators, and freelancers.",
+    "linkButton": {
+      "title": "Get Template",
+      "url": "https://github.com/areimel/bio-link-template",
+      "icon": "tabler:brand-github"
+    }
+  },
   "supportLinks": [
     {
       "title": "Buy Me A Coffee",

@@ -2,6 +2,7 @@
 import Layout from '~/layouts/PageLayout.astro';
 import HeroSection from '~/components/biolink/HeroSection.astro';
 import FreelanceBrandSection from '~/components/biolink/FreelanceBrandSection.astro';
+import SiteTemplateSection from '~/components/biolink/SiteTemplateSection.astro';
 import ProjectsSection from '~/components/biolink/ProjectsSection.astro';
 import SupportSection from '~/components/biolink/SupportSection.astro';
 import PopupModal from '~/components/common/PopupModal.astro';
@@ -32,6 +33,9 @@ const metadata = {
         <FreelanceBrandSection 
           {...bioLinkData.freelanceBrand}
         />
+        <SiteTemplateSection 
+          {...bioLinkData.siteTemplate}
+        />
         <ProjectsSection projectLinks={bioLinkData.projectLinks} />
         <SupportSection supportLinks={bioLinkData.supportLinks} />
       </div>
@@ -47,6 +51,9 @@ const metadata = {
           />
           <FreelanceBrandSection 
             {...bioLinkData.freelanceBrand}
+          />
+          <SiteTemplateSection 
+            {...bioLinkData.siteTemplate}
           />
           <SupportSection supportLinks={bioLinkData.supportLinks} />
         </div>

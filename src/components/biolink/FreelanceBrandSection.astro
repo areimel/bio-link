@@ -19,15 +19,15 @@ const { headline, logo, companyName, description, linkButton } = Astro.props;
 ---
 
 <div class="w-full neo-container p-6 mb-6 bg-theme-surface dark:bg-slate-800 text-theme-text dark:text-white">
-  <div class="flex flex-col items-center text-center">
+  <div class="flex flex-col items-center ">
     
     <!-- Section Headline -->
-    <h2 class="text-xl font-bold font-heading text-theme-text dark:text-white mb-6 tracking-tight max-w-sm mx-auto" style="text-wrap: balance;">
+    <h2 class="text-xl font-bold font-heading text-theme-text dark:text-white mb-3 tracking-tight max-w-sm mx-auto text-center" style="text-wrap: balance;">
       {headline}
     </h2>
 
     <!-- Brand Logo -->
-    <div class="w-32 h-32 mb-6 overflow-hidden rounded-full neo-border border-theme-accent dark:border-theme-secondary">
+    <div class="w-full h-32 mb-3 overflow-hidden rounded neo-border border-theme-accent dark:border-theme-secondary">
       <img 
         src={logo} 
         alt={`${companyName} logo`} 
