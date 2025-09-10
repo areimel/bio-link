@@ -12,6 +12,7 @@ interface Props {
   description: string;
   technologies: string[];
   type: string;
+  published?: boolean;
 }
 
 const { title, url, icon, thumbnail, imagePlaceholder, description, technologies, type } = Astro.props;
@@ -54,7 +55,7 @@ const { title, url, icon, thumbnail, imagePlaceholder, description, technologies
   
   <!-- Project Type Badge -->
   <div class="mb-3">
-    <Badge text={type} variant="primary" size="sm" />
+    <Badge text={type} variant="primary" size="md" />
   </div>
   
   <!-- Description -->

@@ -56,7 +56,8 @@
       "imagePlaceholder": false,
       "description": "A comprehensive analytics plugin that expands the capabilities of Google Analytics with custom events and advanced tracking and attribution features.",
       "technologies": ["TypeScript", "Google Analytics", "NPM"],
-      "type": "Website Plugin"
+      "type": "Website Plugin",
+      "published": true
     },
     {
       "title": "AI Prompt Library",
@@ -66,17 +67,19 @@
       "imagePlaceholder": false,
       "description": "Curated collection of AI prompts for various business use cases, featuring search, categorization, and sharing capabilities.",
       "technologies": ["Astro", "JavaScript", "Netlify", "JSON"],
-      "type": "Website Template"
+      "type": "Website Template",
+      "published": true
     },
     {
       "title": "ARDA Site Scan",
       "url": "https://github.com/areimel/playwright-site-scanner",
       "icon": "tabler:scan",
       "thumbnail": "/project-thumbnails/arda-site-scan.png",
-      "imagePlaceholder": true,
+      "imagePlaceholder": false,
       "description": "Automated web scraping and testing tool built with Playwright for comprehensive site analysis and monitoring.",
       "technologies": ["Node.js", "Playwright", "TypeScript", "CLI"],
-      "type": "Command Line App"
+      "type": "Command Line App",
+      "published": true
     },
     {
       "title": "ARDA Website Template",
@@ -86,7 +89,8 @@
       "imagePlaceholder": true,
       "description": "Modern, responsive website template built with Astro for businesses and portfolios, featuring clean design and optimal performance.",
       "technologies": ["Astro", "TypeScript", "Tailwind CSS", "Static Site"],
-      "type": "Website Template"
+      "type": "Website Template",
+      "published": true
     },
     {
       "title": "Augmented Reality Demos",
@@ -96,27 +100,30 @@
       "imagePlaceholder": true,
       "description": "Collection of interactive augmented reality demonstrations showcasing AR.js and WebXR technologies for web-based AR experiences.",
       "technologies": ["JavaScript", "AR.js", "WebXR", "Three.js"],
-      "type": "Demo Collection"
+      "type": "Demo Collection",
+      "published": true
     },
     {
       "title": "Pwnagotchi",
       "url": "https://github.com/areimel/pwnagotchi-custom",
       "icon": "tabler:device-gamepad-2",
       "thumbnail": "/project-thumbnails/pwnagotchi.png",
-      "imagePlaceholder": true,
+      "imagePlaceholder": false,
       "description": "Custom configuration and plugins for Pwnagotchi, an AI-powered WiFi security auditing tool that learns from its environment.",
       "technologies": ["Python", "Raspberry Pi", "AI/ML", "Security"],
-      "type": "Security Tool"
+      "type": "Security Tool",
+      "published": false
     },
     {
       "title": "JS-Bonsai",
       "url": "https://github.com/areimel/bonsai-js",
       "icon": "tabler:tree",
       "thumbnail": "/project-thumbnails/bonsai-js.png",
-      "imagePlaceholder": false,
+      "imagePlaceholder": true,
       "description": "Grow randomly generated bonsai trees using retro ASCII text. Pleasant to watch and meditate on the nature of coding.",
       "technologies": ["JavaScript", "SVG", "Canvas", "Data Visualization"],
-      "type": "Just For Fun"
+      "type": "Just For Fun",
+      "published": true
     }
   ],
   "freelanceBrand": {

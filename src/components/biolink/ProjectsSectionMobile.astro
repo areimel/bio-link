@@ -13,10 +13,14 @@ interface Props {
     description: string;
     technologies: string[];
     type: string;
+    published?: boolean;
   }>;
 }
 
 const { projectLinks } = Astro.props;
+
+// Filter projects to only show published ones
+const publishedProjects = projectLinks.filter(project => project.published === true || project.published === undefined);
 
 // Mobile-specific Swiper options
 const mobileOptions = {
@@ -70,7 +74,7 @@ const mobileOptions = {
 };
 ---
 
-{projectLinks && projectLinks.length > 0 && (
+{publishedProjects && publishedProjects.length > 0 && (
   <div class="w-full mobile-projects-section">
     <div class="neo-container p-4 bg-theme-surface dark:bg-slate-800 text-theme-text dark:text-white">
       <Heading text="My Projects" />
@@ -79,7 +83,7 @@ const mobileOptions = {
         <div class="projects-swiper">
           <Swiper options={mobileOptions}>
             <SwiperWrapper>
-              {projectLinks.map(project => (
+              {publishedProjects.map(project => (
                 <SwiperSlide class="project-slide">
                   <div class="project-card-container">
                     <ProjectCard {...project} />
