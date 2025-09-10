@@ -1,6 +1,7 @@
 ---
 // FreelanceBrandSection component - Freelance brand showcase section
 import LinkButton from './LinkButton.astro';
+import SectionHeader from './SectionHeader.astro';
 
 interface Props {
   headline: string;
@@ -22,12 +23,10 @@ const { headline, logo, companyName, description, linkButton } = Astro.props;
   <div class="flex flex-col items-center ">
     
     <!-- Section Headline -->
-    <h2 class="text-xl font-bold font-heading text-theme-text dark:text-white mb-3 tracking-tight max-w-sm mx-auto text-center" style="text-wrap: balance;">
-      {headline}
-    </h2>
+    <SectionHeader text={headline} />
 
     <!-- Brand Logo -->
-    <div class="w-full h-auto mb-3">
+    <div class="w-full h-auto max-w-[250px] mb-3 mx-auto">
       <img 
         src={logo} 
         alt={`${companyName} logo`} 
@@ -36,9 +35,9 @@ const { headline, logo, companyName, description, linkButton } = Astro.props;
     </div>
     
     <!-- Company Name -->
-    <h3 class="text-2xl font-bold font-heading text-theme-accent dark:text-theme-secondary mb-4 tracking-tight max-w-sm mx-auto" style="text-wrap: balance;">
+    <!-- <h3 class="text-2xl font-bold font-heading text-theme-accent dark:text-theme-secondary mb-4 tracking-tight max-w-sm mx-auto" style="text-wrap: balance;">
       {companyName}
-    </h3>
+    </h3> -->
     
     <!-- Description -->
     <p class="text-sm font-mono font-semibold text-theme-text dark:text-white mb-6 tracking-tight max-w-sm mx-auto" style="text-wrap: balance;">

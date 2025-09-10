@@ -109,11 +109,11 @@
       "type": "Security Tool"
     },
     {
-      "title": "Bonsai.js",
+      "title": "JS-Bonsai",
       "url": "https://github.com/areimel/bonsai-js",
       "icon": "tabler:tree",
       "thumbnail": "/project-thumbnails/bonsai-js.png",
-      "imagePlaceholder": true,
+      "imagePlaceholder": false,
       "description": "Grow randomly generated bonsai trees using retro ASCII text. Pleasant to watch and meditate on the nature of coding.",
       "technologies": ["JavaScript", "SVG", "Canvas", "Data Visualization"],
       "type": "Just For Fun"
@@ -126,7 +126,7 @@
     "description": "Innovative solutions for modern web development, AI integration, and digital transformation.",
     "linkButton": {
       "title": "Learn More",
-      "url": "https://alecreimel.com",
+      "url": "https://advancedresearch.dev",
       "icon": "tabler:external-link"
     }
   },

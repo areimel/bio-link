@@ -1,6 +1,7 @@
 ---
 // SiteTemplateSection component - Template promotion section for developers
 import LinkButton from './LinkButton.astro';
+import SectionHeader from './SectionHeader.astro';
 
 interface Props {
   headline: string;
@@ -22,9 +23,7 @@ const { headline, logo, templateName, description, linkButton } = Astro.props;
   <div class="flex flex-col items-center ">
     
     <!-- Section Headline -->
-    <h2 class="text-xl font-bold font-heading text-theme-text dark:text-white mb-6 tracking-tight max-w-sm mx-auto text-center" style="text-wrap: balance;">
-      {headline}
-    </h2>
+    <SectionHeader text={headline} />
 
     <!-- Template Name -->
     <!-- <h3 class="text-2xl font-bold font-heading text-theme-accent dark:text-theme-secondary mb-4 tracking-tight max-w-sm mx-auto" style="text-wrap: balance;">
