@@ -138,10 +138,10 @@
     }
   },
   "siteTemplate": {
-    "headline": "Get Your Own Bio-Link",
+    "headline": "Get Your Own Landing Page",
     "logo": "/github-template-icon.png",
     "templateName": "Bio-Link Template",
-    "description": "Open source Astro template with VHS-inspired design. Perfect for developers, creators, and freelancers.",
+    "description": "Open source landing page template. Perfect for devs, artists, and other creators. Free to use and customize.",
     "linkButton": {
       "title": "Get Template",
       "url": "https://github.com/areimel/bio-link-template",
