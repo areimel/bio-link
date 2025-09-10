@@ -8,12 +8,13 @@ interface Props {
   url: string;
   icon?: string;
   thumbnail?: string;
+  imagePlaceholder?: boolean;
   description: string;
   technologies: string[];
   type: string;
 }
 
-const { title, url, icon, thumbnail, description, technologies, type } = Astro.props;
+const { title, url, icon, thumbnail, imagePlaceholder, description, technologies, type } = Astro.props;
 ---
 
 <div
@@ -22,7 +23,7 @@ const { title, url, icon, thumbnail, description, technologies, type } = Astro.p
 >
   <!-- Thumbnail Image -->
   <div class="w-full h-32 mb-3 bg-theme-secondary dark:bg-theme-primary rounded neo-border overflow-hidden flex items-center justify-center">
-    {thumbnail ? (
+    {thumbnail && !imagePlaceholder ? (
       <img
         src={thumbnail}
         alt={`${title} thumbnail`}

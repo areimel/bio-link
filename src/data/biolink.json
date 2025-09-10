@@ -53,6 +53,7 @@
       "url": "https://arda-analytics.netlify.app/",
       "icon": "tabler:chart-line",
       "thumbnail": "/project-thumbnails/arda-analytics.png",
+      "imagePlaceholder": false,
       "description": "A comprehensive analytics plugin that expands the capabilities of Google Analytics with custom events and advanced tracking and attribution features.",
       "technologies": ["TypeScript", "Google Analytics", "NPM"],
       "type": "Website Plugin"
@@ -62,6 +63,7 @@
       "url": "https://company-ai-prompts.netlify.app/",
       "icon": "tabler:brain",
       "thumbnail": "/project-thumbnails/ai-prompts.png",
+      "imagePlaceholder": false,
       "description": "Curated collection of AI prompts for various business use cases, featuring search, categorization, and sharing capabilities.",
       "technologies": ["Astro", "JavaScript", "Netlify", "JSON"],
       "type": "Website Template"
@@ -71,6 +73,7 @@
       "url": "https://github.com/areimel/playwright-site-scanner",
       "icon": "tabler:scan",
       "thumbnail": "/project-thumbnails/arda-site-scan.png",
+      "imagePlaceholder": true,
       "description": "Automated web scraping and testing tool built with Playwright for comprehensive site analysis and monitoring.",
       "technologies": ["Node.js", "Playwright", "TypeScript", "CLI"],
       "type": "Command Line App"
@@ -80,6 +83,7 @@
       "url": "https://github.com/areimel/arda-website-template",
       "icon": "tabler:template",
       "thumbnail": "/project-thumbnails/arda-website-template.png",
+      "imagePlaceholder": true,
       "description": "Modern, responsive website template built with Astro for businesses and portfolios, featuring clean design and optimal performance.",
       "technologies": ["Astro", "TypeScript", "Tailwind CSS", "Static Site"],
       "type": "Website Template"
@@ -89,6 +93,7 @@
       "url": "https://github.com/areimel/ar-demos",
       "icon": "tabler:augmented-reality-2",
       "thumbnail": "/project-thumbnails/ar-demos.png",
+      "imagePlaceholder": true,
       "description": "Collection of interactive augmented reality demonstrations showcasing AR.js and WebXR technologies for web-based AR experiences.",
       "technologies": ["JavaScript", "AR.js", "WebXR", "Three.js"],
       "type": "Demo Collection"
@@ -98,6 +103,7 @@
       "url": "https://github.com/areimel/pwnagotchi-custom",
       "icon": "tabler:device-gamepad-2",
       "thumbnail": "/project-thumbnails/pwnagotchi.png",
+      "imagePlaceholder": true,
       "description": "Custom configuration and plugins for Pwnagotchi, an AI-powered WiFi security auditing tool that learns from its environment.",
       "technologies": ["Python", "Raspberry Pi", "AI/ML", "Security"],
       "type": "Security Tool"
@@ -107,14 +113,15 @@
       "url": "https://github.com/areimel/bonsai-js",
       "icon": "tabler:tree",
       "thumbnail": "/project-thumbnails/bonsai-js.png",
-      "description": "Lightweight JavaScript library for creating beautiful, interactive tree visualizations and hierarchical data representations in the browser.",
+      "imagePlaceholder": true,
+      "description": "Grow randomly generated bonsai trees using retro ASCII text. Pleasant to watch and meditate on the nature of coding.",
       "technologies": ["JavaScript", "SVG", "Canvas", "Data Visualization"],
-      "type": "JavaScript Library"
+      "type": "Just For Fun"
     }
   ],
   "freelanceBrand": {
     "headline": "My Freelance Brand",
-    "logo": "/arda-tech-lab-logo.png",
+    "logo": "/images/arda-logo.png",
     "companyName": "ARDA Tech Lab",
     "description": "Innovative solutions for modern web development, AI integration, and digital transformation.",
     "linkButton": {
