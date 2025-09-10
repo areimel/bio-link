@@ -6,9 +6,11 @@ interface ProjectLink {
   url: string;
   icon?: string;
   thumbnail?: string;
+  imagePlaceholder?: boolean;
   description: string;
   technologies: string[];
   type: string;
+  published?: boolean;
 }
 
 interface Props {

@@ -12,7 +12,8 @@
       "WebSearch",
       "WebFetch(domain:github.com)",
       "Bash(uv:*)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "Bash(pnpm run:*)"
     ],
     "deny": []
   }

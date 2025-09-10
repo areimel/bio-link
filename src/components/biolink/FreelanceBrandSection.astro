@@ -1,0 +1,58 @@
+---
+// FreelanceBrandSection component - Freelance brand showcase section
+import LinkButton from './LinkButton.astro';
+import SectionHeader from './SectionHeader.astro';
+
+interface Props {
+  headline: string;
+  logo: string;
+  companyName: string;
+  description: string;
+  linkButton: {
+    title: string;
+    url: string;
+    icon?: string;
+    modal?: string;
+  };
+}
+
+const { headline, logo, companyName, description, linkButton } = Astro.props;
+---
+
+<div class="w-full neo-container p-6 mb-6 bg-theme-surface dark:bg-slate-800 text-theme-text dark:text-white">
+  <div class="flex flex-col items-center ">
+    
+    <!-- Section Headline -->
+    <SectionHeader text={headline} />
+
+    <!-- Brand Logo -->
+    <div class="w-full h-auto max-w-[250px] mb-3 mx-auto">
+      <img 
+        src={logo} 
+        alt={`${companyName} logo`} 
+        class="w-full h-full object-cover"
+      />
+    </div>
+    
+    <!-- Company Name -->
+    <!-- <h3 class="text-2xl font-bold font-heading text-theme-accent dark:text-theme-secondary mb-4 tracking-tight max-w-sm mx-auto" style="text-wrap: balance;">
+      {companyName}
+    </h3> -->
+    
+    <!-- Description -->
+    <p class="text-sm font-mono font-semibold text-theme-text dark:text-white mb-6 tracking-tight max-w-sm mx-auto" >
+      {description}
+    </p>
+
+    <!-- Action Button -->
+    <div class="w-full max-w-sm">
+      <LinkButton 
+        title={linkButton.title}
+        url={linkButton.url}
+        icon={linkButton.icon}
+        modal={linkButton.modal}
+      />
+    </div>
+    
+  </div>
+</div>
