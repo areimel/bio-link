@@ -29,7 +29,7 @@ import '@fontsource/kode-mono';
 
     /* Semantic theme colors (preserving VHS color values) */
     --aw-color-theme-secondary: #f7d959; /* Bright secondary accent */
-    --aw-color-theme-primary: #f18344; /* Main primary action color */
+    --aw-color-theme-primary: #f47f21; /* Main primary action color */
     --aw-color-theme-accent: #da3440; /* Vibrant accent/highlight */
     --aw-color-theme-accent-alt: #af375d; /* Alternative accent */
     --aw-color-theme-surface: #f2e2c8; /* Surface background */
@@ -40,13 +40,26 @@ import '@fontsource/kode-mono';
     --aw-color-secondary: var(--aw-color-theme-secondary);
     --aw-color-accent: var(--aw-color-theme-accent-alt);
     
-    --aw-color-text-heading: rgb(68, 68, 68); /* Dark gray from VHS logo */
+    --aw-color-text-heading: rgb(68, 68, 68); 
     --aw-color-text-default: rgb(56, 56, 56);
     --aw-color-text-muted: rgb(56, 56, 56 / 66%);
-    --aw-color-bg-page: #f2e2c8; /* Off-white from VHS box */
+    --aw-color-bg-page: #f2e2c8; 
+
+    /* Hyper-specific theme control variables */
+    --aw-page-background: var(--aw-color-bg-page);
+    --aw-section-background: var(--aw-color-theme-surface);
+    --aw-link-button-background: #FFFFFF;
+    --aw-link-button-text-color: var(--aw-color-theme-text);
+    --aw-link-button-accent-color: var(--aw-color-theme-primary);
+    --aw-social-button-background: var(--aw-color-theme-text);
+    --aw-social-button-background-hover: var(--aw-color-theme-primary);
+    --aw-body-text-color: var(--aw-color-theme-text);
+    --aw-headline-color: var(--aw-color-theme-text);
+    --aw-border-color: black;
+    --aw-border-thickness: 3px;
 
     ::selection {
-      background-color: var(--aw-color-accent);
+      background-color: var(--aw-color-theme-primary);
       color: white;
     }
   }

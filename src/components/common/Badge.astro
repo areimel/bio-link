@@ -1,30 +1,11 @@
 ---
-// Badge component - Reusable chip/tag component for project types, technologies, etc.
 interface Props {
   text: string;
-  variant?: 'primary' | 'secondary' | 'accent' | 'accent-alt';
-  size?: 'sm' | 'md';
 }
 
-const { text, variant = 'primary', size = 'md' } = Astro.props;
-
-// Size classes
-const sizeClasses = {
-  sm: 'px-2 py-1 text-[0.5rem]',
-  md: 'px-3 py-1.5 text-xs'
-};
-
-// Variant classes
-const variantClasses = {
-  primary: 'bg-theme-secondary text-theme-text',
-  secondary: 'bg-theme-primary text-white',
-  accent: 'bg-theme-accent text-white',
-  'accent-alt': 'bg-theme-accent-alt text-white'
-};
-
-const classes = `inline-block font-heading neo-border rounded ${sizeClasses[size]} ${variantClasses[variant]}`;
+const { text } = Astro.props;
 ---
 
-<span class={classes}>
+<span class="inline-block font-heading neo-border rounded px-2 py-1 text-[0.5rem]" style="background-color: var(--aw-headline-color); color: white;">
   {text}
 </span>

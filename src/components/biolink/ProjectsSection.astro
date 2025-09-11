@@ -31,7 +31,7 @@ const publishedProjects = projectLinks.filter(project => project.published === t
     </div>
 
     <!-- Desktop: bento grid item -->
-    <div class="hidden lg:block lg:col-span-2 bento-projects neo-container p-4 bg-theme-surface text-theme-text overflow-y-auto">
+    <div class="hidden lg:block lg:col-span-2 bento-projects neo-container p-4 overflow-y-auto" style="background-color: var(--aw-section-background); color: var(--aw-body-text-color);">
       <SectionHeader text="My Projects" />
       <ProjectsList projects={publishedProjects} />
     </div>

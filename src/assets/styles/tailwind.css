@@ -4,10 +4,10 @@
 
 @layer utilities {
   .bg-page {
-    background-color: var(--aw-color-bg-page);
+    background-color: var(--aw-page-background);
   }
   .bg-light {
-    background-color: var(--aw-color-bg-page);
+    background-color: var(--aw-page-background);
   }
   .text-page {
     color: var(--aw-color-text-page);
@@ -22,7 +22,9 @@
   
   /* Neo-brutalist utility classes */
   .neo-border {
-    @apply border-[3px] border-black;
+    border-width: var(--aw-border-thickness);
+    border-color: var(--aw-border-color);
+    border-style: solid;
   }
   
   .neo-shadow {
@@ -38,11 +40,13 @@
   }
   
   .neo-container {
-    @apply neo-border neo-shadow-big bg-white rounded-lg;
+    @apply neo-border neo-shadow-big rounded-lg;
+    background-color: var(--aw-section-background);
   }
 
   .neo-card {
-    @apply neo-border bg-white rounded-lg;
+    @apply neo-border rounded-lg;
+    
   }
   
   .neo-grid {
