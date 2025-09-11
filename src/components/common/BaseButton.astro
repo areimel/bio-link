@@ -18,15 +18,15 @@ const isModal = !!modal;
   target={isModal ? undefined : "_blank"}
   rel={isModal ? undefined : "noopener noreferrer"}
   data-modal-target={isModal ? modal : undefined}
-  class="grid grid-cols-5 gap-2 items-center text-center w-full mb-2 neo-button rounded-lg bg-theme-surface dark:bg-slate-800 overflow-hidden"
+  class="grid grid-cols-5 gap-2 items-center text-center w-full mb-2 neo-button rounded-lg bg-theme-surface overflow-hidden"
 >
   <div class="col-span-1 flex justify-center items-center bg-theme-primary h-full py-3">
     {icon && <Icon name={icon} class="w-8 h-8 text-white" />}
   </div>
-  <div class="col-span-3 px-2 py-3 flex justify-center items-center font-heading font-bold text-theme-text dark:text-white mx-auto">
+  <div class="col-span-3 px-2 py-3 flex justify-center items-center font-heading font-bold text-theme-text mx-auto">
     {title}
   </div>
-  <div class="col-span-1 flex justify-center items-center bg-theme-primary h-full py-3">
-    <Icon name="tabler:chevron-right" class="w-8 h-8 text-white" />
+  <div class="col-span-1 flex justify-center items-center h-full py-3">
+    <Icon name="tabler:chevron-right" class="w-8 h-8 text-theme-text" />
   </div>
 </a>

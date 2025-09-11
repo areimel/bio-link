@@ -19,19 +19,19 @@ interface Props {
 const { headline, logo, templateName, description, linkButton } = Astro.props;
 ---
 
-<div class="w-full neo-container p-6 mb-6 bg-theme-surface dark:bg-slate-800 text-theme-text dark:text-white">
+<div class="w-full neo-container p-6 mb-6 bg-theme-surface text-theme-text">
   <div class="flex flex-col items-center ">
     
     <!-- Section Headline -->
     <SectionHeader text={headline} />
 
     <!-- Template Name -->
-    <!-- <h3 class="text-2xl font-bold font-heading text-theme-accent dark:text-theme-secondary mb-4 tracking-tight max-w-sm mx-auto" style="text-wrap: balance;">
+    <!-- <h3 class="text-2xl font-bold font-heading text-theme-accent mb-4 tracking-tight max-w-sm mx-auto" style="text-wrap: balance;">
       {templateName}
     </h3> -->
     
     <!-- Description -->
-    <p class="text-sm font-mono font-semibold text-theme-text dark:text-white mb-6 tracking-tight max-w-sm mx-auto">
+    <p class="text-sm font-mono font-semibold text-theme-text mb-6 tracking-tight max-w-sm mx-auto">
       {description}
     </p>
 

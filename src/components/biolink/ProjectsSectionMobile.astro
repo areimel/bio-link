@@ -76,7 +76,7 @@ const mobileOptions = {
 
 {publishedProjects && publishedProjects.length > 0 && (
   <div class="w-full mobile-projects-section">
-    <div class="neo-container p-4 bg-theme-surface dark:bg-slate-800 text-theme-text dark:text-white">
+    <div class="neo-container p-4 bg-theme-surface text-theme-text">
       <Heading text="My Projects" />
       
       <div class="projects-carousel-wrapper mt-4">
@@ -96,7 +96,7 @@ const mobileOptions = {
       </div>
       
       <!-- Slide indicator text -->
-      <div class="text-center mt-2 text-xs text-theme-text dark:text-gray-400 font-mono">
+      <div class="text-center mt-2 text-xs text-theme-text font-mono">
         Swipe to explore projects
       </div>
     </div>
@@ -155,10 +155,6 @@ const mobileOptions = {
   }
   
   /* Dark mode pagination */
-  :global(.dark .projects-swiper .swiper-pagination-bullet) {
-    background: var(--slate-800, #1e293b) !important;
-    border-color: var(--slate-600, #475569) !important;
-  }
   
   /* Slide transition effects */
   :global(.projects-swiper .swiper-slide) {
