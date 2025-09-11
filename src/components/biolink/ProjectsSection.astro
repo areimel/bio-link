@@ -1,0 +1,39 @@
+---
+// ProjectsSection component - Standalone projects section with responsive layout
+import SectionHeader from './SectionHeader.astro';
+import ProjectsList from './ProjectsList.astro';
+import ProjectsSectionMobile from './ProjectsSectionMobile.astro';
+
+interface Props {
+  projectLinks: Array<{
+    title: string;
+    url: string;
+    icon?: string;
+    thumbnail?: string;
+    description: string;
+    technologies: string[];
+    type: string;
+    published?: boolean;
+  }>;
+}
+
+const { projectLinks } = Astro.props;
+
+// Filter projects to only show published ones
+const publishedProjects = projectLinks.filter(project => project.published === true || project.published === undefined);
+---
+
+{publishedProjects && publishedProjects.length > 0 && (
+  <div class="w-full">
+    <!-- Mobile: carousel view -->
+    <div class="lg:hidden">
+      <ProjectsSectionMobile projectLinks={publishedProjects} />
+    </div>
+
+    <!-- Desktop: bento grid item -->
+    <div class="hidden lg:block lg:col-span-2 bento-projects neo-container p-4 bg-theme-surface dark:bg-slate-800 text-theme-text dark:text-white overflow-y-auto">
+      <SectionHeader text="My Projects" />
+      <ProjectsList projects={publishedProjects} />
+    </div>
+  </div>
+)}

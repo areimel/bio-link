@@ -1,0 +1,12 @@
+---
+// SectionHeader component - Consistent h2 styling for biolink sections
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<h2 class="text-xl font-bold font-heading text-theme-text dark:text-white mb-3 tracking-tight max-w-sm mx-auto text-center" style="text-wrap: balance;">
+  {text}
+</h2>

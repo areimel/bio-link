@@ -1,6 +1,6 @@
 ---
-// Contact Form Button component - standalone button for opening the contact form modal
-import { Icon } from 'astro-icon/components';
+// Contact Form Button component - Now uses BaseButton for DRY principles
+import BaseButton from '../common/BaseButton.astro';
 
 interface Props {
   title?: string;
@@ -17,22 +17,11 @@ const {
 } = Astro.props;
 ---
 
-<button
-  class={`grid grid-cols-8 gap-2 items-center w-full p-4 mb-2 bg-vhs-offwhite dark:bg-slate-800 neo-button rounded-lg ${buttonClass}`}
-  data-modal-target={modal}
->
-  {/* Icon column */}
-  <div class="col-span-1 flex justify-center">
-    <Icon name={icon} class="w-8 h-8 text-vhs-red dark:text-vhs-yellow" />
-  </div>
-  
-  {/* Title column */}
-  <div class="col-span-6 px-2">
-    <span class="font-press-start text-xs font-medium text-vhs-darkgray dark:text-white">{title}</span>
-  </div>
-  
-  {/* Chevron column */}
-  <div class="col-span-1 flex justify-center">
-    <Icon name="tabler:chevron-right" class="w-8 h-8 text-vhs-orange dark:text-vhs-yellow" />
-  </div>
-</button> 
+<BaseButton 
+  title={title}
+  icon={icon}
+  modal={modal}
+  type="modal"
+  size="lg"
+  buttonClass={buttonClass}
+/> 

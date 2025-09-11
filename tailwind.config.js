@@ -12,23 +12,22 @@ export default {
         accent: 'var(--aw-color-accent)',
         default: 'var(--aw-color-text-default)',
         muted: 'var(--aw-color-text-muted)',
-        // VHS-inspired colors
-        vhs: {
-          yellow: 'rgb(246, 187, 26)',
-          orange: 'rgb(244, 127, 33)',
-          red: 'rgb(236, 62, 40)',
-          magenta: 'rgb(157, 36, 73)',
-          offwhite: 'rgb(248, 246, 240)',
-          darkgray: 'rgb(68, 68, 68)',
+        // Semantic theme colors (preserving VHS color values)
+        theme: {
+          primary: 'rgb(244, 127, 33)',      // orange - main action color
+          secondary: 'rgb(246, 187, 26)',    // yellow - secondary accents
+          accent: 'rgb(236, 62, 40)',        // red - highlights
+          'accent-alt': 'rgb(157, 36, 73)',  // magenta - alternative highlights
+          surface: 'rgb(248, 246, 240)',     // offwhite - surface backgrounds
+          text: 'rgb(68, 68, 68)',           // darkgray - main text color
         },
       },
       fontFamily: {
         sans: ['var(--aw-font-sans, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
         serif: ['var(--aw-font-serif, ui-serif)', ...defaultTheme.fontFamily.serif],
         heading: ['var(--aw-font-heading, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
-        mono: ['VT323', 'monospace'],
+        mono: ['Courier Prime', 'monospace'],
         'courier-prime': ['Courier Prime', 'monospace'],
-        'press-start': ['"Press Start 2P"', 'cursive'],
       },
 
       animation: {
