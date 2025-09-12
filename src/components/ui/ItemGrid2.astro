@@ -12,7 +12,7 @@ const {
   panel: panelClass = '',
   title: titleClass = '',
   description: descriptionClass = '',
-  icon: defaultIconClass = 'text-primary',
+  icon: defaultIconClass = '',
 } = classes;
 ---
 
@@ -41,11 +41,19 @@ const {
           )}
         >
           {(icon || defaultIcon) && (
-            <Icon name={icon || defaultIcon} class={twMerge('mb-2 w-10 h-10', defaultIconClass, itemClasses?.icon)} />
+            <Icon 
+              name={icon || defaultIcon} 
+              class={twMerge('mb-2 w-10 h-10', defaultIconClass, itemClasses?.icon)} 
+              style={`color: var(--biolink-link-text-color)`}
+            />
           )}
           <div class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)}>{title}</div>
           {description && (
-            <p class={twMerge('text-muted mt-2', descriptionClass, itemClasses?.description)} set:html={description} />
+            <p 
+              class={twMerge('mt-2', descriptionClass, itemClasses?.description)} 
+              style={`color: var(--biolink-muted-text-color)`} 
+              set:html={description} 
+            />
           )}
           {callToAction && (
             <div class="mt-2">

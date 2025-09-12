@@ -10,17 +10,23 @@ interface Props {
 
 const { title, variant = 'container', className = '' } = Astro.props;
 
-// Variant classes
+// Variant classes - using CSS variables for theming
 const variantClasses = {
-  container: 'neo-container p-4 bg-theme-surface dark:bg-slate-800 text-theme-text dark:text-white',
-  card: 'neo-card p-4 bg-theme-surface dark:bg-slate-800 text-theme-text dark:text-white',
+  container: 'neo-container p-4',
+  card: 'neo-card p-4', 
   plain: 'p-4'
+};
+
+const variantStyles = {
+  container: 'background-color: var(--aw-section-background); color: var(--aw-body-text-color);',
+  card: 'background-color: var(--aw-section-background); color: var(--aw-body-text-color);',
+  plain: ''
 };
 
 const classes = `w-full ${variantClasses[variant]} ${className}`;
 ---
 
-<div class={classes}>
+<div class={classes} style={variantStyles[variant]}>
   {title && <Heading text={title} />}
   <slot />
 </div>

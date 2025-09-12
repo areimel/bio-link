@@ -11,12 +11,19 @@ interface Props {
 const { platform, url, icon } = Astro.props;
 ---
 
+<style>
+  .social-button:hover {
+    background-color: var(--biolink-social-button-hover-background);
+  }
+</style>
+
 <a 
   href={url} 
   target="_blank" 
   rel="noopener noreferrer"
-  class="neo-button bg-theme-text dark:bg-theme-text hover:bg-theme-primary dark:hover:bg-theme-primary w-12 h-12 flex items-center justify-center p-0 rounded-lg"
+  class="social-button neo-button w-12 h-12 flex items-center justify-center p-0 rounded-lg"
+  style={`background-color: var(--biolink-social-button-background);`}
   aria-label={`Visit ${platform}`}
 >
-  <Icon name={icon} class="w-6 h-6 text-theme-surface dark:text-theme-surface" />
+  <Icon name={icon} class="w-6 h-6" style="color: var(--biolink-section-background)" />
 </a>

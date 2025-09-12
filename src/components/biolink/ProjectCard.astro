@@ -2,6 +2,7 @@
 import { Icon } from 'astro-icon/components';
 import LinkButton from './LinkButton.astro';
 import Badge from '../common/Badge.astro';
+import ProjectType from '../common/ProjectType.astro';
 
 interface Props {
   title: string;
@@ -18,12 +19,9 @@ interface Props {
 const { title, url, icon, thumbnail, imagePlaceholder, description, technologies, type } = Astro.props;
 ---
 
-<div
-  
-  class="block w-full bg-theme-surface dark:bg-slate-800 neo-card p-4"
->
+<div class="block w-full neo-card p-4 bg-white">
   <!-- Thumbnail Image -->
-  <div class="w-full aspect-video mb-3 bg-theme-secondary dark:bg-theme-primary rounded neo-border overflow-hidden flex items-center justify-center">
+  <div class="w-full aspect-video mb-3 rounded neo-border overflow-hidden flex items-center justify-center bg-white">
     {thumbnail && !imagePlaceholder ? (
       <img
         src={thumbnail}
@@ -33,11 +31,11 @@ const { title, url, icon, thumbnail, imagePlaceholder, description, technologies
       />
     ) : (
       <div class="flex items-center justify-center w-full h-full">
-        {icon && <Icon name={icon} class="w-12 h-12 text-theme-text dark:text-white" />}
+        {icon && <Icon name={icon} class="w-12 h-12" style="color: var(--biolink-body-text-color)" />}
       </div>
     )}
     <div class="hidden items-center justify-center w-full h-full">
-      {icon && <Icon name={icon} class="w-12 h-12 text-theme-text dark:text-white" />}
+      {icon && <Icon name={icon} class="w-12 h-12" style="color: var(--biolink-body-text-color)" />}
     </div>
   </div>
   
@@ -45,21 +43,21 @@ const { title, url, icon, thumbnail, imagePlaceholder, description, technologies
   <div class="flex items-center gap-3 mb-2">
     {icon && (
       <div class="flex-shrink-0">
-        <Icon name={icon} class="w-6 h-6 text-theme-accent dark:text-theme-secondary" />
+        <Icon name={icon} class="w-6 h-6" style="color: var(--biolink-accent-text-color)" />
       </div>
     )}
-    <h3 class="font-heading text-xl font-bold text-theme-text dark:text-white leading-tight">
+    <h3 class="font-heading text-xl font-bold leading-tight" style="color: var(--biolink-body-text-color)">
       {title}
     </h3>
   </div>
   
   <!-- Project Type Badge -->
   <div class="mb-3">
-    <Badge text={type} variant="primary" size="md" />
+    <ProjectType text={type} />
   </div>
   
   <!-- Description -->
-  <p class="text-sm text-theme-text dark:text-gray-300 mb-3 leading-tight font-mono">
+  <p class="text-sm mb-3 leading-tight font-mono" style="color: var(--biolink-body-text-color)">
     {description}
   </p>
   
@@ -68,7 +66,7 @@ const { title, url, icon, thumbnail, imagePlaceholder, description, technologies
     <div class="mb-3">
       <div class="flex flex-wrap gap-1">
         {technologies.map(tech => (
-          <Badge text={tech} variant="accent" size="sm" />
+          <Badge text={tech} />
         ))}
       </div>
     </div>
