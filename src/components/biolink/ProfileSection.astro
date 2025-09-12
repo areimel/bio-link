@@ -29,13 +29,19 @@ const { name, title, subtitle, avatar, socialLinks, profileLinks } = Astro.props
   <!-- Dark/Light Mode Toggle -->
   <!-- <div class="absolute top-2 right-2">
     <ToggleTheme 
-      iconClass="w-6 h-6 text-theme-accent dark:text-theme-secondary" 
-      class="hover:bg-theme-surface dark:hover:bg-slate-700 focus:ring-theme-primary dark:focus:ring-theme-accent-alt"
+      iconClass="w-6 h-6"
+      iconStyle="color: var(--biolink-accent-text-color)" 
+      class="focus:ring-2"
+      style="--hover-bg: var(--biolink-section-background); --focus-ring: var(--aw-primary-color);"
+      onmouseover="this.style.backgroundColor = this.style.getPropertyValue('--hover-bg')"
+      onmouseout="this.style.backgroundColor = 'transparent'"
+      onfocus="this.style.setProperty('box-shadow', '0 0 0 2px ' + this.style.getPropertyValue('--focus-ring'))"
+      onblur="this.style.removeProperty('box-shadow')"
     />
   </div> -->
 
   <!-- Profile Avatar -->
-  <div class="w-48 h-48 mb-6 overflow-hidden rounded-full neo-border border-theme-accent dark:border-theme-secondary">
+  <div class="w-48 h-48 mb-6 overflow-hidden rounded-full neo-border" style="border-color: var(--biolink-accent-text-color)">
     <img 
       src={avatar} 
       alt={`${name}'s profile picture`} 
@@ -44,10 +50,10 @@ const { name, title, subtitle, avatar, socialLinks, profileLinks } = Astro.props
   </div>
   
   <!-- Profile Info -->
-  <h1 class="text-lg font-heading text-theme-text dark:text-white leading-relaxed">{name}</h1>
-  <h2 class="text-sm font-heading text-theme-accent dark:text-theme-secondary mb-4 tracking-tight max-w-sm mx-auto" style="text-wrap: balance;" >{title}</h2>
-  <p class="text-xs font-mono font-semibold text-theme-text dark:text-white mb-4 tracking-tight max-w-sm mx-auto" style="text-wrap: balance;" >{subtitle}</p>
-  <!-- <p class="text-sm text-default dark:text-muted max-w-md mb-4">{description}</p> -->
+  <h1 class="text-lg font-heading leading-relaxed" style="color: var(--biolink-body-text-color)">{name}</h1>
+  <h2 class="text-sm font-heading mb-4 tracking-tight max-w-sm mx-auto" style="text-wrap: balance; color: var(--biolink-accent-text-color);" >{title}</h2>
+  <p class="text-xs font-mono font-semibold mb-4 tracking-tight max-w-sm mx-auto" style="text-wrap: balance; color: var(--biolink-body-text-color);" >{subtitle}</p>
+  <!-- <p class="text-sm text-default max-w-md mb-4">{description}</p> -->
   <SocialLinks links={socialLinks} />
   
   <!-- Profile Links -->
@@ -55,13 +61,13 @@ const { name, title, subtitle, avatar, socialLinks, profileLinks } = Astro.props
     <LinksList links={profileLinks} />
   </div>
   
-  <div class="border-b-4 border-black w-full mb-6 mt-2"></div>
+  <div class="border-b-4 w-full mb-6 mt-2" style="border-color: var(--biolink-border-color)"></div>
   
   <div class="w-full">
-    <h2 class="text-sm font-heading text-theme-text dark:text-white mb-2 tracking-tight max-w-sm mx-auto" style="text-wrap: balance;" >
+    <h2 class="text-sm font-heading mb-2 tracking-tight max-w-sm mx-auto" style="text-wrap: balance; color: var(--biolink-body-text-color);" >
       Enjoying my work?
     </h2>
-    <p class="text-xs font-mono font-semibold text-theme-text dark:text-white mb-4 tracking-tight max-w-sm mx-auto" style="text-wrap: balance;" >
+    <p class="text-xs font-mono font-semibold mb-4 tracking-tight max-w-sm mx-auto" style="text-wrap: balance; color: var(--biolink-body-text-color);" >
       Feel free to support me on the following channels:
     </p>
 

@@ -21,15 +21,15 @@ This is an Astro-based biolink application. Key commands:
 This is a customized Astro biolink application built on the AstroWind template with significant modifications:
 
 - **Static Site Generation**: Uses Astro 5.0 with static output configuration
-- **Styling**: Tailwind CSS with custom VHS-inspired theme (neo-brutalism styling)
+- **Styling**: Tailwind CSS with custom retro-inspired theme (neo-brutalism styling)
 - **Data-Driven**: Profile and links data stored in `src/data/biolink.json`
 - **Component Architecture**: Modular biolink components in `src/components/biolink/`
 
 ### Key Configuration Files
 - `src/config.yaml` - Site metadata, SEO, and app configuration
 - `src/data/biolink.json` - Profile data, social links, contact links, and project links
-- `tailwind.config.js` - Custom VHS color palette and theme extensions
-- `src/components/CustomStyles.astro` - Global CSS custom properties and VHS theme variables
+- `tailwind.config.js` - Custom retro color palette and theme extensions
+- `src/components/CustomStyles.astro` - Global CSS custom properties and retro theme variables
 
 ### Biolink Data Structure
 The application uses a JSON-driven approach with four main link categories:
@@ -39,7 +39,7 @@ The application uses a JSON-driven approach with four main link categories:
 - `projectLinks` - Portfolio/project showcase in "My Projects" section
 
 ### Theme System
-- **VHS-Inspired Design**: Custom color palette with retro aesthetics
+- **Retro-Inspired Design**: Custom color palette with retro aesthetics
 - **Neo-Brutalism Styling**: Bold borders, high contrast, pixelated fonts
 - **Dark Mode Support**: Full theme switching with `class` strategy
 - **Custom Fonts**: "Kode Mono" for headings, "Courier Prime" for mono

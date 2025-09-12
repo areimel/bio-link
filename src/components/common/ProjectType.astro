@@ -1,0 +1,11 @@
+---
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<span class="inline-block font-heading neo-border rounded px-3 py-1.5 text-xs" style="background-color: var(--biolink-secondary-button-background); color: black;">
+  {text}
+</span>
