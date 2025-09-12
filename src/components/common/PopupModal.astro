@@ -25,12 +25,12 @@ const { id, title } = Astro.props;
     class="modal-content relative w-full max-w-md bg-white neo-border neo-shadow-big rounded-lg overflow-hidden transform transition-all duration-300 scale-95 opacity-0"
   >
     <!-- Header with title and close button -->
-    <div class="flex items-center justify-between p-4" style="border-bottom: 3px solid var(--aw-border-color);">
-      {title && <h3 id={`${id}-title`} class="text-lg font-heading" style="color: var(--aw-body-text-color)">{title}</h3>}
+    <div class="flex items-center justify-between p-4" style="border-bottom: 3px solid var(--biolink-border-color);">
+      {title && <h3 id={`${id}-title`} class="text-lg font-heading" style="color: var(--biolink-body-text-color)">{title}</h3>}
       <button 
         type="button" 
         class="text-gray-500 focus:outline-none neo-button p-1 rounded-lg"
-        style="color: #6b7280; --hover-color: var(--aw-headline-color);"
+        style="color: #6b7280; --hover-color: var(--biolink-accent-text-color);"
         onmouseover="this.style.color = this.style.getPropertyValue('--hover-color')"
         onmouseout="this.style.color = '#6b7280'"
         data-modal-close

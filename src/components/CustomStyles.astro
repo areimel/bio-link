@@ -22,44 +22,62 @@ import '@fontsource/kode-mono';
 
 <style is:inline>
   :root {
-    --aw-font-sans: 'Inter Variable';
-    --aw-font-serif: 'Inter Variable';
-    --aw-font-heading: 'Kode Mono';
-    --aw-font-mono: 'Courier Prime';
+    /* Direct Font Variables - No Cascading */
+    --biolink-font-sans: 'Inter Variable';
+    --biolink-font-serif: 'Inter Variable';
+    --biolink-font-heading: 'Kode Mono';
+    --biolink-font-mono: 'Courier Prime';
 
-    /* Semantic theme colors (preserving VHS color values) */
-    --aw-color-theme-secondary: #f7d959; /* Bright secondary accent */
-    --aw-color-theme-primary: #f47f21; /* Main primary action color */
-    --aw-color-theme-accent: #da3440; /* Vibrant accent/highlight */
-    --aw-color-theme-accent-alt: #af375d; /* Alternative accent */
-    --aw-color-theme-surface: #f2e2c8; /* Surface background */
-    --aw-color-theme-text: rgb(68, 68, 68); /* Main text color */
+    /* Direct Background & Surface Variables - No Cascading */
+    --biolink-page-background: #f2e2c8;
+    --biolink-section-background: #f8f6f0; 
+    --biolink-modal-background: #ffffff;
+    --biolink-card-background: #ffffff;
 
-    /* Main theme colors using semantic theme palette */
-    --aw-color-primary: var(--aw-color-theme-accent);
-    --aw-color-secondary: var(--aw-color-theme-secondary);
-    --aw-color-accent: var(--aw-color-theme-accent-alt);
-    
-    --aw-color-text-heading: rgb(68, 68, 68); 
-    --aw-color-text-default: rgb(56, 56, 56);
-    --aw-color-text-muted: rgb(56, 56, 56 / 66%);
-    --aw-color-bg-page: #f2e2c8; 
+    /* Direct Button Variables - No Cascading */
+    --biolink-primary-button-background: #f47f21;
+    --biolink-primary-button-text: #ffffff;
+    --biolink-primary-button-hover-background: #da3440;
 
-    /* Hyper-specific theme control variables */
-    --aw-page-background: var(--aw-color-bg-page);
-    --aw-section-background: var(--aw-color-theme-surface);
-    --aw-link-button-background: #FFFFFF;
-    --aw-link-button-text-color: var(--aw-color-theme-text);
-    --aw-link-button-accent-color: var(--aw-color-theme-primary);
-    --aw-social-button-background: var(--aw-color-theme-text);
-    --aw-social-button-background-hover: var(--aw-color-theme-primary);
-    --aw-body-text-color: var(--aw-color-theme-text);
-    --aw-headline-color: var(--aw-color-theme-text);
-    --aw-border-color: black;
-    --aw-border-thickness: 3px;
+    --biolink-secondary-button-background: #F6BB1A;
+    --biolink-secondary-button-text: #444444;
+    --biolink-secondary-button-hover-background: #f47f21;
+
+    --biolink-link-button-background: #ffffff;
+    --biolink-link-button-text-color: #444444;
+    --biolink-link-button-accent-color: #f47f21;
+    --biolink-link-button-hover-background: #f8f6f0;
+
+    --biolink-social-button-background: #444444;
+    --biolink-social-button-text: #f8f6f0;
+    --biolink-social-button-hover-background: #f47f21;
+    --biolink-social-button-hover-text: #ffffff;
+
+    /* Direct Text & Typography Variables - No Cascading */
+    --biolink-heading-color: #444444;
+    --biolink-body-text-color: #444444;
+    --biolink-muted-text-color: rgba(68, 68, 68, 0.66);
+    --biolink-accent-text-color: #000000;
+    --biolink-link-text-color: #f47f21;
+
+    /* Direct Border & Visual Effects Variables - No Cascading */
+    --biolink-border-color: #000000;
+    --biolink-border-thickness: 3px;
+    --biolink-border-radius: 0.5rem;
+
+    --biolink-shadow-color: rgba(0, 0, 0, 1);
+    --biolink-shadow-offset: 4px 4px 0px 0px;
+    --biolink-shadow-big-offset: 10px 10px 0px 0px;
+
+    /* Direct Form Variables - No Cascading */
+    --biolink-input-background: #ffffff;
+    --biolink-input-border: #000000;
+    --biolink-input-text: #444444;
+    --biolink-input-placeholder: rgba(68, 68, 68, 0.5);
+    --biolink-input-focus-border: #f47f21;
 
     ::selection {
-      background-color: var(--aw-color-theme-primary);
+      background-color: var(--biolink-primary-button-background);
       color: white;
     }
   }

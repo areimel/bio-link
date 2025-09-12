@@ -7,27 +7,27 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: 'var(--aw-color-primary)',
-        secondary: 'var(--aw-color-secondary)',
-        accent: 'var(--aw-color-accent)',
-        default: 'var(--aw-color-text-default)',
-        muted: 'var(--aw-color-text-muted)',
-        // Semantic theme colors (preserving VHS color values)
+        primary: 'var(--biolink-primary-button-background)',
+        secondary: 'var(--biolink-secondary-button-background)',
+        accent: 'var(--biolink-accent-text-color)',
+        default: 'var(--biolink-body-text-color)',
+        muted: 'var(--biolink-muted-text-color)',
+        // Direct theme colors - no cascading
         theme: {
-          primary: 'rgb(244, 127, 33)',      // orange - main action color
-          secondary: 'rgb(246, 187, 26)',    // yellow - secondary accents
-          accent: 'rgb(236, 62, 40)',        // red - highlights
-          'accent-alt': 'rgb(157, 36, 73)',  // magenta - alternative highlights
-          surface: 'rgb(248, 246, 240)',     // offwhite - surface backgrounds
-          text: 'rgb(68, 68, 68)',           // darkgray - main text color
+          primary: 'var(--biolink-primary-button-background)',      // orange - main action color
+          secondary: 'var(--biolink-secondary-button-background)',  // yellow - secondary accents
+          accent: 'var(--biolink-accent-text-color)',               // red - highlights
+          'accent-alt': 'var(--biolink-primary-button-hover-background)',  // magenta - alternative highlights
+          surface: 'var(--biolink-section-background)',             // offwhite - surface backgrounds
+          text: 'var(--biolink-body-text-color)',                   // darkgray - main text color
         },
       },
       fontFamily: {
-        sans: ['var(--aw-font-sans, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
-        serif: ['var(--aw-font-serif, ui-serif)', ...defaultTheme.fontFamily.serif],
-        heading: ['var(--aw-font-heading, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
-        mono: ['Courier Prime', 'monospace'],
-        'courier-prime': ['Courier Prime', 'monospace'],
+        sans: ['var(--biolink-font-sans, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
+        serif: ['var(--biolink-font-serif, ui-serif)', ...defaultTheme.fontFamily.serif],
+        heading: ['var(--biolink-font-heading, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
+        mono: ['var(--biolink-font-mono, monospace)', 'monospace'],
+        'courier-prime': ['var(--biolink-font-mono, Courier Prime)', 'monospace'],
       },
 
       animation: {

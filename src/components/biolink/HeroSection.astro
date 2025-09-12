@@ -26,7 +26,7 @@ const { name, title, subtitle, avatar, socialLinks, profileLinks } = Astro.props
 
 <div class="flex flex-col items-center text-center px-4 pb-12 pt-6 relative neo-container mb-6">
   <!-- Profile Avatar -->
-  <div class="w-48 h-48 mb-6 overflow-hidden rounded-full neo-border" style="border-color: var(--aw-headline-color)">
+  <div class="w-48 h-48 mb-6 overflow-hidden rounded-full neo-border" style="border-color: var(--biolink-border-color)">
     <img 
       src={avatar} 
       alt={`${name}'s profile picture`} 
@@ -36,13 +36,13 @@ const { name, title, subtitle, avatar, socialLinks, profileLinks } = Astro.props
   
   <!-- Profile Info -->
   <div class="mb-6">
-    <h1 class="text-3xl font-bold font-heading leading-relaxed mb-0" style="color: var(--aw-body-text-color)">
+    <h1 class="text-3xl font-bold font-heading leading-relaxed mb-0" style="color: var(--biolink-body-text-color)">
       {name}
     </h1>
-    <h2 class="text-xl font-bold font-heading mb-2 tracking-tight max-w-sm mx-auto" style="color: var(--aw-headline-color); text-wrap: balance;">
+    <h2 class="text-xl font-bold font-heading mb-2 tracking-tight max-w-sm mx-auto" style="color: var(--biolink-accent-text-color); text-wrap: balance;">
       {title}
     </h2>
-    <p class="text-sm font-mono font-semibold tracking-tight max-w-sm mx-auto" style="color: var(--aw-body-text-color); text-wrap: balance;">
+    <p class="text-sm font-mono font-semibold tracking-tight max-w-sm mx-auto" style="color: var(--biolink-body-text-color); text-wrap: balance;">
       {subtitle}
     </p>
   </div>

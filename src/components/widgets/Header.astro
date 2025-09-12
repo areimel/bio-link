@@ -58,7 +58,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
   <div class="absolute inset-0"></div>
   <div
     class:list={[
-      'relative text-default py-3 px-3 md:px-6 mx-auto w-full',
+      'relative py-3 px-3 md:px-6 mx-auto w-full',
       {
         'md:flex md:justify-between': position !== 'center',
       },
@@ -69,6 +69,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
         'max-w-7xl': !isFullWidth,
       },
     ]}
+    style="color: var(--biolink-body-text-color);"
   >
     <div class:list={[{ 'mr-auto rtl:mr-0 rtl:ml-auto': position === 'right' }, 'flex justify-between']}>
       <a class="flex items-center" href={getHomePermalink()}>
@@ -79,7 +80,8 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
       </div>
     </div>
     <nav
-      class="items-center w-full md:w-auto hidden md:flex md:mx-5 text-default overflow-y-auto overflow-x-hidden md:overflow-y-visible md:overflow-x-auto md:justify-self-center"
+      class="items-center w-full md:w-auto hidden md:flex md:mx-5 overflow-y-auto overflow-x-hidden md:overflow-y-visible md:overflow-x-auto md:justify-self-center"
+      style="color: var(--biolink-body-text-color);"
       aria-label="Main navigation"
     >
       <ul
@@ -92,7 +94,10 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                 <>
                   <button
                     type="button"
-                    class="hover:text-link px-4 py-3 flex items-center whitespace-nowrap"
+                    class="px-4 py-3 flex items-center whitespace-nowrap"
+                    style="color: var(--biolink-body-text-color);"
+                    onmouseover="this.style.color = 'var(--biolink-link-text-color)';"
+                    onmouseout="this.style.color = 'var(--biolink-body-text-color)';"
                   >
                     {text}{' '}
                     <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline" />
@@ -102,9 +107,12 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                       <li>
                         <a
                           class:list={[
-                            'first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-link py-2 px-5 block whitespace-no-wrap',
+                            'first:rounded-t last:rounded-b md:hover:bg-gray-100 py-2 px-5 block whitespace-no-wrap',
                             { 'aw-link-active': href2 === currentPath },
                           ]}
+                          style="color: var(--biolink-body-text-color);"
+                          onmouseover="this.style.color = 'var(--biolink-link-text-color)';"
+                          onmouseout="this.style.color = 'var(--biolink-body-text-color)';"
                           href={href2}
                         >
                           {text2}
@@ -116,9 +124,12 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
               ) : (
                 <a
                   class:list={[
-                    'hover:text-link px-4 py-3 flex items-center whitespace-nowrap',
+                    'px-4 py-3 flex items-center whitespace-nowrap',
                     { 'aw-link-active': href === currentPath },
                   ]}
+                  style="color: var(--biolink-body-text-color);"
+                  onmouseover="this.style.color = 'var(--biolink-link-text-color)';"
+                  onmouseout="this.style.color = 'var(--biolink-body-text-color)';"
                   href={href}
                 >
                   {text}
@@ -141,7 +152,8 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
           {
             showRssFeed && (
               <a
-                class="text-muted hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 rounded-lg text-sm p-2.5 inline-flex items-center"
+                class="hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 rounded-lg text-sm p-2.5 inline-flex items-center"
+                style="color: var(--biolink-muted-text-color);"
                 aria-label="RSS Feed"
                 href={getAsset('/rss.xml')}
               >

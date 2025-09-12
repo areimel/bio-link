@@ -13,7 +13,7 @@ const { platform, url, icon } = Astro.props;
 
 <style>
   .social-button:hover {
-    background-color: var(--aw-social-button-background-hover);
+    background-color: var(--biolink-social-button-hover-background);
   }
 </style>
 
@@ -22,8 +22,8 @@ const { platform, url, icon } = Astro.props;
   target="_blank" 
   rel="noopener noreferrer"
   class="social-button neo-button w-12 h-12 flex items-center justify-center p-0 rounded-lg"
-  style={`background-color: var(--aw-social-button-background);`}
+  style={`background-color: var(--biolink-social-button-background);`}
   aria-label={`Visit ${platform}`}
 >
-  <Icon name={icon} class="w-6 h-6" style="color: var(--aw-section-background)" />
+  <Icon name={icon} class="w-6 h-6" style="color: var(--biolink-section-background)" />
 </a>

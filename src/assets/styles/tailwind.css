@@ -4,16 +4,16 @@
 
 @layer utilities {
   .bg-page {
-    background-color: var(--aw-page-background);
+    background-color: var(--biolink-page-background);
   }
   .bg-light {
-    background-color: var(--aw-page-background);
+    background-color: var(--biolink-page-background);
   }
   .text-page {
-    color: var(--aw-color-text-page);
+    color: var(--biolink-body-text-color);
   }
   .text-muted {
-    color: var(--aw-color-text-muted);
+    color: var(--biolink-muted-text-color);
   }
   /* VHS-inspired gradient utility */
   .bg-rainbow-gradient {
@@ -22,8 +22,8 @@
   
   /* Neo-brutalist utility classes */
   .neo-border {
-    border-width: var(--aw-border-thickness);
-    border-color: var(--aw-border-color);
+    border-width: var(--biolink-border-thickness);
+    border-color: var(--biolink-border-color);
     border-style: solid;
   }
   
@@ -41,7 +41,7 @@
   
   .neo-container {
     @apply neo-border neo-shadow-big rounded-lg;
-    background-color: var(--aw-section-background);
+    background-color: var(--biolink-section-background);
   }
 
   .neo-card {
@@ -62,15 +62,32 @@
   }
 
   .btn-primary {
-    @apply btn font-semibold bg-primary text-white border-primary hover:bg-secondary hover:border-secondary hover:text-white;
+    @apply btn font-semibold border-none;
+    background-color: var(--biolink-primary-button-background);
+    color: var(--biolink-primary-button-text);
+  }
+  .btn-primary:hover {
+    background-color: var(--biolink-primary-button-hover-background);
+    color: var(--biolink-primary-button-text);
   }
 
   .btn-secondary {
-    @apply btn;
+    @apply btn border-none;
+    background-color: var(--biolink-secondary-button-background);
+    color: var(--biolink-secondary-button-text);
+  }
+  .btn-secondary:hover {
+    background-color: var(--biolink-secondary-button-hover-background);
+    color: var(--biolink-primary-button-text);
   }
 
   .btn-tertiary {
-    @apply btn border-none shadow-none text-muted hover:text-gray-900;
+    @apply btn border-none shadow-none;
+    color: var(--biolink-muted-text-color);
+    background: transparent;
+  }
+  .btn-tertiary:hover {
+    color: var(--biolink-body-text-color);
   }
 }
 

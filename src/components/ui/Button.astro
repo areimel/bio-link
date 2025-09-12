@@ -17,19 +17,29 @@ const variants = {
   primary: 'btn-primary',
   secondary: 'btn-secondary',
   tertiary: 'btn btn-tertiary',
-  link: 'cursor-pointer hover:text-primary',
+  link: 'cursor-pointer',
 };
 ---
 
 {
   type === 'button' || type === 'submit' || type === 'reset' ? (
-    <button type={type} class={twMerge(variants[variant] || '', className)} {...rest}>
+    <button 
+      type={type} 
+      class={twMerge(variants[variant] || '', className)} 
+      style={variant === 'link' ? 'color: var(--biolink-body-text-color); transition: color 0.2s ease;' : undefined}
+      onmouseover={variant === 'link' ? "this.style.color = 'var(--biolink-link-text-color)'" : undefined}
+      onmouseout={variant === 'link' ? "this.style.color = 'var(--biolink-body-text-color)'" : undefined}
+      {...rest}
+    >
       <Fragment set:html={text} />
       {icon && <Icon name={icon} class="w-5 h-5 ml-1 -mr-1.5 rtl:mr-1 rtl:-ml-1.5 inline-block" />}
     </button>
   ) : (
     <a
       class={twMerge(variants[variant] || '', className)}
+      style={variant === 'link' ? 'color: var(--biolink-body-text-color); transition: color 0.2s ease;' : undefined}
+      onmouseover={variant === 'link' ? "this.style.color = 'var(--biolink-link-text-color)'" : undefined}
+      onmouseout={variant === 'link' ? "this.style.color = 'var(--biolink-body-text-color)'" : undefined}
       {...(target ? { target: target, rel: 'noopener noreferrer' } : {})}
       {...rest}
     >

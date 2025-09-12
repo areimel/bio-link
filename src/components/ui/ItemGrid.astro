@@ -11,7 +11,7 @@ const {
   panel: panelClass = '',
   title: titleClass = '',
   description: descriptionClass = '',
-  icon: defaultIconClass = 'text-primary',
+  icon: defaultIconClass = '',
   action: actionClass = '',
 } = classes;
 ---
@@ -40,6 +40,7 @@ const {
                 <Icon
                   name={icon || defaultIcon}
                   class={twMerge('w-7 h-7 mr-2 rtl:mr-0 rtl:ml-2', defaultIconClass, itemClasses?.icon)}
+                  style={`color: var(--biolink-link-text-color)`}
                 />
               )}
             </div>
@@ -47,7 +48,8 @@ const {
               {title && <h3 class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)}>{title}</h3>}
               {description && (
                 <p
-                  class={twMerge(`${title ? 'mt-3' : ''} text-muted`, descriptionClass, itemClasses?.description)}
+                  class={twMerge(`${title ? 'mt-3' : ''}`, descriptionClass, itemClasses?.description)}
+                  style={`color: var(--biolink-muted-text-color)`}
                   set:html={description}
                 />
               )}
