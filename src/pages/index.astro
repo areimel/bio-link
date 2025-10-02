@@ -7,6 +7,7 @@ import ProjectsSection from '~/components/biolink/ProjectsSection.astro';
 import SupportSection from '~/components/biolink/SupportSection.astro';
 import PopupModal from '~/components/common/PopupModal.astro';
 import ContactForm from '~/components/biolink/ContactForm.astro';
+import Footer from '~/components/common/Footer.astro';
 
 // Import data from JSON file
 import bioLinkData from '../data/biolink.json';
@@ -71,11 +72,10 @@ const metadata = {
   <PopupModal id="contact" title="Get in Touch">
     <ContactForm />
   </PopupModal>
-  
-  <!-- Footer with subtle VHS-inspired design -->
-  <div class="w-full text-center py-4 text-sm text-theme-text border-t border-theme-text">
-    <!-- <p>Made with vintage vibes 📼</p> -->
-    <p>Anti-Copyright {new Date().getFullYear()} - No Rights Reserved</p>
-    <p>Open Source & Free To Use - Download your own copy and customize it for yourself.</p>
-  </div>
+
+  <!-- Footer -->
+  <Footer
+    footerData={bioLinkData.footer}
+    socialLinks={bioLinkData.socialLinks}
+  />
 </Layout>

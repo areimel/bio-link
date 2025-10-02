@@ -159,5 +159,63 @@
       "url": "https://www.patreon.com/cw/ARDATechLab",
       "icon": "tabler:brand-patreon"
     }
-  ]
+  ],
+  "footer": {
+    "newsletter": {
+      "headline": "Stay in the loop",
+      "description": "Subscribe to get updates on new projects, blog posts, and tech experiments.",
+      "placeholder": "Enter your email",
+      "buttonText": "Subscribe"
+    },
+    "navigation": {
+      "about": [
+        {
+          "title": "About Me",
+          "url": "https://alecreimel.com/about"
+        },
+        {
+          "title": "My Work",
+          "url": "https://alecreimel.com/portfolio"
+        },
+        {
+          "title": "Blog",
+          "url": "https://alecreimel.com/blog"
+        }
+      ],
+      "connect": [
+        {
+          "title": "Contact",
+          "url": "#",
+          "modal": "contact"
+        },
+        {
+          "title": "LinkedIn",
+          "url": "https://www.linkedin.com/in/alecwreimel/"
+        },
+        {
+          "title": "GitHub",
+          "url": "https://github.com/areimel"
+        }
+      ],
+      "resources": [
+        {
+          "title": "ARDA Tech Lab",
+          "url": "https://advancedresearch.dev"
+        },
+        {
+          "title": "Bio-Link Template",
+          "url": "https://github.com/areimel/bio-link-template"
+        },
+        {
+          "title": "Support My Work",
+          "url": "https://buymeacoffee.com/alecreimel"
+        }
+      ]
+    },
+    "copyright": {
+      "year": "2025",
+      "text": "Anti-Copyright {year} - No Rights Reserved",
+      "subtext": "Open Source & Free To Use - Download your own copy and customize it for yourself."
+    }
+  }
 } 

@@ -1,0 +1,236 @@
+---
+import { Icon } from 'astro-icon/components';
+import SocialButton from './SocialButton.astro';
+
+interface Props {
+  footerData: {
+    newsletter: {
+      headline: string;
+      description: string;
+      placeholder: string;
+      buttonText: string;
+    };
+    navigation: {
+      about: Array<{ title: string; url: string; modal?: string }>;
+      connect: Array<{ title: string; url: string; modal?: string }>;
+      resources: Array<{ title: string; url: string; modal?: string }>;
+    };
+    copyright: {
+      year: string;
+      text: string;
+      subtext: string;
+    };
+  };
+  socialLinks: Array<{
+    platform: string;
+    url: string;
+    icon: string;
+  }>;
+}
+
+const { footerData, socialLinks } = Astro.props;
+const copyrightText = footerData.copyright.text.replace('{year}', footerData.copyright.year);
+---
+
+<footer class="w-full border-t-[var(--biolink-border-thickness)] border-theme-text" style="background-color: var(--biolink-card-background);">
+  <div class="w-full max-w-6xl mx-auto px-6 py-12">
+    <!-- Main Footer Content Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+
+      <!-- Newsletter Section -->
+      <div class="lg:col-span-1">
+        <h3 class="font-heading text-lg font-bold text-theme-text mb-3">
+          {footerData.newsletter.headline}
+        </h3>
+        <p class="text-sm text-theme-text mb-4 opacity-80">
+          {footerData.newsletter.description}
+        </p>
+        <form class="flex flex-col gap-3" data-newsletter-form>
+          <input
+            type="email"
+            placeholder={footerData.newsletter.placeholder}
+            required
+            class="neo-button px-4 py-2 text-sm w-full"
+            style="background-color: var(--biolink-input-background); color: var(--biolink-input-text);"
+            aria-label="Email address"
+          />
+          <button
+            type="submit"
+            class="neo-button px-4 py-2 text-sm font-bold flex items-center justify-center gap-2"
+            style="background-color: var(--biolink-primary-button-background); color: var(--biolink-primary-button-text);"
+          >
+            {footerData.newsletter.buttonText}
+            <Icon name="tabler:arrow-right" class="w-4 h-4" />
+          </button>
+        </form>
+      </div>
+
+      <!-- About Navigation -->
+      <div class="lg:col-span-1">
+        <h4 class="font-heading text-base font-bold text-theme-text mb-4">About</h4>
+        <ul class="space-y-2">
+          {footerData.navigation.about.map((link) => (
+            <li>
+              <a
+                href={link.url}
+                class="text-sm text-theme-text hover:text-theme-primary transition-colors duration-200"
+              >
+                {link.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Connect Navigation -->
+      <div class="lg:col-span-1">
+        <h4 class="font-heading text-base font-bold text-theme-text mb-4">Connect</h4>
+        <ul class="space-y-2">
+          {footerData.navigation.connect.map((link) => (
+            <li>
+              {link.modal ? (
+                <button
+                  data-modal={link.modal}
+                  class="text-sm text-theme-text hover:text-theme-primary transition-colors duration-200 text-left"
+                >
+                  {link.title}
+                </button>
+              ) : (
+                <a
+                  href={link.url}
+                  target={link.url.startsWith('http') ? '_blank' : undefined}
+                  rel={link.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  class="text-sm text-theme-text hover:text-theme-primary transition-colors duration-200"
+                >
+                  {link.title}
+                </a>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Resources Navigation -->
+      <div class="lg:col-span-1">
+        <h4 class="font-heading text-base font-bold text-theme-text mb-4">Resources</h4>
+        <ul class="space-y-2">
+          {footerData.navigation.resources.map((link) => (
+            <li>
+              <a
+                href={link.url}
+                target={link.url.startsWith('http') ? '_blank' : undefined}
+                rel={link.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+                class="text-sm text-theme-text hover:text-theme-primary transition-colors duration-200"
+              >
+                {link.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Social Links -->
+    <div class="flex justify-center gap-4 mb-8 pb-8 border-b border-theme-text border-opacity-20">
+      {socialLinks.map((social) => (
+        <SocialButton
+          platform={social.platform}
+          url={social.url}
+          icon={social.icon}
+        />
+      ))}
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center space-y-2">
+      <p class="text-sm text-theme-text font-bold">
+        {copyrightText}
+      </p>
+      <p class="text-xs text-theme-text opacity-80">
+        {footerData.copyright.subtext}
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Newsletter form handler
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('[data-newsletter-form]') as HTMLFormElement;
+
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const emailInput = form.querySelector('input[type="email"]') as HTMLInputElement;
+
+        // TODO: Integrate with email service (Mailchimp, ConvertKit, etc.)
+        console.log('Newsletter signup:', emailInput.value);
+
+        // Show success message
+        alert('Thanks for subscribing! (Email service integration pending)');
+        emailInput.value = '';
+      });
+    }
+
+    // Modal button handlers
+    const modalButtons = document.querySelectorAll('[data-modal]');
+    modalButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        const modalId = (e.currentTarget as HTMLElement).getAttribute('data-modal');
+        if (modalId) {
+          const modal = document.getElementById(modalId);
+          if (modal) {
+            modal.classList.remove('hidden');
+          }
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .neo-button {
+    border: var(--biolink-border-thickness) solid var(--biolink-border-color);
+    box-shadow: var(--biolink-shadow-offset) var(--biolink-shadow-color);
+    border-radius: var(--biolink-border-radius);
+    transition: all 0.2s ease;
+  }
+
+  .neo-button:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px 0px var(--biolink-shadow-color);
+  }
+
+  .neo-button:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0px 0px var(--biolink-shadow-color);
+  }
+
+  input.neo-button:focus {
+    outline: none;
+    border-color: var(--biolink-input-focus-border);
+  }
+
+  button[data-modal],
+  a {
+    position: relative;
+    text-decoration: none;
+  }
+
+  button[data-modal]::after,
+  a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--biolink-primary-button-background);
+    transition: width 0.3s ease;
+  }
+
+  button[data-modal]:hover::after,
+  a:hover::after {
+    width: 100%;
+  }
+</style>
