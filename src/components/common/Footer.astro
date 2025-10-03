@@ -1,6 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
 import SocialButton from './SocialButton.astro';
+import NewsletterForm from '~/components/biolink/NewsletterForm.astro';
 
 interface Props {
   footerData: {
@@ -45,24 +46,7 @@ const copyrightText = footerData.copyright.text.replace('{year}', footerData.cop
         <p class="text-sm text-theme-text mb-4 opacity-80">
           {footerData.newsletter.description}
         </p>
-        <form class="flex flex-col gap-3" data-newsletter-form>
-          <input
-            type="email"
-            placeholder={footerData.newsletter.placeholder}
-            required
-            class="neo-button px-4 py-2 text-sm w-full"
-            style="background-color: var(--biolink-input-background); color: var(--biolink-input-text);"
-            aria-label="Email address"
-          />
-          <button
-            type="submit"
-            class="neo-button px-4 py-2 text-sm font-bold flex items-center justify-center gap-2"
-            style="background-color: var(--biolink-primary-button-background); color: var(--biolink-primary-button-text);"
-          >
-            {footerData.newsletter.buttonText}
-            <Icon name="tabler:arrow-right" class="w-4 h-4" />
-          </button>
-        </form>
+        <NewsletterForm />
       </div>
 
       <!-- About Navigation -->
@@ -154,25 +138,8 @@ const copyrightText = footerData.copyright.text.replace('{year}', footerData.cop
 </footer>
 
 <script>
-  // Newsletter form handler
+  // Modal button handlers
   document.addEventListener('DOMContentLoaded', () => {
-    const form = document.querySelector('[data-newsletter-form]') as HTMLFormElement;
-
-    if (form) {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const emailInput = form.querySelector('input[type="email"]') as HTMLInputElement;
-
-        // TODO: Integrate with email service (Mailchimp, ConvertKit, etc.)
-        console.log('Newsletter signup:', emailInput.value);
-
-        // Show success message
-        alert('Thanks for subscribing! (Email service integration pending)');
-        emailInput.value = '';
-      });
-    }
-
-    // Modal button handlers
     const modalButtons = document.querySelectorAll('[data-modal]');
     modalButtons.forEach(button => {
       button.addEventListener('click', (e) => {

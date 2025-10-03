@@ -2,8 +2,8 @@
 // ContactForm component using Web3Forms for submission
 import { Icon } from 'astro-icon/components';
 
-// Replace with your actual Web3Forms access key
-const WEB3FORMS_ACCESS_KEY = "YOUR_ACCESS_KEY_HERE";
+// Web3Forms access key from environment variables
+const WEB3FORMS_ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY;
 ---
 
 <style>

@@ -1,0 +1,156 @@
+---
+// NewsletterForm component using Web3Forms for submission
+import { Icon } from 'astro-icon/components';
+
+// Web3Forms access key from environment variables
+const WEB3FORMS_ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY;
+---
+
+<style>
+  .newsletter-form-input:focus {
+    border-color: var(--biolink-input-focus-border) !important;
+  }
+
+  /* .newsletter-form-submit:hover {
+    background-color: var(--biolink-primary-button-hover-background) !important;
+  } */
+
+  .newsletter-form-checkbox {
+    color: var(--biolink-input-focus-border);
+  }
+
+  .newsletter-form-checkbox:focus {
+    ring-color: var(--biolink-input-focus-border);
+  }
+</style>
+
+<form
+  action="https://api.web3forms.com/submit"
+  method="POST"
+  class="flex flex-col gap-3"
+  id="newsletter-form"
+>
+  <!-- Web3Forms Access Key -->
+  <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
+
+  <!-- Optional: Subject field -->
+  <input type="hidden" name="subject" value="New Newsletter Subscription from Bio Link" />
+
+  <!-- Email field -->
+  <input
+    type="email"
+    name="email"
+    id="newsletter-email"
+    placeholder="Enter your email"
+    required
+    class="w-full px-4 py-2 neo-border rounded-lg bg-white contact-form-input focus:outline-none"
+    style="background-color: var(--biolink-input-background); color: var(--biolink-input-text);"
+    aria-label="Email address"
+  />
+
+  <!-- Consent checkbox -->
+  <div class="form-group">
+    <label class="flex items-start gap-2 cursor-pointer">
+      <input
+        type="checkbox"
+        name="consent"
+        required
+        class="mt-0.5 h-4 w-4 newsletter-form-checkbox rounded-none"
+        style="border-color: var(--biolink-border-color);"
+      />
+      <span class="text-xs font-courier-prime" style="color: var(--biolink-body-text-color)">
+        I consent to receive email updates and newsletters.
+      </span>
+    </label>
+  </div>
+
+  <!-- Honeypot field to prevent spam -->
+  <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+
+  <!-- Submit button -->
+  <button
+    type="submit"
+    
+    class="newsletter-form-submit w-full py-3 px-6 font-heading text-md rounded-lg contact-form-submit font-medium neo-button flex items-center justify-center gap-2"
+    style="background-color: var(--biolink-primary-button-background); color: var(--biolink-primary-button-text);"
+  >
+    <span class="button-text">Subscribe</span>
+    <Icon name="tabler:arrow-right" class="w-4 h-4" />
+  </button>
+
+  <!-- Success/error message container -->
+  <div id="newsletter-result" class="mt-2 text-center hidden">
+    <p id="newsletter-success" class="text-sm hidden p-2 neo-border rounded" style="border-color: #22c55e; color: #22c55e;">
+      <Icon name="tabler:check" class="w-4 h-4 inline" />
+      <span>Successfully subscribed!</span>
+    </p>
+    <p id="newsletter-error" class="text-sm hidden p-2 neo-border rounded" style="border-color: #ef4444; color: #ef4444;">
+      <Icon name="tabler:alert-triangle" class="w-4 h-4 inline" />
+      <span>Something went wrong. Please try again.</span>
+    </p>
+  </div>
+</form>
+
+<script>
+  // Handle newsletter form submission
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('newsletter-form') as HTMLFormElement;
+    const result = document.getElementById('newsletter-result');
+    const successMessage = document.getElementById('newsletter-success');
+    const errorMessage = document.getElementById('newsletter-error');
+
+    if (form && result && successMessage && errorMessage) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        const submitBtn = form.querySelector('button')!;
+        const buttonText = submitBtn.querySelector('.button-text')!;
+
+        // Show loading state
+        buttonText.textContent = 'Please wait...';
+        submitBtn.disabled = true;
+
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: json
+        })
+        .then(async (response) => {
+          const json = await response.json();
+          result.classList.remove('hidden');
+
+          if (response.status == 200) {
+            // Show success message
+            successMessage.classList.remove('hidden');
+            errorMessage.classList.add('hidden');
+            // Reset form
+            form.reset();
+          } else {
+            // Show error message
+            errorMessage.classList.remove('hidden');
+            successMessage.classList.add('hidden');
+            console.log(json);
+          }
+        })
+        .catch(error => {
+          // Show error message
+          result.classList.remove('hidden');
+          errorMessage.classList.remove('hidden');
+          successMessage.classList.add('hidden');
+          console.log(error);
+        })
+        .finally(() => {
+          // Reset button state
+          buttonText.textContent = 'Subscribe';
+          submitBtn.disabled = false;
+        });
+      });
+    }
+  });
+</script>
