@@ -9,8 +9,10 @@ import PopupModal from '~/components/common/PopupModal.astro';
 import ContactForm from '~/components/biolink/ContactForm.astro';
 import Footer from '~/components/common/Footer.astro';
 
-// Import data from JSON file
+// Import data from JSON files
 import bioLinkData from '../data/biolink.json';
+import projectsData from '../data/projects.json';
+import footerData from '../data/footer.json';
 
 const metadata = {
   title: `${bioLinkData.profile.name} - Links`,
@@ -37,7 +39,7 @@ const metadata = {
         <SiteTemplateSection 
           {...bioLinkData.siteTemplate}
         />
-        <ProjectsSection projectLinks={bioLinkData.projectLinks} />
+        <ProjectsSection projectLinks={projectsData} />
         <SupportSection supportLinks={bioLinkData.supportLinks} />
       </div>
 
@@ -61,7 +63,7 @@ const metadata = {
         
         <!-- Main section - spans 2 columns -->
         <div class="lg:col-span-2">
-          <ProjectsSection projectLinks={bioLinkData.projectLinks} />
+          <ProjectsSection projectLinks={projectsData} />
         </div>
         
       </div>
@@ -75,7 +77,7 @@ const metadata = {
 
   <!-- Footer -->
   <Footer
-    footerData={bioLinkData.footer}
+    footerData={footerData}
     socialLinks={bioLinkData.socialLinks}
   />
 </Layout>
