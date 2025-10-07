@@ -1,0 +1,29 @@
+---
+// AboutMeSection component - About Me biography section
+import SectionHeader from './SectionHeader.astro';
+
+interface Props {
+  headline: string;
+  paragraphs: string[];
+}
+
+const { headline, paragraphs } = Astro.props;
+---
+
+<div class="w-full neo-container p-6 mb-6" style="background-color: var(--biolink-section-background); color: var(--biolink-body-text-color);">
+  <div class="flex flex-col items-center">
+
+    <!-- Section Headline -->
+    <SectionHeader text={headline} />
+
+    <!-- Biography Text -->
+    <div class="w-full max-w-2xl space-y-4">
+      {paragraphs.map((paragraph) => (
+        <p class="text-sm font-mono font-semibold tracking-tight" style="color: var(--biolink-body-text-color);">
+          {paragraph}
+        </p>
+      ))}
+    </div>
+
+  </div>
+</div>

@@ -27,26 +27,27 @@
         "modal": "contact"
       },
       {
-        "title": "LinkedIn",
-        "url": "https://www.linkedin.com/in/alecwreimel/"
+        "title": "Portfolio",
+        "url": "https://alecreimel.com"
       },
       {
-        "title": "GitHub",
-        "url": "https://github.com/areimel"
+        "title": "Freelance: ARDA",
+        "url": "https://advancedresearch.dev"
       }
     ],
     "resources": [
-      {
-        "title": "ARDA Tech Lab",
-        "url": "https://advancedresearch.dev"
-      },
+      
       {
         "title": "Bio-Link Template",
         "url": "https://github.com/areimel/bio-link-template"
       },
       {
-        "title": "Support My Work",
+        "title": "Buy Me A Coffee",
         "url": "https://buymeacoffee.com/alecreimel"
+      },
+      {
+        "title": "Join My Patreon",
+        "url": "https://www.patreon.com/cw/ARDATechLab"
       }
     ]
   },
