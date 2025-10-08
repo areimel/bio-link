@@ -78,7 +78,7 @@ const copyrightText = footerData.copyright.text.replace('{year}', footerData.cop
               <li>
                 {link.modal ? (
                   <button
-                    data-modal={link.modal}
+                    data-modal-target={link.modal}
                     class="text-sm text-theme-text hover:text-theme-primary transition-colors duration-200 text-left"
                   >
                     {link.title}
@@ -123,24 +123,6 @@ const copyrightText = footerData.copyright.text.replace('{year}', footerData.cop
     </div>
   </div>
 </footer>
-
-<script>
-  // Modal button handlers
-  document.addEventListener('DOMContentLoaded', () => {
-    const modalButtons = document.querySelectorAll('[data-modal]');
-    modalButtons.forEach(button => {
-      button.addEventListener('click', (e) => {
-        const modalId = (e.currentTarget as HTMLElement).getAttribute('data-modal');
-        if (modalId) {
-          const modal = document.getElementById(modalId);
-          if (modal) {
-            modal.classList.remove('hidden');
-          }
-        }
-      });
-    });
-  });
-</script>
 
 <style>
   .neo-button {
