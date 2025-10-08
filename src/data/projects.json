@@ -52,7 +52,7 @@
     "description": "Collection of interactive augmented reality demonstrations showcasing AR.js and WebXR technologies for web-based AR experiences.",
     "technologies": ["JavaScript", "AR.js", "WebXR", "Three.js"],
     "type": "Demo Collection",
-    "published": true
+    "published": false
   },
   {
     "title": "Pwnagotchi",
