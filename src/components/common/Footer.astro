@@ -1,0 +1,172 @@
+---
+import { Icon } from 'astro-icon/components';
+import SocialButton from './SocialButton.astro';
+import NewsletterForm from '~/components/biolink/NewsletterForm.astro';
+
+interface Props {
+  footerData: {
+    newsletter: {
+      headline: string;
+      description: string;
+      placeholder: string;
+      buttonText: string;
+    };
+    navigation: {
+      about: Array<{ title: string; url: string; modal?: string }>;
+      connect: Array<{ title: string; url: string; modal?: string }>;
+      resources: Array<{ title: string; url: string; modal?: string }>;
+    };
+    copyright: {
+      year: string;
+      text: string;
+      subtext: string;
+    };
+  };
+  socialLinks: Array<{
+    platform: string;
+    url: string;
+    icon: string;
+  }>;
+}
+
+const { footerData, socialLinks } = Astro.props;
+const copyrightText = footerData.copyright.text.replace('{year}', footerData.copyright.year);
+---
+
+<footer class="w-full border-t-[var(--biolink-border-thickness)] border-theme-text" style="background-color: var(--biolink-card-background);">
+  <div class="w-full max-w-6xl mx-auto px-6 py-12">
+    <!-- Main Footer Content -->
+    <div class="flex flex-col md:flex-row justify-between gap-8 mb-12">
+
+      <!-- Newsletter Section -->
+      <div class="max-w-sm">
+        <h3 class="font-heading text-lg font-bold text-theme-text mb-3">
+          {footerData.newsletter.headline}
+        </h3>
+        <p class="text-sm text-theme-text mb-4 opacity-80">
+          {footerData.newsletter.description}
+        </p>
+        <NewsletterForm />
+      </div>
+
+      <!-- Navigation Columns Group -->
+      <div class="flex gap-12 md:gap-16">
+        <!-- Resources Navigation -->
+        <div>
+          <h4 class="font-heading text-base font-bold text-theme-text mb-4">Resources</h4>
+          <ul class="space-y-2">
+            {footerData.navigation.resources.map((link) => (
+              <li>
+                <a
+                  href={link.url}
+                  target={link.url.startsWith('http') ? '_blank' : undefined}
+                  rel={link.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  class="text-sm text-theme-text hover:text-theme-primary transition-colors duration-200"
+                >
+                  {link.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Connect Navigation -->
+        <div>
+          <h4 class="font-heading text-base font-bold text-theme-text mb-4">Connect</h4>
+          <ul class="space-y-2">
+            {footerData.navigation.connect.map((link) => (
+              <li>
+                {link.modal ? (
+                  <button
+                    data-modal-target={link.modal}
+                    class="text-sm text-theme-text hover:text-theme-primary transition-colors duration-200 text-left"
+                  >
+                    {link.title}
+                  </button>
+                ) : (
+                  <a
+                    href={link.url}
+                    target={link.url.startsWith('http') ? '_blank' : undefined}
+                    rel={link.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    class="text-sm text-theme-text hover:text-theme-primary transition-colors duration-200"
+                  >
+                    {link.title}
+                  </a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Social Links -->
+    <div class="flex justify-center gap-4 mb-8 pb-8 border-b border-theme-text border-opacity-20">
+      {socialLinks.map((social) => (
+        <SocialButton
+          platform={social.platform}
+          url={social.url}
+          icon={social.icon}
+        />
+      ))}
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center space-y-2">
+      <p class="text-sm text-theme-text font-bold">
+        {copyrightText}
+      </p>
+      <p class="text-xs text-theme-text opacity-80">
+        {footerData.copyright.subtext}
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .neo-button {
+    border: var(--biolink-border-thickness) solid var(--biolink-border-color);
+    box-shadow: var(--biolink-shadow-offset) var(--biolink-shadow-color);
+    border-radius: var(--biolink-border-radius);
+    transition: all 0.2s ease;
+  }
+
+  .neo-button:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px 0px var(--biolink-shadow-color);
+  }
+
+  .neo-button:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0px 0px var(--biolink-shadow-color);
+  }
+
+  input.neo-button:focus {
+    outline: none;
+    border-color: var(--biolink-input-focus-border);
+  }
+
+  button[data-modal],
+  a {
+    position: relative;
+    text-decoration: none;
+  }
+
+  button[data-modal]::after,
+  a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--biolink-primary-button-background);
+    transition: width 0.3s ease;
+  }
+
+  button[data-modal]:hover::after,
+  a:hover::after {
+    width: 100%;
+  }
+</style>

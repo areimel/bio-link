@@ -5,11 +5,16 @@ import FreelanceBrandSection from '~/components/biolink/FreelanceBrandSection.as
 import SiteTemplateSection from '~/components/biolink/SiteTemplateSection.astro';
 import ProjectsSection from '~/components/biolink/ProjectsSection.astro';
 import SupportSection from '~/components/biolink/SupportSection.astro';
+import AboutMeSection from '~/components/biolink/AboutMeSection.astro';
 import PopupModal from '~/components/common/PopupModal.astro';
 import ContactForm from '~/components/biolink/ContactForm.astro';
+import Footer from '~/components/common/Footer.astro';
 
-// Import data from JSON file
+// Import data from JSON files
 import bioLinkData from '../data/biolink.json';
+import projectsData from '../data/projects.json';
+import footerData from '../data/footer.json';
+import aboutMeData from '../data/aboutme.json';
 
 const metadata = {
   title: `${bioLinkData.profile.name} - Links`,
@@ -25,18 +30,21 @@ const metadata = {
       
       <!-- Mobile layout: vertical stack -->
       <div id="mobile-version" class="lg:hidden space-y-8">
-        <HeroSection 
+        <HeroSection
           {...bioLinkData.profile}
           socialLinks={bioLinkData.socialLinks}
           profileLinks={bioLinkData.profileLinks}
         />
-        <FreelanceBrandSection 
+        <AboutMeSection
+          {...aboutMeData}
+        />
+        <FreelanceBrandSection
           {...bioLinkData.freelanceBrand}
         />
-        <SiteTemplateSection 
+        <SiteTemplateSection
           {...bioLinkData.siteTemplate}
         />
-        <ProjectsSection projectLinks={bioLinkData.projectLinks} />
+        <ProjectsSection projectLinks={projectsData} />
         <SupportSection supportLinks={bioLinkData.supportLinks} />
       </div>
 
@@ -60,7 +68,10 @@ const metadata = {
         
         <!-- Main section - spans 2 columns -->
         <div class="lg:col-span-2">
-          <ProjectsSection projectLinks={bioLinkData.projectLinks} />
+          <AboutMeSection
+            {...aboutMeData}
+          />
+          <ProjectsSection projectLinks={projectsData} />
         </div>
         
       </div>
@@ -71,11 +82,10 @@ const metadata = {
   <PopupModal id="contact" title="Get in Touch">
     <ContactForm />
   </PopupModal>
-  
-  <!-- Footer with subtle VHS-inspired design -->
-  <div class="w-full text-center py-4 text-sm text-theme-text border-t border-theme-text">
-    <!-- <p>Made with vintage vibes 📼</p> -->
-    <p>Anti-Copyright {new Date().getFullYear()} - No Rights Reserved</p>
-    <p>Open Source & Free To Use - Download your own copy and customize it for yourself.</p>
-  </div>
+
+  <!-- Footer -->
+  <Footer
+    footerData={footerData}
+    socialLinks={bioLinkData.socialLinks}
+  />
 </Layout>

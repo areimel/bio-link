@@ -1,0 +1,59 @@
+{
+  "newsletter": {
+    "headline": "Stay in the loop",
+    "description": "Subscribe to get updates on new projects, blog posts, and tech experiments.",
+    "placeholder": "Enter your email",
+    "buttonText": "Subscribe"
+  },
+  "navigation": {
+    "about": [
+      {
+        "title": "About Me",
+        "url": "https://alecreimel.com/about"
+      },
+      {
+        "title": "My Work",
+        "url": "https://alecreimel.com/portfolio"
+      },
+      {
+        "title": "Blog",
+        "url": "https://alecreimel.com/blog"
+      }
+    ],
+    "connect": [
+      {
+        "title": "Contact",
+        "url": "#",
+        "modal": "contact"
+      },
+      {
+        "title": "Portfolio",
+        "url": "https://alecreimel.com"
+      },
+      {
+        "title": "Freelance: ARDA",
+        "url": "https://advancedresearch.dev"
+      }
+    ],
+    "resources": [
+      
+      {
+        "title": "Bio-Link Template",
+        "url": "https://github.com/areimel/bio-link-template"
+      },
+      {
+        "title": "Buy Me A Coffee",
+        "url": "https://buymeacoffee.com/alecreimel"
+      },
+      {
+        "title": "Join My Patreon",
+        "url": "https://www.patreon.com/cw/ARDATechLab"
+      }
+    ]
+  },
+  "copyright": {
+    "year": "2025",
+    "text": "Anti-Copyright {year} - No Rights Reserved",
+    "subtext": "Open Source & Free To Use - Download your own copy and customize it for yourself."
+  }
+}
