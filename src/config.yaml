@@ -1,31 +1,31 @@
 site:
-  name: AstroWind
-  site: 'https://astrowind.vercel.app'
+  name: Alec Reimel
+  site: 'https://bio.alecreimel.com'  # Update with your production domain
   base: '/'
   trailingSlash: false
 
-  googleSiteVerificationId: orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M
+  # googleSiteVerificationId: orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M
 
 # Default SEO metadata
 metadata:
   title:
-    default: AstroWind
-    template: '%s — AstroWind'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+    default: Alec Reimel
+    template: '%s | Alec Reimel'
+  description: "Senior Developer specializing in full-stack web development, AI architecture, and digital marketing solutions. Building conversion-centric websites and open-source tools for startups to Fortune 500s."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: AstroWind
+    site_name: Alec Reimel
     images:
       - url: '~/assets/images/default.png'
         width: 1200
         height: 628
     type: website
-  twitter:
-    handle: '@onwidget'
-    site: '@onwidget'
-    cardType: summary_large_image
+  # twitter:
+  #   handle: '@yourtwitterhandle'  # Update with your Twitter/X handle or remove if not applicable
+  #   site: '@yourtwitterhandle'
+  #   cardType: summary_large_image
 
 i18n:
   language: en
